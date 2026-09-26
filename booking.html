@@ -168,7 +168,6 @@
         Fill out the form below to request a CityServe service.
     </p>
 
-
     <form id="bookingForm">
 
         <label for="name">Full Name</label>
@@ -295,19 +294,18 @@
 <script>
 
     // ==========================================
-    // CITYSERVE SUPABASE CONNECTION
+    // SUPABASE CONNECTION
     // ==========================================
 
     const SUPABASE_URL =
         "https://grjnaylbwlerrchskvty.supabase.co";
 
-    // PASTE YOUR SUPABASE PUBLISHABLE/ANON KEY HERE
     const SUPABASE_KEY =
-        "PASTE_YOUR_PUBLISHABLE_OR_ANON_KEY_HERE";
+        "sb_publishable_wmIhQc8wobila7q4wD0BJA_N49tM78n";
 
 
     // ==========================================
-    // BOOKING FORM
+    // FORM ELEMENTS
     // ==========================================
 
     const form =
@@ -320,10 +318,13 @@
         document.getElementById("message");
 
 
+    // ==========================================
+    // SUBMIT BOOKING
+    // ==========================================
+
     form.addEventListener("submit", async function(event) {
 
         event.preventDefault();
-
 
         button.disabled = true;
 
@@ -331,8 +332,6 @@
 
         message.style.display = "none";
 
-
-        // Get information from the form
 
         const booking = {
 
@@ -366,71 +365,53 @@
         try {
 
             const response = await fetch(
-
-                SUPABASE_URL +
-                "/rest/v1/bookings",
-
+                SUPABASE_URL + "/rest/v1/bookings",
                 {
-
                     method: "POST",
 
                     headers: {
-
-                        "Content-Type":
-                            "application/json",
-
-                        "apikey":
-                            SUPABASE_KEY,
-
-                        "Authorization":
-                            "Bearer " + SUPABASE_KEY,
-
-                        "Prefer":
-                            "return=minimal"
-
+                        "Content-Type": "application/json",
+                        "apikey": SUPABASE_KEY,
+                        "Authorization": "Bearer " + SUPABASE_KEY,
+                        "Prefer": "return=minimal"
                     },
 
-                    body:
-                        JSON.stringify(booking)
-
+                    body: JSON.stringify(booking)
                 }
-
             );
 
 
-            // If Supabase rejects the request
-
             if (!response.ok) {
 
-                const error =
+                const errorText =
                     await response.text();
 
                 console.error(
-                    "Supabase Error:",
-                    error
+                    "Supabase error:",
+                    errorText
                 );
 
-                throw new Error(error);
-
+                throw new Error(
+                    errorText
+                );
             }
 
 
+            // ==========================================
             // SUCCESS
+            // ==========================================
 
             message.className =
                 "success";
 
             message.textContent =
-                "Booking submitted successfully! CityServe will process your request.";
+                "✓ Booking submitted successfully! CityServe will process your request.";
 
             message.style.display =
                 "block";
 
 
-            // Clear the form
-
             form.reset();
-
 
         }
 
@@ -438,12 +419,11 @@
 
             console.error(error);
 
-
             message.className =
                 "error";
 
             message.textContent =
-                "Something went wrong. Please check your Supabase connection.";
+                "Booking failed. Please try again.";
 
             message.style.display =
                 "block";
