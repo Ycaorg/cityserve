@@ -42,10 +42,6 @@
       font-weight: 600;
     }
 
-    nav a:hover {
-      color: #16805c;
-    }
-
     .container {
       width: 90%;
       max-width: 750px;
@@ -58,8 +54,8 @@
     }
 
     .title h1 {
-      margin-bottom: 8px;
       font-size: 36px;
+      margin-bottom: 8px;
     }
 
     .title p {
@@ -92,13 +88,6 @@
       border-radius: 9px;
       font-size: 15px;
       font-family: inherit;
-      outline: none;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #16805c;
     }
 
     textarea {
@@ -127,13 +116,8 @@
       cursor: pointer;
     }
 
-    button:hover {
-      background: #106647;
-    }
-
     button:disabled {
       background: #999;
-      cursor: not-allowed;
     }
 
     #message {
@@ -166,18 +150,9 @@
     }
 
     @media (max-width: 600px) {
-      header {
-        padding: 16px 5%;
-      }
-
-      nav a {
-        margin-left: 8px;
-        font-size: 13px;
-      }
-
-      .container {
-        width: 94%;
-        margin: 30px auto;
+      .row {
+        flex-direction: column;
+        gap: 0;
       }
 
       .booking-card {
@@ -186,11 +161,6 @@
 
       .title h1 {
         font-size: 29px;
-      }
-
-      .row {
-        flex-direction: column;
-        gap: 0;
       }
     }
   </style>
@@ -219,99 +189,66 @@
     <form id="bookingForm">
 
       <div class="form-group">
-        <label for="customer_name">Full Name</label>
-        <input
-          type="text"
-          id="customer_name"
-          required
-          placeholder="Enter your full name"
-        >
+        <label>Full Name</label>
+        <input type="text" id="customer_name" required>
       </div>
 
       <div class="form-group">
-        <label for="customer_email">Email Address</label>
-        <input
-          type="email"
-          id="customer_email"
-          required
-          placeholder="example@email.com"
-        >
+        <label>Email Address</label>
+        <input type="email" id="customer_email" required>
       </div>
 
       <div class="form-group">
-        <label for="customer_phone">Phone Number</label>
-        <input
-          type="tel"
-          id="customer_phone"
-          required
-          placeholder="09XXXXXXXXX"
-        >
+        <label>Phone Number</label>
+        <input type="tel" id="customer_phone" required>
       </div>
 
       <div class="form-group">
-        <label for="service">Choose a Service</label>
+        <label>Choose a Service</label>
 
         <select id="service" required>
           <option value="">Select a service</option>
-
-          <option value="Cleaning">Cleaning</option>
-          <option value="Car Wash">Car Wash</option>
-          <option value="Pest Control">Pest Control</option>
-          <option value="Babysitting">Babysitting</option>
-          <option value="Chef Services">Chef Services</option>
-          <option value="Aircon Services">Aircon Services</option>
-          <option value="Plumbing">Plumbing</option>
-          <option value="Electrical">Electrical</option>
-          <option value="Carpentry">Carpentry</option>
-          <option value="Painting">Painting</option>
-          <option value="Website Development">Website Development</option>
-          <option value="Graphic Design">Graphic Design</option>
-          <option value="Social Media Management">Social Media Management</option>
-          <option value="IT Services">IT Services</option>
-          <option value="CCTV Installation">CCTV Installation</option>
-          <option value="Network Setup">Network Setup</option>
+          <option>Cleaning</option>
+          <option>Car Wash</option>
+          <option>Pest Control</option>
+          <option>Babysitting</option>
+          <option>Chef Services</option>
+          <option>Aircon Services</option>
+          <option>Plumbing</option>
+          <option>Electrical</option>
+          <option>Carpentry</option>
+          <option>Painting</option>
+          <option>Website Development</option>
+          <option>Graphic Design</option>
+          <option>Social Media Management</option>
+          <option>IT Services</option>
+          <option>CCTV Installation</option>
+          <option>Network Setup</option>
         </select>
       </div>
 
       <div class="row">
 
         <div class="form-group">
-          <label for="booking_date">Preferred Date</label>
-          <input
-            type="date"
-            id="booking_date"
-            required
-          >
+          <label>Preferred Date</label>
+          <input type="date" id="booking_date" required>
         </div>
 
         <div class="form-group">
-          <label for="booking_time">Preferred Time</label>
-          <input
-            type="time"
-            id="booking_time"
-            required
-          >
+          <label>Preferred Time</label>
+          <input type="time" id="booking_time" required>
         </div>
 
       </div>
 
       <div class="form-group">
-        <label for="address">Service Address</label>
-
-        <textarea
-          id="address"
-          required
-          placeholder="Enter the address where the service is needed"
-        ></textarea>
+        <label>Service Address</label>
+        <textarea id="address" required></textarea>
       </div>
 
       <div class="form-group">
-        <label for="notes">Additional Notes</label>
-
-        <textarea
-          id="notes"
-          placeholder="Any additional information?"
-        ></textarea>
+        <label>Additional Notes</label>
+        <textarea id="notes"></textarea>
       </div>
 
       <button type="submit" id="submitButton">
@@ -332,9 +269,9 @@
 
 <script>
 
-  /* ==========================================
+  /* ==============================
      SUPABASE
-  ========================================== */
+  ============================== */
 
   const SUPABASE_URL =
     "https://grjnaylbwlerrchskvty.supabase.co";
@@ -343,9 +280,9 @@
     "sb_publishable_wmIhQc8wobila7q4wD0BJA_N49tM78n";
 
 
-  /* ==========================================
+  /* ==============================
      EMAILJS
-  ========================================== */
+  ============================== */
 
   const EMAILJS_PUBLIC_KEY =
     "LM05lsHblYLykWAgY";
@@ -360,14 +297,16 @@
     "waynepadolina03@gmail.com";
 
 
+  /* Initialize EmailJS */
+
   emailjs.init({
     publicKey: EMAILJS_PUBLIC_KEY
   });
 
 
-  /* ==========================================
+  /* ==============================
      FORM
-  ========================================== */
+  ============================== */
 
   const form =
     document.getElementById("bookingForm");
@@ -383,24 +322,23 @@
 
     event.preventDefault();
 
+    button.disabled = true;
+    button.textContent = "Sending...";
+
     message.className = "";
     message.style.display = "none";
-    message.textContent = "";
-
-    button.disabled = true;
-    button.textContent = "Processing...";
 
 
     const booking = {
 
       customer_name:
-        document.getElementById("customer_name").value.trim(),
+        document.getElementById("customer_name").value,
 
       customer_email:
-        document.getElementById("customer_email").value.trim(),
+        document.getElementById("customer_email").value,
 
       customer_phone:
-        document.getElementById("customer_phone").value.trim(),
+        document.getElementById("customer_phone").value,
 
       service:
         document.getElementById("service").value,
@@ -412,10 +350,10 @@
         document.getElementById("booking_time").value,
 
       address:
-        document.getElementById("address").value.trim(),
+        document.getElementById("address").value,
 
       notes:
-        document.getElementById("notes").value.trim(),
+        document.getElementById("notes").value,
 
       status: "Pending"
     };
@@ -423,11 +361,11 @@
 
     try {
 
-      /* ==========================================
-         SAVE TO SUPABASE
-      ========================================== */
+      /* ==============================
+         SAVE BOOKING
+      ============================== */
 
-      const supabaseResponse = await fetch(
+      const response = await fetch(
         SUPABASE_URL + "/rest/v1/bookings",
         {
           method: "POST",
@@ -444,117 +382,76 @@
       );
 
 
-      if (!supabaseResponse.ok) {
-
-        const errorText =
-          await supabaseResponse.text();
-
-        console.error(
-          "SUPABASE ERROR:",
-          errorText
-        );
-
-        throw new Error(
-          "Supabase could not save the booking."
-        );
+      if (!response.ok) {
+        throw new Error("Supabase error");
       }
 
 
-      /* ==========================================
-         SEND OWNER EMAIL
-      ========================================== */
+      /* ==============================
+         SEND EMAIL
+      ============================== */
 
-      try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
 
-        await emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
-          {
+          owner_name:
+            "CityServe Service Owner",
 
-            owner_name:
-              "CityServe Service Owner",
+          owner_email:
+            OWNER_EMAIL,
 
-            owner_email:
-              OWNER_EMAIL,
+          customer_name:
+            booking.customer_name,
 
-            customer_name:
-              booking.customer_name,
+          customer_email:
+            booking.customer_email,
 
-            customer_email:
-              booking.customer_email,
+          customer_phone:
+            booking.customer_phone,
 
-            customer_phone:
-              booking.customer_phone,
+          service:
+            booking.service,
 
-            service:
-              booking.service,
+          booking_date:
+            booking.booking_date,
 
-            booking_date:
-              booking.booking_date,
+          booking_time:
+            booking.booking_time,
 
-            booking_time:
-              booking.booking_time,
+          address:
+            booking.address,
 
-            address:
-              booking.address,
-
-            notes:
-              booking.notes
-          }
-        );
-
-        console.log(
-          "EMAIL SENT SUCCESSFULLY"
-        );
+          notes:
+            booking.notes
+        }
+      );
 
 
-        /* ==========================================
-           EVERYTHING WORKED
-        ========================================== */
+      /* ==============================
+         SUCCESS
+      ============================== */
 
-        message.className = "success";
+      message.className = "success";
 
-        message.innerHTML =
-          "✅ Booking successful!<br><br>" +
-          "Your booking has been received and " +
-          "the service owner has been notified.";
+      message.innerHTML =
+        "✅ Booking successful!<br><br>" +
+        "The service owner has been notified.";
 
-        form.reset();
-
-
-      } catch (emailError) {
-
-        console.error(
-          "EMAILJS ERROR:",
-          emailError
-        );
-
-
-        /* Booking was saved even though email failed */
-
-        message.className = "success";
-
-        message.innerHTML =
-          "✅ Booking received!<br><br>" +
-          "Your booking was saved successfully. " +
-          "The owner notification email is still being configured.";
-
-        form.reset();
-      }
+      form.reset();
 
 
     } catch (error) {
 
-      console.error(
-        "BOOKING ERROR:",
-        error
-      );
+      console.error(error);
 
       message.className = "error";
 
       message.innerHTML =
         "❌ Booking could not be completed.<br><br>" +
-        "There was a problem connecting to the booking system.";
+        "Please try again.";
+
     }
 
 
