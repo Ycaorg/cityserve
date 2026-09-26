@@ -288,8 +288,6 @@
     <form id="bookingForm">
 
 
-      <!-- FULL NAME -->
-
       <div class="form-group">
 
         <label for="customer_name">
@@ -305,8 +303,6 @@
 
       </div>
 
-
-      <!-- EMAIL -->
 
       <div class="form-group">
 
@@ -324,8 +320,6 @@
       </div>
 
 
-      <!-- PHONE -->
-
       <div class="form-group">
 
         <label for="customer_phone">
@@ -341,8 +335,6 @@
 
       </div>
 
-
-      <!-- SERVICE -->
 
       <div class="form-group">
 
@@ -378,10 +370,7 @@
       </div>
 
 
-      <!-- DATE + TIME -->
-
       <div class="date-time-row">
-
 
         <div class="form-group">
 
@@ -412,11 +401,8 @@
 
         </div>
 
-
       </div>
 
-
-      <!-- ADDRESS -->
 
       <div class="form-group">
 
@@ -433,8 +419,6 @@
       </div>
 
 
-      <!-- NOTES -->
-
       <div class="form-group">
 
         <label for="notes">
@@ -449,8 +433,6 @@
       </div>
 
 
-      <!-- BUTTON -->
-
       <button
         type="submit"
         id="submitButton"
@@ -462,8 +444,6 @@
     </form>
 
 
-    <!-- MESSAGE -->
-
     <div id="message"></div>
 
 
@@ -473,19 +453,16 @@
 
 
 <footer>
-
   © 2026 CityServe. All rights reserved.
-
 </footer>
 
 
 
 <script>
 
-
-/* =====================================================
-   SUPABASE SETTINGS
-===================================================== */
+/* ==========================================
+   SUPABASE
+========================================== */
 
 const SUPABASE_URL =
   "https://grjnaylbwlerrchskvty.supabase.co";
@@ -494,12 +471,12 @@ const SUPABASE_KEY =
   "sb_publishable_wmIhQc8wobila7q4wD0BJA_N49tM78n";
 
 
-/* =====================================================
-   EMAILJS SETTINGS
-===================================================== */
+/* ==========================================
+   EMAILJS
+========================================== */
 
 const EMAILJS_PUBLIC_KEY =
-  "LM05lsHblYLykWAgY";
+  "8z1Hyfw7E3SRYhwyY";
 
 const EMAILJS_SERVICE_ID =
   "service_7i14y1w";
@@ -511,9 +488,9 @@ const OWNER_EMAIL =
   "waynepadolina03@gmail.com";
 
 
-/* =====================================================
+/* ==========================================
    INITIALIZE EMAILJS
-===================================================== */
+========================================== */
 
 try {
 
@@ -522,23 +499,22 @@ try {
   });
 
   console.log(
-    "CITYSERVE: EmailJS initialized successfully."
+    "CityServe: EmailJS initialized."
   );
 
 } catch (error) {
 
   console.error(
-    "CITYSERVE: EmailJS initialization failed.",
+    "EmailJS initialization error:",
     error
   );
 
 }
 
 
-
-/* =====================================================
-   GET FORM ELEMENTS
-===================================================== */
+/* ==========================================
+   FORM ELEMENTS
+========================================== */
 
 const form =
   document.getElementById("bookingForm");
@@ -550,10 +526,9 @@ const submitButton =
   document.getElementById("submitButton");
 
 
-
-/* =====================================================
-   FORM SUBMISSION
-===================================================== */
+/* ==========================================
+   SUBMIT BOOKING
+========================================== */
 
 form.addEventListener(
   "submit",
@@ -562,14 +537,9 @@ form.addEventListener(
     event.preventDefault();
 
 
-    /* RESET MESSAGE */
-
     message.className = "";
-
     message.style.display = "none";
 
-
-    /* DISABLE BUTTON */
 
     submitButton.disabled = true;
 
@@ -577,10 +547,9 @@ form.addEventListener(
       "Submitting...";
 
 
-
-    /* =================================================
-       COLLECT BOOKING INFORMATION
-    ================================================= */
+    /* ========================================
+       GET BOOKING INFORMATION
+    ======================================== */
 
     const booking = {
 
@@ -632,16 +601,15 @@ form.addEventListener(
     };
 
 
-
     try {
 
 
-      /* =================================================
-         STEP 1: SAVE BOOKING TO SUPABASE
-      ================================================= */
+      /* ======================================
+         SAVE BOOKING TO SUPABASE
+      ====================================== */
 
       console.log(
-        "CITYSERVE: Saving booking to Supabase..."
+        "CityServe: Saving booking..."
       );
 
 
@@ -680,16 +648,13 @@ form.addEventListener(
         );
 
 
-
-      /* CHECK SUPABASE */
-
       if (!supabaseResponse.ok) {
 
         const supabaseError =
           await supabaseResponse.text();
 
         console.error(
-          "SUPABASE ERROR:",
+          "Supabase error:",
           supabaseError
         );
 
@@ -702,19 +667,13 @@ form.addEventListener(
 
 
       console.log(
-        "CITYSERVE: Booking saved successfully."
+        "CityServe: Booking saved."
       );
 
 
-
-      /* =================================================
-         STEP 2: CHECK EMAILJS
-      ================================================= */
-
-      console.log(
-        "CITYSERVE: Checking EmailJS..."
-      );
-
+      /* ======================================
+         CHECK EMAILJS SDK
+      ====================================== */
 
       if (
         typeof emailjs ===
@@ -722,19 +681,18 @@ form.addEventListener(
       ) {
 
         throw new Error(
-          "EmailJS SDK did not load. Please check your internet connection or Vercel deployment."
+          "EmailJS SDK did not load."
         );
 
       }
 
 
-
-      /* =================================================
-         STEP 3: SEND OWNER EMAIL
-      ================================================= */
+      /* ======================================
+         SEND EMAILJS NOTIFICATION
+      ====================================== */
 
       console.log(
-        "CITYSERVE: Sending owner notification..."
+        "CityServe: Sending owner notification..."
       );
 
 
@@ -782,47 +740,41 @@ form.addEventListener(
         );
 
 
-
-      /* =================================================
-         EMAIL SUCCESS
-      ================================================= */
-
       console.log(
-        "EMAILJS SUCCESS:",
+        "EmailJS response:",
         emailResponse
       );
 
 
+      /* ======================================
+         SUCCESS
+      ====================================== */
+
       message.className =
         "success";
-
 
       message.innerHTML =
         "✅ <strong>Booking submitted successfully!</strong><br><br>" +
         "Your booking has been saved and the service owner has been notified.";
 
-
       form.reset();
-
 
 
     } catch (error) {
 
 
-      /* =================================================
-         ERROR HANDLING
-      ================================================= */
+      /* ======================================
+         DISPLAY REAL ERROR
+      ====================================== */
 
       console.error(
-        "CITYSERVE ERROR:",
+        "CityServe error:",
         error
       );
 
 
       let errorDetails = "";
 
-
-      /* TRY TO READ EMAILJS ERROR */
 
       if (
         error &&
@@ -853,10 +805,6 @@ form.addEventListener(
       }
 
 
-      /* =================================================
-         SHOW ERROR ON PAGE
-      ================================================= */
-
       message.className =
         "error";
 
@@ -872,10 +820,6 @@ form.addEventListener(
 
     }
 
-
-    /* =================================================
-       ENABLE BUTTON AGAIN
-    ================================================= */
 
     submitButton.disabled =
       false;
