@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>CityServe | Your Service, One Booking Away</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -62,6 +64,11 @@
             color: white;
             text-decoration: none;
             border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            opacity: 0.85;
         }
 
         .services {
@@ -92,6 +99,10 @@
             margin-bottom: 10px;
         }
 
+        .service p {
+            color: #666;
+        }
+
         .how {
             padding: 60px 8%;
             background: white;
@@ -100,6 +111,7 @@
         .how h2 {
             text-align: center;
             margin-bottom: 35px;
+            font-size: 32px;
         }
 
         .steps {
@@ -113,6 +125,14 @@
             padding: 20px;
         }
 
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #666;
+        }
+
         footer {
             background: #222;
             color: white;
@@ -121,6 +141,7 @@
         }
 
         @media (max-width: 600px) {
+
             .hero h1 {
                 font-size: 36px;
             }
@@ -128,161 +149,365 @@
             nav {
                 display: none;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
 <header>
-    <div class="logo">CityServe</div>
+
+    <div class="logo">
+        CityServe
+    </div>
 
     <nav>
-        <a href="#">Home</a>
-        <a href="#services">Services</a>
-        <a href="#how">How It Works</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="#services">
+            Services
+        </a>
+
+        <a href="#how">
+            How It Works
+        </a>
+
+        <a href="booking.html">
+            Book
+        </a>
+
     </nav>
+
 </header>
+
 
 <section class="hero">
 
-    <h1>Your Service, One Booking Away.</h1>
+    <h1>
+        Your Service, One Booking Away.
+    </h1>
 
     <p>
         Convenient and reliable services, all in one place.
     </p>
 
-    <a href="#services" class="button">
-        Explore Services
+    <a href="booking.html" class="button">
+        Book a Service
     </a>
 
 </section>
 
+
+
 <section class="services" id="services">
 
-    <h2>Our Services</h2>
+    <h2>
+        Our Services
+    </h2>
+
 
     <div class="service-grid">
 
-        <div class="service">
-            <h3>🧹 Cleaning</h3>
-            <p>Professional home and space cleaning.</p>
-        </div>
 
         <div class="service">
-            <h3>🚗 Car Wash</h3>
-            <p>Convenient car cleaning services.</p>
+
+            <h3>
+                🧹 Cleaning
+            </h3>
+
+            <p>
+                Professional home and space cleaning.
+            </p>
+
         </div>
 
-        <div class="service">
-            <h3>🐜 Pest Control</h3>
-            <p>Help keep your home pest-free.</p>
-        </div>
 
         <div class="service">
-            <h3>👶 Babysitting</h3>
-            <p>Childcare assistance from service partners.</p>
+
+            <h3>
+                🚗 Car Wash
+            </h3>
+
+            <p>
+                Convenient car cleaning services.
+            </p>
+
         </div>
 
-        <div class="service">
-            <h3>👨‍🍳 Chef Services</h3>
-            <p>Professional cooking and catering.</p>
-        </div>
 
         <div class="service">
-            <h3>❄️ Aircon Services</h3>
-            <p>Air-conditioning cleaning and maintenance.</p>
+
+            <h3>
+                🐜 Pest Control
+            </h3>
+
+            <p>
+                Help keep your home pest-free.
+            </p>
+
         </div>
 
-        <div class="service">
-            <h3>🔧 Plumbing</h3>
-            <p>Plumbing repair and maintenance.</p>
-        </div>
 
         <div class="service">
-            <h3>⚡ Electrical</h3>
-            <p>Electrical repair and installation.</p>
+
+            <h3>
+                👶 Babysitting
+            </h3>
+
+            <p>
+                Childcare assistance from service partners.
+            </p>
+
         </div>
 
-        <div class="service">
-            <h3>🪚 Carpentry</h3>
-            <p>Furniture and woodwork services.</p>
-        </div>
 
         <div class="service">
-            <h3>🎨 Painting</h3>
-            <p>Interior and exterior painting services.</p>
+
+            <h3>
+                👨‍🍳 Chef Services
+            </h3>
+
+            <p>
+                Professional cooking and catering.
+            </p>
+
         </div>
 
-        <div class="service">
-            <h3>💻 Website Development</h3>
-            <p>Websites for businesses and individuals.</p>
-        </div>
 
         <div class="service">
-            <h3>🎨 Graphic Design</h3>
-            <p>Creative designs for your needs.</p>
+
+            <h3>
+                ❄️ Aircon Services
+            </h3>
+
+            <p>
+                Air-conditioning cleaning and maintenance.
+            </p>
+
         </div>
 
-        <div class="service">
-            <h3>📱 Social Media</h3>
-            <p>Social media management services.</p>
-        </div>
 
         <div class="service">
-            <h3>🖥️ IT Services</h3>
-            <p>Technical support and solutions.</p>
+
+            <h3>
+                🔧 Plumbing
+            </h3>
+
+            <p>
+                Plumbing repair and maintenance.
+            </p>
+
         </div>
 
-        <div class="service">
-            <h3>📹 CCTV</h3>
-            <p>CCTV installation and setup.</p>
-        </div>
 
         <div class="service">
-            <h3>🌐 Network Setup</h3>
-            <p>Network installation and configuration.</p>
+
+            <h3>
+                ⚡ Electrical
+            </h3>
+
+            <p>
+                Electrical repair and installation.
+            </p>
+
         </div>
+
+
+        <div class="service">
+
+            <h3>
+                🪚 Carpentry
+            </h3>
+
+            <p>
+                Furniture and woodwork services.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <h3>
+                🎨 Painting
+            </h3>
+
+            <p>
+                Interior and exterior painting services.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <h3>
+                💻 Website Development
+            </h3>
+
+            <p>
+                Websites for businesses and individuals.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <h3>
+                🎨 Graphic Design
+            </h3>
+
+            <p>
+                Creative designs for your needs.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <h3>
+                📱 Social Media
+            </h3>
+
+            <p>
+                Social media management services.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <h3>
+                🖥️ IT Services
+            </h3>
+
+            <p>
+                Technical support and solutions.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <h3>
+                📹 CCTV
+            </h3>
+
+            <p>
+                CCTV installation and setup.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <h3>
+                🌐 Network Setup
+            </h3>
+
+            <p>
+                Network installation and configuration.
+            </p>
+
+        </div>
+
 
     </div>
 
 </section>
+
+
 
 <section class="how" id="how">
 
-    <h2>How CityServe Works</h2>
+    <h2>
+        How CityServe Works
+    </h2>
+
 
     <div class="steps">
 
-        <div class="step">
-            <h3>1️⃣ Choose</h3>
-            <p>Select the service you need.</p>
-        </div>
 
         <div class="step">
-            <h3>2️⃣ Book</h3>
-            <p>Choose your preferred date and time.</p>
+
+            <h3>
+                1️⃣ Choose
+            </h3>
+
+            <p>
+                Select the service you need.
+            </p>
+
         </div>
 
-        <div class="step">
-            <h3>3️⃣ Confirm</h3>
-            <p>Your service provider receives the booking.</p>
-        </div>
 
         <div class="step">
-            <h3>4️⃣ Enjoy</h3>
-            <p>Get your service done conveniently.</p>
+
+            <h3>
+                2️⃣ Book
+            </h3>
+
+            <p>
+                Choose your preferred date and time.
+            </p>
+
         </div>
+
+
+        <div class="step">
+
+            <h3>
+                3️⃣ Confirm
+            </h3>
+
+            <p>
+                Your service provider receives the booking.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>
+                4️⃣ Enjoy
+            </h3>
+
+            <p>
+                Get your service done conveniently.
+            </p>
+
+        </div>
+
 
     </div>
 
 </section>
 
+
+
 <footer>
 
-    <p>© 2026 CityServe. All rights reserved.</p>
+    <p>
+        © 2026 CityServe. All rights reserved.
+    </p>
 
 </footer>
 
+
 </body>
+
 </html>
