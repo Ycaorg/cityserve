@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,48 +7,55 @@
     <title>Book a Service | CityServe</title>
 
     <style>
-
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: #f7f8fa;
+            background: #f5f7f5;
             color: #222;
         }
 
         header {
-            background: white;
-            padding: 20px 8%;
-            border-bottom: 1px solid #eee;
+            background: #1f6f43;
+            color: white;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            font-size: 26px;
+            font-size: 25px;
             font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
         }
 
         .container {
             max-width: 700px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-
-        .form-box {
+            margin: 45px auto;
+            padding: 30px;
             background: white;
-            padding: 35px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
         h1 {
+            text-align: center;
+            color: #1f6f43;
             margin-bottom: 10px;
         }
 
-        .description {
+        .subtitle {
+            text-align: center;
             color: #666;
             margin-bottom: 30px;
         }
@@ -68,7 +74,7 @@
             padding: 13px;
             border: 1px solid #ccc;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         textarea {
@@ -79,256 +85,287 @@
         button {
             width: 100%;
             margin-top: 25px;
-            padding: 15px;
+            padding: 14px;
             border: none;
             border-radius: 8px;
-            background: #222;
+            background: #1f6f43;
             color: white;
             font-size: 17px;
+            font-weight: bold;
             cursor: pointer;
         }
 
         button:hover {
-            opacity: 0.85;
+            background: #175733;
         }
 
-        .back {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #333;
+        button:disabled {
+            background: #999;
+            cursor: not-allowed;
         }
 
-        .success {
+        #message {
             display: none;
             margin-top: 20px;
             padding: 15px;
-            background: #e8f7e8;
             border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
         }
 
+        .success {
+            background: #dff5e5;
+            color: #176b36;
+        }
+
+        .error {
+            background: #ffe0e0;
+            color: #a00000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+        }
     </style>
 </head>
 
 <body>
 
 <header>
+    <div class="logo">CityServe</div>
 
-    <div class="logo">
-        CityServe
-    </div>
-
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="booking.html">Book</a>
+    </nav>
 </header>
 
 
 <div class="container">
 
-    <div class="form-box">
+    <h1>Book a Service</h1>
 
-        <h1>Book a Service</h1>
+    <p class="subtitle">
+        Fill out the form below and CityServe will process your request.
+    </p>
 
-        <p class="description">
-            Tell us what service you need and when you need it.
-        </p>
+    <form id="bookingForm">
 
+        <label for="name">Full Name</label>
+        <input
+            type="text"
+            id="name"
+            required
+            placeholder="Enter your full name"
+        >
 
-        <form id="bookingForm">
+        <label for="email">Email</label>
+        <input
+            type="email"
+            id="email"
+            required
+            placeholder="Enter your email"
+        >
 
-            <label for="name">
-                Full Name
-            </label>
+        <label for="phone">Phone Number</label>
+        <input
+            type="tel"
+            id="phone"
+            required
+            placeholder="09XXXXXXXXX"
+        >
 
-            <input
-                type="text"
-                id="name"
-                placeholder="Enter your full name"
-                required
-            >
+        <label for="service">Choose a Service</label>
 
+        <select id="service" required>
+            <option value="">Select a service</option>
 
-            <label for="email">
-                Email
-            </label>
+            <option>Cleaning</option>
+            <option>Car Wash</option>
+            <option>Pest Control</option>
+            <option>Babysitting</option>
+            <option>Chef Services</option>
+            <option>Aircon Services</option>
 
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                required
-            >
+            <option>Plumbing</option>
+            <option>Electrical</option>
+            <option>Carpentry</option>
+            <option>Painting</option>
 
-
-            <label for="phone">
-                Phone Number
-            </label>
-
-            <input
-                type="tel"
-                id="phone"
-                placeholder="09XXXXXXXXX"
-                required
-            >
-
-
-            <label for="service">
-                Choose a Service
-            </label>
-
-            <select id="service" required>
-
-                <option value="">
-                    Select a service
-                </option>
-
-                <option value="Cleaning">
-                    Cleaning
-                </option>
-
-                <option value="Car Wash">
-                    Car Wash
-                </option>
-
-                <option value="Pest Control">
-                    Pest Control
-                </option>
-
-                <option value="Babysitting">
-                    Babysitting
-                </option>
-
-                <option value="Chef Services">
-                    Chef Services
-                </option>
-
-                <option value="Aircon Services">
-                    Aircon Services
-                </option>
-
-                <option value="Plumbing">
-                    Plumbing
-                </option>
-
-                <option value="Electrical">
-                    Electrical
-                </option>
-
-                <option value="Carpentry">
-                    Carpentry
-                </option>
-
-                <option value="Painting">
-                    Painting
-                </option>
-
-                <option value="Website Development">
-                    Website Development
-                </option>
-
-                <option value="Graphic Design">
-                    Graphic Design
-                </option>
-
-                <option value="Social Media Management">
-                    Social Media Management
-                </option>
-
-                <option value="IT Services">
-                    IT Services
-                </option>
-
-                <option value="CCTV Installation">
-                    CCTV Installation
-                </option>
-
-                <option value="Network Setup">
-                    Network Setup
-                </option>
-
-            </select>
+            <option>Website Development</option>
+            <option>Graphic Design</option>
+            <option>Social Media Management</option>
+            <option>IT Services</option>
+            <option>CCTV Installation</option>
+            <option>Network Setup</option>
+        </select>
 
 
-            <label for="date">
-                Preferred Date
-            </label>
-
-            <input
-                type="date"
-                id="date"
-                required
-            >
+        <label for="date">Preferred Date</label>
+        <input
+            type="date"
+            id="date"
+            required
+        >
 
 
-            <label for="time">
-                Preferred Time
-            </label>
-
-            <input
-                type="time"
-                id="time"
-                required
-            >
+        <label for="time">Preferred Time</label>
+        <input
+            type="time"
+            id="time"
+            required
+        >
 
 
-            <label for="address">
-                Service Address
-            </label>
-
-            <textarea
-                id="address"
-                placeholder="Enter the address where the service will be provided"
-                required
-            ></textarea>
+        <label for="address">Service Address</label>
+        <textarea
+            id="address"
+            required
+            placeholder="Enter the location where the service is needed"
+        ></textarea>
 
 
-            <label for="notes">
-                Additional Notes
-            </label>
-
-            <textarea
-                id="notes"
-                placeholder="Anything the service provider should know?"
-            ></textarea>
+        <label for="notes">Additional Notes</label>
+        <textarea
+            id="notes"
+            placeholder="Anything the service provider should know?"
+        ></textarea>
 
 
-            <button type="submit">
-                Submit Booking
-            </button>
+        <button type="submit" id="submitButton">
+            Submit Booking
+        </button>
 
-        </form>
+        <div id="message"></div>
 
-
-        <div class="success" id="successMessage">
-
-            ✅ Your booking request has been submitted!
-
-        </div>
-
-
-        <a href="index.html" class="back">
-            ← Back to CityServe
-        </a>
-
-    </div>
+    </form>
 
 </div>
 
 
+<footer>
+    © 2026 CityServe. All rights reserved.
+</footer>
+
+
 <script>
 
-    const form = document.getElementById("bookingForm");
+    /*
+       IMPORTANT:
+       Replace the two values below with your
+       Supabase Project URL and Publishable/Anon Key.
+    */
 
-    form.addEventListener("submit", function(event) {
+    const SUPABASE_URL = "PASTE_YOUR_SUPABASE_URL_HERE";
+
+    const SUPABASE_KEY = "PASTE_YOUR_PUBLISHABLE_OR_ANON_KEY_HERE";
+
+
+    const form = document.getElementById("bookingForm");
+    const button = document.getElementById("submitButton");
+    const message = document.getElementById("message");
+
+
+    form.addEventListener("submit", async function(event) {
 
         event.preventDefault();
 
-        document.getElementById("successMessage").style.display = "block";
+        button.disabled = true;
+        button.textContent = "Submitting...";
 
-        form.reset();
+        message.style.display = "none";
+
+
+        const booking = {
+
+            customer_name:
+                document.getElementById("name").value,
+
+            customer_email:
+                document.getElementById("email").value,
+
+            customer_phone:
+                document.getElementById("phone").value,
+
+            service:
+                document.getElementById("service").value,
+
+            booking_date:
+                document.getElementById("date").value,
+
+            booking_time:
+                document.getElementById("time").value,
+
+            address:
+                document.getElementById("address").value,
+
+            notes:
+                document.getElementById("notes").value
+
+        };
+
+
+        try {
+
+            const response = await fetch(
+                SUPABASE_URL + "/rest/v1/bookings",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json",
+                        "apikey": SUPABASE_KEY,
+                        "Authorization": "Bearer " + SUPABASE_KEY,
+                        "Prefer": "return=minimal"
+                    },
+
+                    body: JSON.stringify(booking)
+                }
+            );
+
+
+            if (!response.ok) {
+
+                const errorText = await response.text();
+
+                throw new Error(errorText);
+
+            }
+
+
+            message.className = "success";
+
+            message.textContent =
+                "Booking submitted successfully! CityServe will process your request.";
+
+            message.style.display = "block";
+
+            form.reset();
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            message.className = "error";
+
+            message.textContent =
+                "Something went wrong. Please try again.";
+
+            message.style.display = "block";
+
+        }
+
+
+        button.disabled = false;
+        button.textContent = "Submit Booking";
 
     });
 
 </script>
 
 </body>
-
 </html>
