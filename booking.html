@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +8,31 @@
     <title>Book a Service | CityServe</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
 
+        html,
         body {
+            width: 100%;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
             font-family: Arial, sans-serif;
             background: #f5f7f5;
             color: #222;
+            overflow-x: hidden;
         }
 
         header {
+            width: 100%;
             background: #1f6f43;
             color: white;
             padding: 18px 30px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -32,6 +43,11 @@
             font-weight: bold;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav a {
             color: white;
             text-decoration: none;
@@ -40,17 +56,22 @@
         }
 
         .container {
+            width: calc(100% - 30px);
             max-width: 700px;
-            margin: 45px auto;
+
+            margin: 40px auto;
             padding: 30px;
+
             background: white;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
         }
 
         h1 {
             text-align: center;
             color: #1f6f43;
+            margin-top: 0;
             margin-bottom: 10px;
         }
 
@@ -58,6 +79,10 @@
             text-align: center;
             color: #666;
             margin-bottom: 30px;
+        }
+
+        form {
+            width: 100%;
         }
 
         label {
@@ -70,28 +95,56 @@
         input,
         select,
         textarea {
+            display: block;
+
             width: 100%;
+            max-width: 100%;
+
+            margin: 0;
             padding: 13px;
+
             border: 1px solid #ccc;
             border-radius: 8px;
+
+            font-family: Arial, sans-serif;
             font-size: 15px;
+
+            background: white;
+        }
+
+        input[type="date"],
+        input[type="time"] {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+
+            appearance: none;
+            -webkit-appearance: none;
         }
 
         textarea {
-            height: 100px;
+            min-height: 100px;
             resize: vertical;
         }
 
         button {
+            display: block;
+
             width: 100%;
+            max-width: 100%;
+
             margin-top: 25px;
             padding: 14px;
+
             border: none;
             border-radius: 8px;
+
             background: #1f6f43;
             color: white;
+
             font-size: 17px;
             font-weight: bold;
+
             cursor: pointer;
         }
 
@@ -102,9 +155,14 @@
 
         #message {
             display: none;
+
+            width: 100%;
+
             margin-top: 20px;
             padding: 15px;
+
             border-radius: 8px;
+
             text-align: center;
             font-weight: bold;
         }
@@ -120,30 +178,71 @@
         }
 
         footer {
+            width: 100%;
             text-align: center;
             padding: 25px;
             color: #777;
         }
 
+
+        /* =========================
+           MOBILE
+           ========================= */
+
         @media (max-width: 600px) {
+
             header {
                 padding: 15px;
             }
 
+            .logo {
+                font-size: 21px;
+            }
+
             nav a {
                 margin-left: 8px;
-                font-size: 13px;
+                font-size: 12px;
             }
 
             .container {
-                margin: 25px 15px;
+                width: calc(100% - 24px);
+
+                margin: 25px auto;
                 padding: 20px;
+
+                border-radius: 12px;
             }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            input,
+            select,
+            textarea {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            input[type="date"],
+            input[type="time"] {
+                width: 100%;
+                max-width: 100%;
+            }
+
         }
+
     </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -152,25 +251,44 @@
     </div>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#services">Services</a>
-        <a href="booking.html">Book</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="index.html#services">
+            Services
+        </a>
+
+        <a href="booking.html">
+            Book
+        </a>
+
     </nav>
 
 </header>
 
 
+
 <div class="container">
 
-    <h1>Book a Service</h1>
+    <h1>
+        Book a Service
+    </h1>
 
     <p class="subtitle">
         Fill out the form below to request a CityServe service.
     </p>
 
+
     <form id="bookingForm">
 
-        <label for="name">Full Name</label>
+
+        <!-- FULL NAME -->
+
+        <label for="name">
+            Full Name
+        </label>
 
         <input
             type="text"
@@ -180,7 +298,12 @@
         >
 
 
-        <label for="email">Email</label>
+
+        <!-- EMAIL -->
+
+        <label for="email">
+            Email
+        </label>
 
         <input
             type="email"
@@ -190,7 +313,12 @@
         >
 
 
-        <label for="phone">Phone Number</label>
+
+        <!-- PHONE -->
+
+        <label for="phone">
+            Phone Number
+        </label>
 
         <input
             type="tel"
@@ -200,7 +328,12 @@
         >
 
 
-        <label for="service">Choose a Service</label>
+
+        <!-- SERVICE -->
+
+        <label for="service">
+            Choose a Service
+        </label>
 
         <select id="service" required>
 
@@ -208,25 +341,75 @@
                 Select a service
             </option>
 
-            <option>Cleaning</option>
-            <option>Car Wash</option>
-            <option>Pest Control</option>
-            <option>Babysitting</option>
-            <option>Chef Services</option>
-            <option>Aircon Services</option>
-            <option>Plumbing</option>
-            <option>Electrical</option>
-            <option>Carpentry</option>
-            <option>Painting</option>
-            <option>Website Development</option>
-            <option>Graphic Design</option>
-            <option>Social Media Management</option>
-            <option>IT Services</option>
-            <option>CCTV Installation</option>
-            <option>Network Setup</option>
+            <option>
+                Cleaning
+            </option>
+
+            <option>
+                Car Wash
+            </option>
+
+            <option>
+                Pest Control
+            </option>
+
+            <option>
+                Babysitting
+            </option>
+
+            <option>
+                Chef Services
+            </option>
+
+            <option>
+                Aircon Services
+            </option>
+
+            <option>
+                Plumbing
+            </option>
+
+            <option>
+                Electrical
+            </option>
+
+            <option>
+                Carpentry
+            </option>
+
+            <option>
+                Painting
+            </option>
+
+            <option>
+                Website Development
+            </option>
+
+            <option>
+                Graphic Design
+            </option>
+
+            <option>
+                Social Media Management
+            </option>
+
+            <option>
+                IT Services
+            </option>
+
+            <option>
+                CCTV Installation
+            </option>
+
+            <option>
+                Network Setup
+            </option>
 
         </select>
 
+
+
+        <!-- DATE -->
 
         <label for="date">
             Preferred Date
@@ -239,6 +422,9 @@
         >
 
 
+
+        <!-- TIME -->
+
         <label for="time">
             Preferred Time
         </label>
@@ -249,6 +435,9 @@
             required
         >
 
+
+
+        <!-- ADDRESS -->
 
         <label for="address">
             Service Address
@@ -261,6 +450,9 @@
         ></textarea>
 
 
+
+        <!-- NOTES -->
+
         <label for="notes">
             Additional Notes
         </label>
@@ -270,6 +462,9 @@
             placeholder="Anything else we should know?"
         ></textarea>
 
+
+
+        <!-- SUBMIT -->
 
         <button
             type="submit"
@@ -281,164 +476,242 @@
 
         <div id="message"></div>
 
+
     </form>
 
 </div>
 
 
+
 <footer>
+
     © 2026 CityServe. All rights reserved.
+
 </footer>
+
 
 
 <script>
 
+
     // ==========================================
-    // SUPABASE CONNECTION
+    // SUPABASE
     // ==========================================
 
     const SUPABASE_URL =
         "https://grjnaylbwlerrchskvty.supabase.co";
 
+
     const SUPABASE_KEY =
         "sb_publishable_wmIhQc8wobila7q4wD0BJA_N49tM78n";
 
 
+
     // ==========================================
-    // FORM ELEMENTS
+    // FORM
     // ==========================================
 
     const form =
         document.getElementById("bookingForm");
 
+
     const button =
         document.getElementById("submitButton");
+
 
     const message =
         document.getElementById("message");
 
 
+
     // ==========================================
-    // SUBMIT BOOKING
+    // SUBMIT
     // ==========================================
 
-    form.addEventListener("submit", async function(event) {
+    form.addEventListener(
+        "submit",
+        async function(event) {
 
-        event.preventDefault();
-
-        button.disabled = true;
-
-        button.textContent = "Submitting...";
-
-        message.style.display = "none";
+            event.preventDefault();
 
 
-        const booking = {
+            button.disabled = true;
 
-            customer_name:
-                document.getElementById("name").value.trim(),
-
-            customer_email:
-                document.getElementById("email").value.trim(),
-
-            customer_phone:
-                document.getElementById("phone").value.trim(),
-
-            service:
-                document.getElementById("service").value,
-
-            booking_date:
-                document.getElementById("date").value,
-
-            booking_time:
-                document.getElementById("time").value,
-
-            address:
-                document.getElementById("address").value.trim(),
-
-            notes:
-                document.getElementById("notes").value.trim()
-
-        };
+            button.textContent =
+                "Submitting...";
 
 
-        try {
+            message.style.display =
+                "none";
 
-            const response = await fetch(
-                SUPABASE_URL + "/rest/v1/bookings",
-                {
-                    method: "POST",
 
-                    headers: {
-                        "Content-Type": "application/json",
-                        "apikey": SUPABASE_KEY,
-                        "Authorization": "Bearer " + SUPABASE_KEY,
-                        "Prefer": "return=minimal"
-                    },
 
-                    body: JSON.stringify(booking)
+            // Get form information
+
+            const booking = {
+
+                customer_name:
+                    document
+                    .getElementById("name")
+                    .value
+                    .trim(),
+
+                customer_email:
+                    document
+                    .getElementById("email")
+                    .value
+                    .trim(),
+
+                customer_phone:
+                    document
+                    .getElementById("phone")
+                    .value
+                    .trim(),
+
+                service:
+                    document
+                    .getElementById("service")
+                    .value,
+
+                booking_date:
+                    document
+                    .getElementById("date")
+                    .value,
+
+                booking_time:
+                    document
+                    .getElementById("time")
+                    .value,
+
+                address:
+                    document
+                    .getElementById("address")
+                    .value
+                    .trim(),
+
+                notes:
+                    document
+                    .getElementById("notes")
+                    .value
+                    .trim()
+
+            };
+
+
+
+            try {
+
+
+                const response =
+                    await fetch(
+
+                        SUPABASE_URL +
+                        "/rest/v1/bookings",
+
+                        {
+
+                            method: "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json",
+
+                                "apikey":
+                                    SUPABASE_KEY,
+
+                                "Authorization":
+                                    "Bearer " +
+                                    SUPABASE_KEY,
+
+                                "Prefer":
+                                    "return=minimal"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    booking
+                                )
+
+                        }
+
+                    );
+
+
+
+                // Check response
+
+                if (!response.ok) {
+
+                    const errorText =
+                        await response.text();
+
+                    console.error(
+                        "Supabase Error:",
+                        errorText
+                    );
+
+                    throw new Error(
+                        errorText
+                    );
+
                 }
-            );
 
 
-            if (!response.ok) {
 
-                const errorText =
-                    await response.text();
+                // SUCCESS
+
+                message.className =
+                    "success";
+
+                message.textContent =
+                    "✓ Booking submitted successfully! CityServe will process your request.";
+
+                message.style.display =
+                    "block";
+
+
+                form.reset();
+
+
+            }
+
+            catch (error) {
 
                 console.error(
-                    "Supabase error:",
-                    errorText
+                    "Booking Error:",
+                    error
                 );
 
-                throw new Error(
-                    errorText
-                );
+
+                message.className =
+                    "error";
+
+                message.textContent =
+                    "Booking failed. Please try again.";
+
+                message.style.display =
+                    "block";
+
             }
 
 
-            // ==========================================
-            // SUCCESS
-            // ==========================================
 
-            message.className =
-                "success";
+            button.disabled =
+                false;
 
-            message.textContent =
-                "✓ Booking submitted successfully! CityServe will process your request.";
+            button.textContent =
+                "Submit Booking";
 
-            message.style.display =
-                "block";
-
-
-            form.reset();
 
         }
+    );
 
-        catch (error) {
-
-            console.error(error);
-
-            message.className =
-                "error";
-
-            message.textContent =
-                "Booking failed. Please try again.";
-
-            message.style.display =
-                "block";
-
-        }
-
-
-        button.disabled = false;
-
-        button.textContent =
-            "Submit Booking";
-
-    });
 
 </script>
 
+
 </body>
+
 </html>
