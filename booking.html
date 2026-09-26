@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book a Service | CityServe</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f8fa;
+            color: #222;
+        }
+
+        header {
+            background: white;
+            padding: 20px 8%;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .form-box {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #222;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .success {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f7e8;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        CityServe
+    </div>
+
+</header>
+
+
+<div class="container">
+
+    <div class="form-box">
+
+        <h1>Book a Service</h1>
+
+        <p class="description">
+            Tell us what service you need and when you need it.
+        </p>
+
+
+        <form id="bookingForm">
+
+            <label for="name">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                required
+            >
+
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label for="phone">
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="09XXXXXXXXX"
+                required
+            >
+
+
+            <label for="service">
+                Choose a Service
+            </label>
+
+            <select id="service" required>
+
+                <option value="">
+                    Select a service
+                </option>
+
+                <option value="Cleaning">
+                    Cleaning
+                </option>
+
+                <option value="Car Wash">
+                    Car Wash
+                </option>
+
+                <option value="Pest Control">
+                    Pest Control
+                </option>
+
+                <option value="Babysitting">
+                    Babysitting
+                </option>
+
+                <option value="Chef Services">
+                    Chef Services
+                </option>
+
+                <option value="Aircon Services">
+                    Aircon Services
+                </option>
+
+                <option value="Plumbing">
+                    Plumbing
+                </option>
+
+                <option value="Electrical">
+                    Electrical
+                </option>
+
+                <option value="Carpentry">
+                    Carpentry
+                </option>
+
+                <option value="Painting">
+                    Painting
+                </option>
+
+                <option value="Website Development">
+                    Website Development
+                </option>
+
+                <option value="Graphic Design">
+                    Graphic Design
+                </option>
+
+                <option value="Social Media Management">
+                    Social Media Management
+                </option>
+
+                <option value="IT Services">
+                    IT Services
+                </option>
+
+                <option value="CCTV Installation">
+                    CCTV Installation
+                </option>
+
+                <option value="Network Setup">
+                    Network Setup
+                </option>
+
+            </select>
+
+
+            <label for="date">
+                Preferred Date
+            </label>
+
+            <input
+                type="date"
+                id="date"
+                required
+            >
+
+
+            <label for="time">
+                Preferred Time
+            </label>
+
+            <input
+                type="time"
+                id="time"
+                required
+            >
+
+
+            <label for="address">
+                Service Address
+            </label>
+
+            <textarea
+                id="address"
+                placeholder="Enter the address where the service will be provided"
+                required
+            ></textarea>
+
+
+            <label for="notes">
+                Additional Notes
+            </label>
+
+            <textarea
+                id="notes"
+                placeholder="Anything the service provider should know?"
+            ></textarea>
+
+
+            <button type="submit">
+                Submit Booking
+            </button>
+
+        </form>
+
+
+        <div class="success" id="successMessage">
+
+            ✅ Your booking request has been submitted!
+
+        </div>
+
+
+        <a href="index.html" class="back">
+            ← Back to CityServe
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const form = document.getElementById("bookingForm");
+
+    form.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        document.getElementById("successMessage").style.display = "block";
+
+        form.reset();
+
+    });
+
+</script>
+
+</body>
+
+</html>
