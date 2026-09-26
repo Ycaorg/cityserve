@@ -65,7 +65,7 @@
       background: white;
       padding: 30px;
       border-radius: 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
       overflow: hidden;
     }
 
@@ -79,6 +79,7 @@
       text-align: center;
       color: #666;
       margin-bottom: 28px;
+      line-height: 1.5;
     }
 
     .form-group {
@@ -174,6 +175,7 @@
       border-radius: 10px;
       display: none;
       line-height: 1.5;
+      word-break: break-word;
     }
 
     .success {
@@ -192,6 +194,16 @@
       display: block !important;
       background: #fee2e2;
       color: #991b1b;
+    }
+
+    .error pre {
+      margin-top: 10px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 7px;
+      overflow-x: auto;
+      font-size: 13px;
+      color: #7f1d1d;
     }
 
     footer {
@@ -248,14 +260,19 @@
 
 <header>
   <div class="nav">
-    <div class="logo">CityServe</div>
+
+    <div class="logo">
+      CityServe
+    </div>
 
     <div>
       <a href="index.html">Home</a>
       <a href="index.html#services">Services</a>
     </div>
+
   </div>
 </header>
+
 
 <div class="container">
 
@@ -267,44 +284,77 @@
       Fill out the form below and CityServe will receive your request.
     </p>
 
+
     <form id="bookingForm">
 
+
+      <!-- FULL NAME -->
+
       <div class="form-group">
-        <label>Full Name</label>
+
+        <label for="customer_name">
+          Full Name
+        </label>
+
         <input
           type="text"
           id="customer_name"
           required
           placeholder="Enter your full name"
         >
+
       </div>
 
+
+      <!-- EMAIL -->
+
       <div class="form-group">
-        <label>Email Address</label>
+
+        <label for="customer_email">
+          Email Address
+        </label>
+
         <input
           type="email"
           id="customer_email"
           required
           placeholder="you@example.com"
         >
+
       </div>
 
+
+      <!-- PHONE -->
+
       <div class="form-group">
-        <label>Phone Number</label>
+
+        <label for="customer_phone">
+          Phone Number
+        </label>
+
         <input
           type="tel"
           id="customer_phone"
           required
           placeholder="09XXXXXXXXX"
         >
+
       </div>
 
+
+      <!-- SERVICE -->
+
       <div class="form-group">
-        <label>Choose a Service</label>
+
+        <label for="service">
+          Choose a Service
+        </label>
 
         <select id="service" required>
 
-          <option value="">Select a service</option>
+          <option value="">
+            Select a service
+          </option>
 
           <option>Cleaning</option>
           <option>Car Wash</option>
@@ -324,243 +374,368 @@
           <option>Network Setup</option>
 
         </select>
+
       </div>
+
+
+      <!-- DATE + TIME -->
 
       <div class="date-time-row">
 
+
         <div class="form-group">
-          <label>Preferred Date</label>
+
+          <label for="booking_date">
+            Preferred Date
+          </label>
+
           <input
             type="date"
             id="booking_date"
             required
           >
+
         </div>
 
+
         <div class="form-group">
-          <label>Preferred Time</label>
+
+          <label for="booking_time">
+            Preferred Time
+          </label>
+
           <input
             type="time"
             id="booking_time"
             required
           >
+
         </div>
+
 
       </div>
 
+
+      <!-- ADDRESS -->
+
       <div class="form-group">
-        <label>Service Address</label>
+
+        <label for="address">
+          Service Address
+        </label>
 
         <textarea
           id="address"
           required
           placeholder="Enter the address where the service is needed"
         ></textarea>
+
       </div>
 
+
+      <!-- NOTES -->
+
       <div class="form-group">
-        <label>Additional Notes</label>
+
+        <label for="notes">
+          Additional Notes
+        </label>
 
         <textarea
           id="notes"
           placeholder="Anything the service provider should know?"
         ></textarea>
+
       </div>
 
-      <button type="submit" id="submitButton">
+
+      <!-- BUTTON -->
+
+      <button
+        type="submit"
+        id="submitButton"
+      >
         Submit Booking
       </button>
 
+
     </form>
 
+
+    <!-- MESSAGE -->
+
     <div id="message"></div>
+
 
   </div>
 
 </div>
 
+
 <footer>
+
   © 2026 CityServe. All rights reserved.
+
 </footer>
+
 
 
 <script>
 
-  /* ==============================
-     SUPABASE
-  ============================== */
 
-  const SUPABASE_URL =
-    "https://grjnaylbwlerrchskvty.supabase.co";
+/* =====================================================
+   SUPABASE SETTINGS
+===================================================== */
 
-  const SUPABASE_KEY =
-    "sb_publishable_wmIhQc8wobila7q4wD0BJA_N49tM78n";
+const SUPABASE_URL =
+  "https://grjnaylbwlerrchskvty.supabase.co";
 
-
-  /* ==============================
-     EMAILJS
-  ============================== */
-
-  const EMAILJS_PUBLIC_KEY =
-    "LM05lsHblYLykWAgY";
-
-  const EMAILJS_SERVICE_ID =
-    "service_7i14y1w";
-
-  const EMAILJS_TEMPLATE_ID =
-    "template_afi020j";
-
-  const OWNER_EMAIL =
-    "waynepadolina03@gmail.com";
+const SUPABASE_KEY =
+  "sb_publishable_wmIhQc8wobila7q4wD0BJA_N49tM78n";
 
 
-  /* ==============================
-     START EMAILJS
-  ============================== */
+/* =====================================================
+   EMAILJS SETTINGS
+===================================================== */
 
-  try {
+const EMAILJS_PUBLIC_KEY =
+  "LM05lsHblYLykWAgY";
 
-    emailjs.init({
-      publicKey: EMAILJS_PUBLIC_KEY
-    });
+const EMAILJS_SERVICE_ID =
+  "service_7i14y1w";
 
-    console.log("EMAILJS SDK LOADED");
+const EMAILJS_TEMPLATE_ID =
+  "template_afi020j";
 
-  } catch (error) {
-
-    console.error("EMAILJS INIT ERROR:", error);
-
-  }
+const OWNER_EMAIL =
+  "waynepadolina03@gmail.com";
 
 
-  /* ==============================
-     FORM
-  ============================== */
+/* =====================================================
+   INITIALIZE EMAILJS
+===================================================== */
 
-  const form =
-    document.getElementById("bookingForm");
+try {
 
-  const message =
-    document.getElementById("message");
+  emailjs.init({
+    publicKey: EMAILJS_PUBLIC_KEY
+  });
 
-  const submitButton =
-    document.getElementById("submitButton");
+  console.log(
+    "CITYSERVE: EmailJS initialized successfully."
+  );
+
+} catch (error) {
+
+  console.error(
+    "CITYSERVE: EmailJS initialization failed.",
+    error
+  );
+
+}
 
 
-  form.addEventListener("submit", async function(event) {
+
+/* =====================================================
+   GET FORM ELEMENTS
+===================================================== */
+
+const form =
+  document.getElementById("bookingForm");
+
+const message =
+  document.getElementById("message");
+
+const submitButton =
+  document.getElementById("submitButton");
+
+
+
+/* =====================================================
+   FORM SUBMISSION
+===================================================== */
+
+form.addEventListener(
+  "submit",
+  async function(event) {
 
     event.preventDefault();
 
 
+    /* RESET MESSAGE */
+
     message.className = "";
+
     message.style.display = "none";
 
+
+    /* DISABLE BUTTON */
+
     submitButton.disabled = true;
-    submitButton.textContent = "Submitting...";
+
+    submitButton.textContent =
+      "Submitting...";
 
 
-    /* ==============================
-       GET FORM DATA
-    ============================== */
+
+    /* =================================================
+       COLLECT BOOKING INFORMATION
+    ================================================= */
 
     const booking = {
 
       customer_name:
-        document.getElementById("customer_name").value.trim(),
+        document
+          .getElementById("customer_name")
+          .value
+          .trim(),
 
       customer_email:
-        document.getElementById("customer_email").value.trim(),
+        document
+          .getElementById("customer_email")
+          .value
+          .trim(),
 
       customer_phone:
-        document.getElementById("customer_phone").value.trim(),
+        document
+          .getElementById("customer_phone")
+          .value
+          .trim(),
 
       service:
-        document.getElementById("service").value,
+        document
+          .getElementById("service")
+          .value,
 
       booking_date:
-        document.getElementById("booking_date").value,
+        document
+          .getElementById("booking_date")
+          .value,
 
       booking_time:
-        document.getElementById("booking_time").value,
+        document
+          .getElementById("booking_time")
+          .value,
 
       address:
-        document.getElementById("address").value.trim(),
+        document
+          .getElementById("address")
+          .value
+          .trim(),
 
       notes:
-        document.getElementById("notes").value.trim()
+        document
+          .getElementById("notes")
+          .value
+          .trim()
 
     };
 
 
+
     try {
 
-      /* ==============================
-         STEP 1
-         SAVE BOOKING TO SUPABASE
-      ============================== */
 
-      console.log("STEP 1: Saving booking...");
+      /* =================================================
+         STEP 1: SAVE BOOKING TO SUPABASE
+      ================================================= */
+
+      console.log(
+        "CITYSERVE: Saving booking to Supabase..."
+      );
+
 
       const supabaseResponse =
         await fetch(
-          SUPABASE_URL + "/rest/v1/bookings",
+
+          SUPABASE_URL +
+          "/rest/v1/bookings",
+
           {
+
             method: "POST",
 
             headers: {
-              "Content-Type": "application/json",
-              "apikey": SUPABASE_KEY,
+
+              "Content-Type":
+                "application/json",
+
+              "apikey":
+                SUPABASE_KEY,
+
               "Authorization":
-                "Bearer " + SUPABASE_KEY,
-              "Prefer": "return=minimal"
+                "Bearer " +
+                SUPABASE_KEY,
+
+              "Prefer":
+                "return=minimal"
+
             },
 
             body:
               JSON.stringify(booking)
+
           }
+
         );
 
 
+
+      /* CHECK SUPABASE */
+
       if (!supabaseResponse.ok) {
 
-        const errorText =
+        const supabaseError =
           await supabaseResponse.text();
 
         console.error(
           "SUPABASE ERROR:",
-          errorText
+          supabaseError
         );
 
         throw new Error(
-          "Booking database error: " +
-          errorText
+          "Supabase error: " +
+          supabaseError
         );
 
       }
 
 
       console.log(
-        "STEP 1 SUCCESS: Booking saved."
+        "CITYSERVE: Booking saved successfully."
       );
 
 
-      /* ==============================
-         STEP 2
-         SEND EMAIL TO OWNER
-      ============================== */
+
+      /* =================================================
+         STEP 2: CHECK EMAILJS
+      ================================================= */
 
       console.log(
-        "STEP 2: Sending EmailJS notification..."
+        "CITYSERVE: Checking EmailJS..."
       );
 
 
-      if (typeof emailjs === "undefined") {
+      if (
+        typeof emailjs ===
+        "undefined"
+      ) {
 
         throw new Error(
-          "EmailJS SDK did not load."
+          "EmailJS SDK did not load. Please check your internet connection or Vercel deployment."
         );
 
       }
+
+
+
+      /* =================================================
+         STEP 3: SEND OWNER EMAIL
+      ================================================= */
+
+      console.log(
+        "CITYSERVE: Sending owner notification..."
+      );
 
 
       const emailResponse =
@@ -607,27 +782,36 @@
         );
 
 
+
+      /* =================================================
+         EMAIL SUCCESS
+      ================================================= */
+
       console.log(
-        "EMAILJS RESPONSE:",
+        "EMAILJS SUCCESS:",
         emailResponse
       );
 
 
-      /* ==============================
-         EVERYTHING WORKED
-      ============================== */
-
       message.className =
         "success";
 
+
       message.innerHTML =
-        "✅ Booking submitted successfully!<br><br>" +
+        "✅ <strong>Booking submitted successfully!</strong><br><br>" +
         "Your booking has been saved and the service owner has been notified.";
+
 
       form.reset();
 
 
+
     } catch (error) {
+
+
+      /* =================================================
+         ERROR HANDLING
+      ================================================= */
 
       console.error(
         "CITYSERVE ERROR:",
@@ -635,27 +819,73 @@
       );
 
 
-      /* ==============================
-         SHOW EXACT ERROR
-      ============================== */
+      let errorDetails = "";
+
+
+      /* TRY TO READ EMAILJS ERROR */
+
+      if (
+        error &&
+        typeof error === "object"
+      ) {
+
+        try {
+
+          errorDetails =
+            JSON.stringify(
+              error,
+              null,
+              2
+            );
+
+        } catch (jsonError) {
+
+          errorDetails =
+            String(error);
+
+        }
+
+      } else {
+
+        errorDetails =
+          String(error);
+
+      }
+
+
+      /* =================================================
+         SHOW ERROR ON PAGE
+      ================================================= */
 
       message.className =
         "error";
 
+
       message.innerHTML =
-        "⚠️ The booking was saved, but the owner notification failed.<br><br>" +
-        "<strong>Error:</strong><br>" +
-        String(error.message || error);
+        "⚠️ <strong>Booking was saved, but the owner notification failed.</strong>" +
+        "<br><br>" +
+        "<strong>EmailJS Error Details:</strong>" +
+        "<pre>" +
+        errorDetails +
+        "</pre>";
+
 
     }
 
 
-    submitButton.disabled = false;
+    /* =================================================
+       ENABLE BUTTON AGAIN
+    ================================================= */
+
+    submitButton.disabled =
+      false;
 
     submitButton.textContent =
       "Submit Booking";
 
-  });
+  }
+
+);
 
 </script>
 
