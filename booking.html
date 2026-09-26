@@ -6,11 +6,19 @@
 
   <title>Book a Service | CityServe</title>
 
+  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     body {
@@ -20,13 +28,18 @@
       color: #222;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
+      width: 100%;
       background: white;
       padding: 18px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     }
 
     .logo {
@@ -35,12 +48,25 @@
       color: #16805c;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
     nav a {
       text-decoration: none;
       color: #333;
-      margin-left: 20px;
       font-weight: 600;
     }
+
+    nav a:hover {
+      color: #16805c;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
 
     .container {
       width: 90%;
@@ -54,40 +80,70 @@
     }
 
     .title h1 {
+      margin: 0 0 8px;
       font-size: 36px;
-      margin-bottom: 8px;
     }
 
     .title p {
+      margin: 0;
       color: #666;
+      line-height: 1.5;
     }
 
+    /* =========================
+       BOOKING CARD
+    ========================= */
+
     .booking-card {
+      width: 100%;
+      max-width: 100%;
       background: white;
       padding: 30px;
       border-radius: 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
     }
 
+    /* =========================
+       FORM
+    ========================= */
+
     .form-group {
+      width: 100%;
+      max-width: 100%;
       margin-bottom: 18px;
+      min-width: 0;
     }
 
     label {
       display: block;
-      font-weight: bold;
+      width: 100%;
       margin-bottom: 7px;
+      font-weight: bold;
     }
 
     input,
     select,
     textarea {
+      display: block;
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      margin: 0;
       padding: 13px;
       border: 1px solid #d5d5d5;
       border-radius: 9px;
       font-size: 15px;
       font-family: inherit;
+      outline: none;
+      background: white;
+      color: #222;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #16805c;
     }
 
     textarea {
@@ -95,17 +151,44 @@
       resize: vertical;
     }
 
-    .row {
+    /* =========================
+       DATE + TIME
+    ========================= */
+
+    .date-time-row {
       display: flex;
+      width: 100%;
+      max-width: 100%;
       gap: 15px;
+      min-width: 0;
     }
 
-    .row .form-group {
-      flex: 1;
+    .date-time-row .form-group {
+      flex: 1 1 0;
+      width: 0;
+      min-width: 0;
     }
+
+    input[type="date"],
+    input[type="time"] {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      height: 48px;
+      padding: 10px;
+      box-sizing: border-box;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
 
     button {
+      display: block;
       width: 100%;
+      max-width: 100%;
       padding: 15px;
       border: none;
       border-radius: 10px;
@@ -116,17 +199,30 @@
       cursor: pointer;
     }
 
+    button:hover {
+      background: #106647;
+    }
+
     button:disabled {
       background: #999;
+      cursor: not-allowed;
     }
+
+    /* =========================
+       MESSAGE
+    ========================= */
 
     #message {
       display: none;
+      width: 100%;
+      max-width: 100%;
       margin-top: 20px;
       padding: 15px;
       border-radius: 10px;
       text-align: center;
       font-weight: bold;
+      line-height: 1.5;
+      overflow-wrap: break-word;
     }
 
     .success {
@@ -135,13 +231,24 @@
       color: #176b42;
     }
 
+    .warning {
+      display: block !important;
+      background: #fff5d9;
+      color: #805d00;
+    }
+
     .error {
       display: block !important;
       background: #ffe9e9;
       color: #a52222;
     }
 
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
+      width: 100%;
       margin-top: 60px;
       background: #123c30;
       color: white;
@@ -149,18 +256,60 @@
       padding: 25px;
     }
 
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 600px) {
-      .row {
-        flex-direction: column;
-        gap: 0;
+
+      header {
+        padding: 16px 5%;
       }
 
-      .booking-card {
-        padding: 20px;
+      .logo {
+        font-size: 22px;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      .container {
+        width: 94%;
+        max-width: 94%;
+        margin: 30px auto;
       }
 
       .title h1 {
         font-size: 29px;
+      }
+
+      .booking-card {
+        width: 100%;
+        padding: 20px;
+        border-radius: 15px;
+      }
+
+      .date-time-row {
+        display: block;
+        width: 100%;
+      }
+
+      .date-time-row .form-group {
+        display: block;
+        width: 100%;
+        min-width: 0;
+      }
+
+      input[type="date"],
+      input[type="time"] {
+        width: 100%;
+        max-width: 100%;
+        height: 48px;
       }
     }
   </style>
@@ -168,299 +317,581 @@
 
 <body>
 
-<header>
-  <div class="logo">CityServe</div>
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="index.html#services">Services</a>
-  </nav>
-</header>
+  <header>
+    <div class="logo">CityServe</div>
 
-<div class="container">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+    </nav>
+  </header>
 
-  <div class="title">
-    <h1>Book a Service</h1>
-    <p>Tell us what service you need and we'll take care of the rest.</p>
-  </div>
 
-  <div class="booking-card">
+  <!-- =========================
+       MAIN
+  ========================= -->
 
-    <form id="bookingForm">
+  <main class="container">
 
-      <div class="form-group">
-        <label>Full Name</label>
-        <input type="text" id="customer_name" required>
-      </div>
+    <div class="title">
+      <h1>Book a Service</h1>
+      <p>
+        Tell us what service you need and we'll take care of the rest.
+      </p>
+    </div>
 
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" id="customer_email" required>
-      </div>
 
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" id="customer_phone" required>
-      </div>
+    <div class="booking-card">
 
-      <div class="form-group">
-        <label>Choose a Service</label>
+      <form id="bookingForm">
 
-        <select id="service" required>
-          <option value="">Select a service</option>
-          <option>Cleaning</option>
-          <option>Car Wash</option>
-          <option>Pest Control</option>
-          <option>Babysitting</option>
-          <option>Chef Services</option>
-          <option>Aircon Services</option>
-          <option>Plumbing</option>
-          <option>Electrical</option>
-          <option>Carpentry</option>
-          <option>Painting</option>
-          <option>Website Development</option>
-          <option>Graphic Design</option>
-          <option>Social Media Management</option>
-          <option>IT Services</option>
-          <option>CCTV Installation</option>
-          <option>Network Setup</option>
-        </select>
-      </div>
-
-      <div class="row">
+        <!-- NAME -->
 
         <div class="form-group">
-          <label>Preferred Date</label>
-          <input type="date" id="booking_date" required>
+          <label for="customer_name">
+            Full Name
+          </label>
+
+          <input
+            type="text"
+            id="customer_name"
+            placeholder="Enter your full name"
+            required
+          >
         </div>
+
+
+        <!-- EMAIL -->
 
         <div class="form-group">
-          <label>Preferred Time</label>
-          <input type="time" id="booking_time" required>
+          <label for="customer_email">
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            id="customer_email"
+            placeholder="example@email.com"
+            required
+          >
         </div>
 
-      </div>
 
-      <div class="form-group">
-        <label>Service Address</label>
-        <textarea id="address" required></textarea>
-      </div>
+        <!-- PHONE -->
 
-      <div class="form-group">
-        <label>Additional Notes</label>
-        <textarea id="notes"></textarea>
-      </div>
+        <div class="form-group">
+          <label for="customer_phone">
+            Phone Number
+          </label>
 
-      <button type="submit" id="submitButton">
-        Book a Service
-      </button>
-
-      <div id="message"></div>
-
-    </form>
-
-  </div>
-</div>
-
-<footer>
-  <p>© 2026 CityServe. All rights reserved.</p>
-</footer>
+          <input
+            type="tel"
+            id="customer_phone"
+            placeholder="09XXXXXXXXX"
+            required
+          >
+        </div>
 
 
-<script>
+        <!-- SERVICE -->
 
-  /* ==============================
-     SUPABASE
-  ============================== */
+        <div class="form-group">
+          <label for="service">
+            Choose a Service
+          </label>
 
-  const SUPABASE_URL =
-    "https://grjnaylbwlerrchskvty.supabase.co";
+          <select id="service" required>
 
-  const SUPABASE_KEY =
-    "sb_publishable_wmIhQc8wobila7q4wD0BJA_N49tM78n";
+            <option value="">
+              Select a service
+            </option>
 
+            <option value="Cleaning">
+              Cleaning
+            </option>
 
-  /* ==============================
-     EMAILJS
-  ============================== */
+            <option value="Car Wash">
+              Car Wash
+            </option>
 
-  const EMAILJS_PUBLIC_KEY =
-    "LM05lsHblYLykWAgY";
+            <option value="Pest Control">
+              Pest Control
+            </option>
 
-  const EMAILJS_SERVICE_ID =
-    "service_7i14y1w";
+            <option value="Babysitting">
+              Babysitting
+            </option>
 
-  const EMAILJS_TEMPLATE_ID =
-    "template_afi020j";
+            <option value="Chef Services">
+              Chef Services
+            </option>
 
-  const OWNER_EMAIL =
-    "waynepadolina03@gmail.com";
+            <option value="Aircon Services">
+              Aircon Services
+            </option>
 
+            <option value="Plumbing">
+              Plumbing
+            </option>
 
-  /* Initialize EmailJS */
+            <option value="Electrical">
+              Electrical
+            </option>
 
-  emailjs.init({
-    publicKey: EMAILJS_PUBLIC_KEY
-  });
+            <option value="Carpentry">
+              Carpentry
+            </option>
 
+            <option value="Painting">
+              Painting
+            </option>
 
-  /* ==============================
-     FORM
-  ============================== */
+            <option value="Website Development">
+              Website Development
+            </option>
 
-  const form =
-    document.getElementById("bookingForm");
+            <option value="Graphic Design">
+              Graphic Design
+            </option>
 
-  const button =
-    document.getElementById("submitButton");
+            <option value="Social Media Management">
+              Social Media Management
+            </option>
 
-  const message =
-    document.getElementById("message");
+            <option value="IT Services">
+              IT Services
+            </option>
 
+            <option value="CCTV Installation">
+              CCTV Installation
+            </option>
 
-  form.addEventListener("submit", async function(event) {
+            <option value="Network Setup">
+              Network Setup
+            </option>
 
-    event.preventDefault();
-
-    button.disabled = true;
-    button.textContent = "Sending...";
-
-    message.className = "";
-    message.style.display = "none";
-
-
-    const booking = {
-
-      customer_name:
-        document.getElementById("customer_name").value,
-
-      customer_email:
-        document.getElementById("customer_email").value,
-
-      customer_phone:
-        document.getElementById("customer_phone").value,
-
-      service:
-        document.getElementById("service").value,
-
-      booking_date:
-        document.getElementById("booking_date").value,
-
-      booking_time:
-        document.getElementById("booking_time").value,
-
-      address:
-        document.getElementById("address").value,
-
-      notes:
-        document.getElementById("notes").value,
-
-      status: "Pending"
-    };
+          </select>
+        </div>
 
 
-    try {
+        <!-- DATE + TIME -->
 
-      /* ==============================
-         SAVE BOOKING
-      ============================== */
+        <div class="date-time-row">
 
-      const response = await fetch(
-        SUPABASE_URL + "/rest/v1/bookings",
-        {
-          method: "POST",
+          <div class="form-group">
 
-          headers: {
-            "Content-Type": "application/json",
-            "apikey": SUPABASE_KEY,
-            "Authorization": "Bearer " + SUPABASE_KEY,
-            "Prefer": "return=minimal"
-          },
+            <label for="booking_date">
+              Preferred Date
+            </label>
 
-          body: JSON.stringify(booking)
-        }
-      );
+            <input
+              type="date"
+              id="booking_date"
+              required
+            >
+
+          </div>
 
 
-      if (!response.ok) {
-        throw new Error("Supabase error");
-      }
+          <div class="form-group">
+
+            <label for="booking_time">
+              Preferred Time
+            </label>
+
+            <input
+              type="time"
+              id="booking_time"
+              required
+            >
+
+          </div>
+
+        </div>
 
 
-      /* ==============================
-         SEND EMAIL
-      ============================== */
+        <!-- ADDRESS -->
 
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
+        <div class="form-group">
 
-          owner_name:
-            "CityServe Service Owner",
+          <label for="address">
+            Service Address
+          </label>
 
-          owner_email:
-            OWNER_EMAIL,
+          <textarea
+            id="address"
+            placeholder="Enter the address where the service is needed"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <!-- NOTES -->
+
+        <div class="form-group">
+
+          <label for="notes">
+            Additional Notes
+          </label>
+
+          <textarea
+            id="notes"
+            placeholder="Any additional information?"
+          ></textarea>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+          type="submit"
+          id="submitButton"
+        >
+          Book a Service
+        </button>
+
+
+        <!-- MESSAGE -->
+
+        <div id="message"></div>
+
+      </form>
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+    <p>
+      © 2026 CityServe. All rights reserved.
+    </p>
+  </footer>
+
+
+  <script>
+
+    /* ==========================================
+       SUPABASE SETTINGS
+    ========================================== */
+
+    const SUPABASE_URL =
+      "https://grjnaylbwlerrchskvty.supabase.co";
+
+    const SUPABASE_KEY =
+      "sb_publishable_wmIhQc8wobila7q4wD0BJA_N49tM78n";
+
+
+    /* ==========================================
+       EMAILJS SETTINGS
+    ========================================== */
+
+    const EMAILJS_PUBLIC_KEY =
+      "LM05lsHblYLykWAgY";
+
+    const EMAILJS_SERVICE_ID =
+      "service_7i14y1w";
+
+    const EMAILJS_TEMPLATE_ID =
+      "template_afi020j";
+
+    const OWNER_EMAIL =
+      "waynepadolina03@gmail.com";
+
+
+    /* ==========================================
+       INITIALIZE EMAILJS
+    ========================================== */
+
+    emailjs.init({
+      publicKey: EMAILJS_PUBLIC_KEY
+    });
+
+
+    /* ==========================================
+       GET FORM ELEMENTS
+    ========================================== */
+
+    const form =
+      document.getElementById("bookingForm");
+
+    const button =
+      document.getElementById("submitButton");
+
+    const message =
+      document.getElementById("message");
+
+
+    /* ==========================================
+       FORM SUBMISSION
+    ========================================== */
+
+    form.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        /* Clear previous message */
+
+        message.className = "";
+        message.style.display = "none";
+        message.textContent = "";
+
+
+        /* Disable button */
+
+        button.disabled = true;
+        button.textContent = "Processing...";
+
+
+        /* ========================================
+           COLLECT BOOKING INFORMATION
+        ======================================== */
+
+        const booking = {
 
           customer_name:
-            booking.customer_name,
+            document
+              .getElementById("customer_name")
+              .value
+              .trim(),
 
           customer_email:
-            booking.customer_email,
+            document
+              .getElementById("customer_email")
+              .value
+              .trim(),
 
           customer_phone:
-            booking.customer_phone,
+            document
+              .getElementById("customer_phone")
+              .value
+              .trim(),
 
           service:
-            booking.service,
+            document
+              .getElementById("service")
+              .value,
 
           booking_date:
-            booking.booking_date,
+            document
+              .getElementById("booking_date")
+              .value,
 
           booking_time:
-            booking.booking_time,
+            document
+              .getElementById("booking_time")
+              .value,
 
           address:
-            booking.address,
+            document
+              .getElementById("address")
+              .value
+              .trim(),
 
           notes:
-            booking.notes
+            document
+              .getElementById("notes")
+              .value
+              .trim(),
+
+          status:
+            "Pending"
+        };
+
+
+        try {
+
+          /* ======================================
+             SAVE BOOKING TO SUPABASE
+          ====================================== */
+
+          const supabaseResponse =
+            await fetch(
+              SUPABASE_URL + "/rest/v1/bookings",
+              {
+                method: "POST",
+
+                headers: {
+                  "Content-Type":
+                    "application/json",
+
+                  "apikey":
+                    SUPABASE_KEY,
+
+                  "Authorization":
+                    "Bearer " + SUPABASE_KEY,
+
+                  "Prefer":
+                    "return=minimal"
+                },
+
+                body:
+                  JSON.stringify(booking)
+              }
+            );
+
+
+          /* Check Supabase */
+
+          if (!supabaseResponse.ok) {
+
+            const errorText =
+              await supabaseResponse.text();
+
+            console.error(
+              "SUPABASE ERROR:",
+              errorText
+            );
+
+            throw new Error(
+              "The booking could not be saved."
+            );
+          }
+
+
+          console.log(
+            "BOOKING SAVED TO SUPABASE"
+          );
+
+
+          /* ======================================
+             SEND EMAIL NOTIFICATION
+          ====================================== */
+
+          try {
+
+            const emailResponse =
+              await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                {
+
+                  owner_name:
+                    "CityServe Service Owner",
+
+                  owner_email:
+                    OWNER_EMAIL,
+
+                  customer_name:
+                    booking.customer_name,
+
+                  customer_email:
+                    booking.customer_email,
+
+                  customer_phone:
+                    booking.customer_phone,
+
+                  service:
+                    booking.service,
+
+                  booking_date:
+                    booking.booking_date,
+
+                  booking_time:
+                    booking.booking_time,
+
+                  address:
+                    booking.address,
+
+                  notes:
+                    booking.notes
+                }
+              );
+
+
+            console.log(
+              "EMAILJS RESPONSE:",
+              emailResponse
+            );
+
+
+            /* ==================================
+               SUCCESS
+            ================================== */
+
+            message.className =
+              "success";
+
+            message.innerHTML =
+              "✅ Booking submitted successfully!<br><br>" +
+              "Your service request has been received.";
+
+            form.reset();
+
+
+          } catch (emailError) {
+
+            /*
+              IMPORTANT:
+              The booking is already saved.
+              Only the email failed.
+            */
+
+            console.error(
+              "EMAILJS ERROR:",
+              emailError
+            );
+
+
+            message.className =
+              "warning";
+
+            message.innerHTML =
+              "✅ Booking received!<br><br>" +
+              "Your booking has been saved successfully. " +
+              "The owner notification is currently unavailable.";
+
+            form.reset();
+          }
+
+
+        } catch (bookingError) {
+
+          /* ======================================
+             SUPABASE FAILED
+          ====================================== */
+
+          console.error(
+            "BOOKING ERROR:",
+            bookingError
+          );
+
+
+          message.className =
+            "error";
+
+          message.innerHTML =
+            "❌ We couldn't save your booking.<br><br>" +
+            "Please check your information and try again.";
+
         }
-      );
 
 
-      /* ==============================
-         SUCCESS
-      ============================== */
+        /* Enable button again */
 
-      message.className = "success";
+        button.disabled = false;
 
-      message.innerHTML =
-        "✅ Booking successful!<br><br>" +
-        "The service owner has been notified.";
+        button.textContent =
+          "Book a Service";
 
-      form.reset();
+      }
 
+    );
 
-    } catch (error) {
-
-      console.error(error);
-
-      message.className = "error";
-
-      message.innerHTML =
-        "❌ Booking could not be completed.<br><br>" +
-        "Please try again.";
-
-    }
-
-
-    button.disabled = false;
-    button.textContent = "Book a Service";
-
-  });
-
-</script>
+  </script>
 
 </body>
 </html>
