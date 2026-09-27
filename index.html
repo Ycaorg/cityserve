@@ -7,14 +7,6 @@
 <title>CityServe Hub PH</title>
 
 <style>
-:root {
-    --orange: #ff7a00;
-    --dark: #111111;
-    --light: #f7f7f7;
-    --gray: #666666;
-    --white: #ffffff;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -27,54 +19,44 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: var(--light);
-    color: var(--dark);
-    line-height: 1.6;
+    background: #f7f7f7;
+    color: #222;
 }
 
 /* ================= HEADER ================= */
 
 header {
-    background: var(--dark);
-    border-bottom: 4px solid var(--orange);
     position: sticky;
     top: 0;
     z-index: 1000;
+    background: #111;
+    border-bottom: 4px solid #ff7a00;
+    padding: 15px 20px;
 }
 
-.nav {
-    max-width: 1250px;
-    margin: auto;
-    min-height: 75px;
+nav {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 10px 20px;
-}
-
-.nav-links {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
-.nav-links button {
+nav button {
     background: transparent;
-    border: none;
     color: white;
+    border: none;
     padding: 10px 13px;
-    cursor: pointer;
     font-size: 14px;
     font-weight: bold;
+    cursor: pointer;
     border-radius: 6px;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
-.nav-links button:hover,
-.nav-links button.active {
-    background: var(--orange);
+nav button:hover {
+    background: #ff7a00;
+    color: white;
 }
 
 /* ================= PAGES ================= */
@@ -90,54 +72,57 @@ header {
 /* ================= HERO ================= */
 
 .hero {
-    min-height: 600px;
-    background:
-        linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.62)),
-        url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80");
-    background-size: cover;
-    background-position: center;
+    min-height: 620px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 50px 20px;
+
+    background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
     color: white;
-    padding: 60px 20px;
 }
 
 .hero-content {
-    max-width: 850px;
+    max-width: 800px;
 }
 
 .hero h1 {
-    font-size: clamp(42px, 7vw, 78px);
+    font-size: 55px;
     margin-bottom: 20px;
-    font-weight: 800;
 }
 
 .hero h1 span {
-    color: var(--orange);
+    color: #ff7a00;
 }
 
 .hero p {
     font-size: 20px;
+    line-height: 1.6;
     margin-bottom: 30px;
 }
 
 .btn {
     display: inline-block;
-    padding: 14px 28px;
-    background: var(--orange);
+    background: #ff7a00;
     color: white;
-    text-decoration: none;
+    padding: 15px 25px;
     border: none;
-    border-radius: 7px;
+    border-radius: 8px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    text-decoration: none;
+    transition: 0.2s;
 }
 
 .btn:hover {
-    background: #e86600;
+    background: #e56600;
     transform: translateY(-2px);
 }
 
@@ -145,147 +130,108 @@ header {
 
 .container {
     width: 90%;
-    max-width: 1150px;
+    max-width: 1200px;
     margin: auto;
-}
-
-.section {
-    padding: 70px 0;
+    padding: 60px 0;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 45px;
-}
-
-.section-title h2 {
     font-size: 38px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .section-title span {
-    color: var(--orange);
+    color: #ff7a00;
 }
 
-.section-title p {
-    color: var(--gray);
-}
-
-/* ================= HOME ================= */
-
-.home-intro {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 45px;
-    align-items: center;
-}
-
-.home-intro img {
-    width: 100%;
-    height: 360px;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.home-intro h2 {
-    font-size: 36px;
-    margin-bottom: 18px;
-}
-
-.home-intro h2 span {
-    color: var(--orange);
-}
-
-.home-intro p {
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-top: 55px;
-}
-
-.stat {
-    background: white;
-    padding: 30px 20px;
+.section-subtitle {
     text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-}
-
-.stat h3 {
-    font-size: 34px;
-    color: var(--orange);
-}
-
-.stat p {
-    color: var(--gray);
+    color: #666;
+    margin-bottom: 40px;
 }
 
 /* ================= ABOUT ================= */
 
-.about-box {
-    background: white;
-    padding: 40px;
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    display: block;
 }
 
-.about-box h3 {
-    color: var(--orange);
-    margin-bottom: 10px;
-    font-size: 25px;
+.about-text h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
 }
 
-.about-box p {
+.about-text p {
+    line-height: 1.8;
     color: #555;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 /* ================= SERVICES ================= */
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 25px;
 }
 
 .service-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
     transition: 0.3s;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-7px);
 }
 
-.service-picture {
+.service-image {
     width: 100%;
-    height: 195px;
+    height: 190px;
     overflow: hidden;
-    background: #eee;
 }
 
-.service-picture img {
+.service-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-/* REAL AC PHOTO */
+.service-content {
+    padding: 20px;
+}
+
+.service-content h3 {
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.service-content p {
+    color: #666;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* ================= AIRCON ================= */
 
 .ac-picture {
     width: 100%;
-    height: 195px;
+    height: 190px;
     overflow: hidden;
-    background: #f5f5f5;
+    background: #eee;
 }
 
 .ac-picture img {
@@ -293,27 +239,6 @@ header {
     height: 100%;
     object-fit: cover;
     display: block;
-}
-
-.service-info {
-    padding: 22px;
-}
-
-.service-info h3 {
-    margin-bottom: 8px;
-    font-size: 21px;
-}
-
-.service-info p {
-    color: var(--gray);
-    margin-bottom: 12px;
-    font-size: 14px;
-}
-
-.price {
-    color: var(--orange);
-    font-weight: bold;
-    font-size: 18px;
 }
 
 /* ================= HOW IT WORKS ================= */
@@ -326,22 +251,22 @@ header {
 
 .step {
     background: white;
+    padding: 30px 20px;
     text-align: center;
-    padding: 35px 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
 }
 
 .step-number {
     width: 55px;
     height: 55px;
-    background: var(--orange);
+    background: #ff7a00;
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 18px;
+    margin: 0 auto 20px;
     font-size: 22px;
     font-weight: bold;
 }
@@ -351,11 +276,11 @@ header {
 }
 
 .step p {
-    color: var(--gray);
-    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
 }
 
-/* ================= WHY CITYSERVE ================= */
+/* ================= WHY US ================= */
 
 .why-grid {
     display: grid;
@@ -366,21 +291,84 @@ header {
 .why-card {
     background: white;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-}
-
-.why-card .icon {
-    font-size: 40px;
-    margin-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
 }
 
 .why-card h3 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    color: #ff7a00;
 }
 
 .why-card p {
-    color: var(--gray);
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ================= REVIEWS ================= */
+
+.rating-summary {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.average-rating {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.stars {
+    color: #ffb400;
+    font-size: 28px;
+    letter-spacing: 3px;
+}
+
+.review-form {
+    background: white;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.review-form input,
+.review-form textarea,
+.review-form select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-family: inherit;
+}
+
+.review-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.review-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.review-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.review-card h3 {
+    margin-bottom: 8px;
+}
+
+.review-card p {
+    color: #666;
+    line-height: 1.5;
+    margin-top: 10px;
 }
 
 /* ================= BLOG ================= */
@@ -393,326 +381,106 @@ header {
 
 .blog-card {
     background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-}
-
-.blog-card img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-}
-
-.blog-content {
-    padding: 22px;
-}
-
-.blog-content h3 {
-    margin-bottom: 10px;
-}
-
-.blog-content p {
-    color: var(--gray);
-    font-size: 14px;
-}
-
-/* ================= RATINGS ================= */
-
-.rating-summary {
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.average-rating {
-    font-size: 60px;
-    font-weight: bold;
-    color: var(--orange);
-}
-
-.average-stars {
-    font-size: 32px;
-    color: #ffc107;
-    letter-spacing: 4px;
-}
-
-.rating-count {
-    color: var(--gray);
-    margin-top: 5px;
-}
-
-.review-form {
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-    margin-bottom: 35px;
-}
-
-.review-form h3 {
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 7px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #ddd;
-    border-radius: 7px;
-    font-family: inherit;
-    font-size: 15px;
-}
-
-.form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-/* STAR SELECTOR */
-
-.star-rating {
-    display: flex;
-    gap: 5px;
-    margin-bottom: 5px;
-}
-
-.star-rating button {
-    border: none;
-    background: transparent;
-    color: #ccc;
-    font-size: 38px;
-    cursor: pointer;
-    padding: 0;
-    transition: 0.2s;
-}
-
-.star-rating button:hover,
-.star-rating button.selected {
-    color: #ffc107;
-    transform: scale(1.1);
-}
-
-.selected-rating-text {
-    color: var(--gray);
-    font-size: 14px;
-}
-
-/* REVIEWS */
-
-.reviews-list {
-    display: grid;
-    gap: 20px;
-}
-
-.review-card {
-    background: white;
     padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
 }
 
-.review-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 10px;
+.blog-card h3 {
+    color: #ff7a00;
+    margin-bottom: 12px;
 }
 
-.reviewer-name {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.review-stars {
-    color: #ffc107;
-    font-size: 20px;
-}
-
-.review-date {
-    color: #999;
-    font-size: 12px;
-}
-
-.review-comment {
-    color: #555;
-    margin-top: 10px;
-}
-
-.delete-review {
-    position: absolute;
-    right: 20px;
-    bottom: 15px;
-    border: none;
-    background: transparent;
-    color: #999;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.delete-review:hover {
-    color: red;
-}
-
-.no-reviews {
-    text-align: center;
-    color: var(--gray);
-    padding: 30px;
+.blog-card p {
+    color: #666;
+    line-height: 1.6;
 }
 
 /* ================= CONTACT ================= */
 
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.contact-card {
+.contact-box {
+    max-width: 800px;
+    margin: auto;
     background: white;
     padding: 35px;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-}
-
-.contact-card h3 {
-    color: var(--orange);
-    margin-bottom: 15px;
-}
-
-.contact-item {
-    margin-bottom: 18px;
-}
-
-.contact-item strong {
-    display: block;
-}
-
-.contact-item span {
-    color: var(--gray);
-}
-
-/* ================= CTA ================= */
-
-.cta {
-    background: var(--dark);
-    color: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
     text-align: center;
-    padding: 70px 20px;
 }
 
-.cta h2 {
-    font-size: 38px;
-    margin-bottom: 15px;
-}
-
-.cta p {
-    margin-bottom: 25px;
-    color: #ddd;
+.contact-box p {
+    margin: 12px 0;
+    color: #555;
 }
 
 /* ================= FOOTER ================= */
 
 footer {
-    background: #080808;
+    background: #111;
     color: white;
-    padding: 35px 20px;
     text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
 }
 
-footer p {
-    color: #aaa;
-    font-size: 14px;
+footer span {
+    color: #ff7a00;
 }
 
-.footer-orange {
-    color: var(--orange);
-}
+/* ================= MOBILE ================= */
 
-/* ================= RESPONSIVE ================= */
+@media (max-width: 800px) {
 
-@media (max-width: 900px) {
-
-    .services-grid,
-    .why-grid,
-    .blog-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .steps {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .home-intro,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-
-    .nav {
-        padding: 8px 10px;
-    }
-
-    .nav-links {
-        gap: 3px;
-    }
-
-    .nav-links button {
-        font-size: 11px;
-        padding: 8px 7px;
-    }
-
-    .hero {
-        min-height: 500px;
+    .hero h1 {
+        font-size: 40px;
     }
 
     .hero p {
-        font-size: 16px;
+        font-size: 17px;
     }
 
-    .section {
-        padding: 50px 0;
-    }
-
-    .services-grid,
-    .why-grid,
-    .blog-grid,
-    .steps,
-    .stats {
+    .about-grid {
         grid-template-columns: 1fr;
     }
 
-    .section-title h2 {
+    .steps {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    nav button {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .section-title {
         font-size: 30px;
-    }
-
-    .average-rating {
-        font-size: 48px;
-    }
-
-    .average-stars {
-        font-size: 25px;
     }
 }
 </style>
@@ -723,45 +491,18 @@ footer p {
 <!-- ================= HEADER ================= -->
 
 <header>
-    <div class="nav">
+<nav>
 
-        <div class="nav-links">
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('about')">About Us</button>
+<button onclick="showPage('services')">Services</button>
+<button onclick="showPage('how')">How It Works</button>
+<button onclick="showPage('why')">Why CityServe Hub</button>
+<button onclick="showPage('reviews')">⭐ Reviews</button>
+<button onclick="showPage('blog')">Blog</button>
+<button onclick="showPage('contact')">Contact Us</button>
 
-            <button onclick="showPage('home')" class="active">
-                Home
-            </button>
-
-            <button onclick="showPage('about')">
-                About Us
-            </button>
-
-            <button onclick="showPage('services')">
-                Services
-            </button>
-
-            <button onclick="showPage('how')">
-                How It Works
-            </button>
-
-            <button onclick="showPage('why')">
-                Why CityServe Hub
-            </button>
-
-            <button onclick="showPage('reviews')">
-                ⭐ Reviews
-            </button>
-
-            <button onclick="showPage('blog')">
-                Blog
-            </button>
-
-            <button onclick="showPage('contact')">
-                Contact Us
-            </button>
-
-        </div>
-
-    </div>
+</nav>
 </header>
 
 
@@ -769,117 +510,71 @@ footer p {
 
 <section id="home" class="page active">
 
-    <div class="hero">
+<div class="hero">
 
-        <div class="hero-content">
+<div class="hero-content">
 
-            <h1>
-                CITYSERVE <span>HUB</span>
-            </h1>
+<h1>
+Your Services.<br>
+<span>One Hub.</span>
+</h1>
 
-            <p>
-                Your trusted online platform for convenient,
-                reliable, and professional home and business services.
-            </p>
+<p>
+CityServe Hub connects you with trusted service professionals
+for your home, office, and everyday needs.
+</p>
 
-            <button class="btn" onclick="showPage('services')">
-                Explore Services
-            </button>
+<a href="booking.html" class="btn">
+Book a Service
+</a>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
+<div class="container">
 
-    <div class="section">
+<h2 class="section-title">
+Welcome to <span>CityServe Hub</span>
+</h2>
 
-        <div class="container">
+<p class="section-subtitle">
+Convenient services, trusted partners, and hassle-free booking.
+</p>
 
-            <div class="home-intro">
+<div class="about-grid">
 
-                <img
-                    src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80"
-                    alt="Modern home"
-                >
+<div class="about-image">
 
-                <div>
+<img
+src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1000&q=80"
+alt="Professional home service">
 
-                    <h2>
-                        Services at Your
-                        <span>Fingertips</span>
-                    </h2>
+</div>
 
-                    <p>
-                        CityServe Hub PH connects customers with
-                        trusted service providers for everyday home
-                        and business needs.
-                    </p>
+<div class="about-text">
 
-                    <p>
-                        From cleaning and repairs to technology and
-                        creative services, everything can be booked
-                        through one convenient platform.
-                    </p>
+<h2>Everything You Need, In One Place</h2>
 
-                    <button
-                        class="btn"
-                        onclick="showPage('services')"
-                    >
-                        View Services
-                    </button>
+<p>
+CityServe Hub is an online multi-service platform designed
+to make finding and booking services easier.
+</p>
 
-                </div>
+<p>
+From home maintenance to digital services, we connect
+customers with service providers through one convenient platform.
+</p>
 
-            </div>
+<button class="btn" onclick="showPage('services')">
+Explore Services
+</button>
 
+</div>
 
-            <div class="stats">
+</div>
 
-                <div class="stat">
-                    <h3>18+</h3>
-                    <p>Services</p>
-                </div>
-
-                <div class="stat">
-                    <h3>24/7</h3>
-                    <p>Online Booking</p>
-                </div>
-
-                <div class="stat">
-                    <h3>100%</h3>
-                    <p>Convenience</p>
-                </div>
-
-                <div class="stat">
-                    <h3>PH</h3>
-                    <p>Local Service</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="cta">
-
-        <h2>
-            Need a Service?
-        </h2>
-
-        <p>
-            Book the service you need quickly and conveniently.
-        </p>
-
-        <a
-            href="booking.html"
-            class="btn"
-        >
-            Book a Service
-        </a>
-
-    </div>
+</div>
 
 </section>
 
@@ -888,56 +583,52 @@ footer p {
 
 <section id="about" class="page">
 
-    <div class="section">
+<div class="container">
 
-        <div class="container">
+<h2 class="section-title">
+About <span>Us</span>
+</h2>
 
-            <div class="section-title">
+<p class="section-subtitle">
+Connecting people with reliable services.
+</p>
 
-                <h2>
-                    About <span>Us</span>
-                </h2>
+<div class="about-grid">
 
-                <p>
-                    Learn more about CityServe Hub PH
-                </p>
+<div class="about-text">
 
-            </div>
+<h2>Who We Are</h2>
 
+<p>
+CityServe Hub PH is an online multi-service platform
+created to make everyday service booking faster,
+simpler, and more convenient.
+</p>
 
-            <div class="about-box">
+<p>
+Instead of searching for different providers,
+customers can find multiple services in one place.
+</p>
 
-                <h3>Who We Are</h3>
+<p>
+We work with service partners while CityServe Hub
+handles booking, customer support, payment coordination,
+quality control, and marketing.
+</p>
 
-                <p>
-                    CityServe Hub PH is an online multi-service
-                    platform designed to make everyday services
-                    easier to find, book, and manage.
-                </p>
+</div>
 
+<div class="about-image">
 
-                <h3>Our Mission</h3>
+<img
+src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1000&q=80"
+alt="Online service platform">
 
-                <p>
-                    Our mission is to connect customers with
-                    reliable service providers while making
-                    booking simple, accessible, and convenient.
-                </p>
+</div>
 
+</div>
 
-                <h3>Our Vision</h3>
-
-                <p>
-                    We envision a connected community where
-                    people can easily access trusted services
-                    through one digital platform.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -946,590 +637,421 @@ footer p {
 
 <section id="services" class="page">
 
-    <div class="section">
+<div class="container">
 
-        <div class="container">
+<h2 class="section-title">
+Our <span>Services</span>
+</h2>
 
-            <div class="section-title">
+<p class="section-subtitle">
+Choose from a wide range of professional services.
+</p>
 
-                <h2>
-                    Our <span>Services</span>
-                </h2>
+<div class="services-grid">
 
-                <p>
-                    Professional services for your everyday needs
-                </p>
 
-            </div>
+<!-- CLEANING -->
 
+<div class="service-card">
 
-            <div class="services-grid">
+<div class="service-image">
 
+<img
+src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
+alt="Cleaning service">
 
-                <!-- CLEANING -->
+</div>
 
-                <div class="service-card">
+<div class="service-content">
 
-                    <div class="service-picture">
+<h3>Cleaning Services</h3>
 
-                        <img
-                            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
-                            alt="Cleaning service"
-                        >
+<p>
+Professional home and office cleaning services.
+</p>
 
-                    </div>
+</div>
 
-                    <div class="service-info">
+</div>
 
-                        <h3>Home Cleaning</h3>
 
-                        <p>
-                            Professional cleaning for homes,
-                            apartments, and offices.
-                        </p>
+<!-- CAR WASH -->
 
-                        <div class="price">
-                            ₱800 starting
-                        </div>
+<div class="service-card">
 
-                    </div>
+<div class="service-image">
 
-                </div>
+<img
+src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=800&q=80"
+alt="Car wash">
 
+</div>
 
-                <!-- CAR WASH -->
+<div class="service-content">
 
-                <div class="service-card">
+<h3>Car Wash</h3>
 
-                    <div class="service-picture">
+<p>
+Convenient vehicle cleaning and detailing services.
+</p>
 
-                        <img
-                            src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80"
-                            alt="Car wash"
-                        >
+</div>
 
-                    </div>
+</div>
 
-                    <div class="service-info">
 
-                        <h3>Car Wash</h3>
+<!-- PEST CONTROL -->
 
-                        <p>
-                            Convenient vehicle cleaning and
-                            detailing services.
-                        </p>
+<div class="service-card">
 
-                        <div class="price">
-                            ₱500 starting
-                        </div>
+<div class="service-image">
 
-                    </div>
+<img
+src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=800&q=80"
+alt="Pest control">
 
-                </div>
+</div>
 
+<div class="service-content">
 
-                <!-- PEST -->
+<h3>Pest Control</h3>
 
-                <div class="service-card">
+<p>
+Solutions for common household and commercial pests.
+</p>
 
-                    <div class="service-picture">
+</div>
 
-                        <img
-                            src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=800&q=80"
-                            alt="Home service"
-                        >
+</div>
 
-                    </div>
 
-                    <div class="service-info">
+<!-- BABYSITTING -->
 
-                        <h3>Pest Control</h3>
+<div class="service-card">
 
-                        <p>
-                            Professional pest inspection and
-                            treatment services.
-                        </p>
+<div class="service-image">
 
-                        <div class="price">
-                            ₱1,000 starting
-                        </div>
+<img
+src="https://images.unsplash.com/photo-1602030028438-4f1e6f763d9e?auto=format&fit=crop&w=800&q=80"
+alt="Babysitting">
 
-                    </div>
+</div>
 
-                </div>
+<div class="service-content">
 
+<h3>Babysitting</h3>
 
-                <!-- BABYSITTING -->
+<p>
+Reliable childcare services for busy families.
+</p>
 
-                <div class="service-card">
+</div>
 
-                    <div class="service-picture">
+</div>
 
-                        <img
-                            src="https://images.unsplash.com/photo-1504159506876-f8338247a14a?auto=format&fit=crop&w=800&q=80"
-                            alt="Babysitting"
-                        >
 
-                    </div>
+<!-- CHEF -->
 
-                    <div class="service-info">
+<div class="service-card">
 
-                        <h3>Babysitting</h3>
+<div class="service-image">
 
-                        <p>
-                            Reliable childcare assistance for
-                            busy parents.
-                        </p>
+<img
+src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80"
+alt="Private chef">
 
-                        <div class="price">
-                            ₱500 starting
-                        </div>
+</div>
 
-                    </div>
+<div class="service-content">
 
-                </div>
+<h3>Private Chef</h3>
 
+<p>
+Professional cooking services for homes and events.
+</p>
 
-                <!-- CHEF -->
+</div>
 
-                <div class="service-card">
+</div>
 
-                    <div class="service-picture">
 
-                        <img
-                            src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80"
-                            alt="Chef service"
-                        >
+<!-- AIRCON -->
 
-                    </div>
+<div class="service-card">
 
-                    <div class="service-info">
+<div class="ac-picture">
 
-                        <h3>Private Chef</h3>
+<img
+src="aircon.jpg"
+alt="Air conditioning service">
 
-                        <p>
-                            Professional cooking services for
-                            homes and special occasions.
-                        </p>
+</div>
 
-                        <div class="price">
-                            ₱1,500 starting
-                        </div>
+<div class="service-content">
 
-                    </div>
+<h3>Air Conditioning</h3>
 
-                </div>
+<p>
+Installation, cleaning, maintenance, and repair services.
+</p>
 
+</div>
 
-                <!-- AIR CONDITIONING -->
+</div>
 
-                <div class="service-card">
 
-                    <div class="ac-picture">
+<!-- PLUMBING -->
 
-                        <img
-                            src="https://trebam.com.hr/storage/blogs/Utjecaj%20klima%20ure%C4%91aja%20na%20vlagu%20u%20zraku%20i%20zdravlje-3.jpg"
-                            alt="Air conditioner in a living room"
-                        >
+<div class="service-card">
 
-                    </div>
+<div class="service-image">
 
-                    <div class="service-info">
+<img
+src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80"
+alt="Plumbing">
 
-                        <h3>
-                            Air Conditioner Cleaning
-                        </h3>
+</div>
 
-                        <p>
-                            Cleaning and maintenance for
-                            air-conditioning units.
-                        </p>
+<div class="service-content">
 
-                        <div class="price">
-                            ₱700 per unit
-                        </div>
+<h3>Plumbing</h3>
 
-                    </div>
+<p>
+Professional plumbing installation and repair.
+</p>
 
-                </div>
+</div>
 
+</div>
 
-                <!-- PLUMBING -->
 
-                <div class="service-card">
+<!-- ELECTRICAL -->
 
-                    <div class="service-picture">
+<div class="service-card">
 
-                        <img
-                            src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80"
-                            alt="Plumbing"
-                        >
+<div class="service-image">
 
-                    </div>
+<img
+src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"
+alt="Electrical service">
 
-                    <div class="service-info">
+</div>
 
-                        <h3>Plumbing</h3>
+<div class="service-content">
 
-                        <p>
-                            Plumbing repairs, installation,
-                            and maintenance.
-                        </p>
+<h3>Electrical</h3>
 
-                        <div class="price">
-                            ₱700 starting
-                        </div>
+<p>
+Electrical installation, troubleshooting, and repair.
+</p>
 
-                    </div>
+</div>
 
-                </div>
+</div>
 
 
-                <!-- ELECTRICAL -->
+<!-- CARPENTRY -->
 
-                <div class="service-card">
+<div class="service-card">
 
-                    <div class="service-picture">
+<div class="service-image">
 
-                        <img
-                            src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80"
-                            alt="Electrical work"
-                        >
+<img
+src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80"
+alt="Carpentry">
 
-                    </div>
+</div>
 
-                    <div class="service-info">
+<div class="service-content">
 
-                        <h3>Electrical</h3>
+<h3>Carpentry</h3>
 
-                        <p>
-                            Electrical installation and
-                            repair services.
-                        </p>
+<p>
+Furniture, repairs, installations, and woodwork.
+</p>
 
-                        <div class="price">
-                            ₱800 starting
-                        </div>
+</div>
 
-                    </div>
+</div>
 
-                </div>
 
+<!-- PAINTING -->
 
-                <!-- CARPENTRY -->
+<div class="service-card">
 
-                <div class="service-card">
+<div class="service-image">
 
-                    <div class="service-picture">
+<img
+src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80"
+alt="Painting service">
 
-                        <img
-                            src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80"
-                            alt="Carpentry"
-                        >
+</div>
 
-                    </div>
+<div class="service-content">
 
-                    <div class="service-info">
+<h3>Painting</h3>
 
-                        <h3>Carpentry</h3>
+<p>
+Interior and exterior painting services.
+</p>
 
-                        <p>
-                            Furniture repairs, installations,
-                            and custom woodwork.
-                        </p>
+</div>
 
-                        <div class="price">
-                            ₱900 starting
-                        </div>
+</div>
 
-                    </div>
 
-                </div>
+<!-- WEBSITE -->
 
+<div class="service-card">
 
-                <!-- PAINTING -->
+<div class="service-image">
 
-                <div class="service-card">
+<img
+src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
+alt="Website development">
 
-                    <div class="service-picture">
+</div>
 
-                        <img
-                            src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80"
-                            alt="Painting service"
-                        >
+<div class="service-content">
 
-                    </div>
+<h3>Website Development</h3>
 
-                    <div class="service-info">
+<p>
+Websites for businesses, organizations, and personal projects.
+</p>
 
-                        <h3>Painting</h3>
+</div>
 
-                        <p>
-                            Interior and exterior painting
-                            services.
-                        </p>
+</div>
 
-                        <div class="price">
-                            ₱1,000 starting
-                        </div>
 
-                    </div>
+<!-- GRAPHIC DESIGN -->
 
-                </div>
+<div class="service-card">
 
+<div class="service-image">
 
-                <!-- WEBSITE -->
+<img
+src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80"
+alt="Graphic design">
 
-                <div class="service-card">
+</div>
 
-                    <div class="service-picture">
+<div class="service-content">
 
-                        <img
-                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
-                            alt="Website development"
-                        >
+<h3>Graphic Design</h3>
 
-                    </div>
+<p>
+Logos, posters, branding, and digital graphics.
+</p>
 
-                    <div class="service-info">
+</div>
 
-                        <h3>Website Development</h3>
+</div>
 
-                        <p>
-                            Website creation and development
-                            for businesses.
-                        </p>
 
-                        <div class="price">
-                            ₱5,000 starting
-                        </div>
+<!-- SOCIAL MEDIA -->
 
-                    </div>
+<div class="service-card">
 
-                </div>
+<div class="service-image">
 
+<img
+src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80"
+alt="Social media">
 
-                <!-- GRAPHICS -->
+</div>
 
-                <div class="service-card">
+<div class="service-content">
 
-                    <div class="service-picture">
+<h3>Social Media</h3>
 
-                        <img
-                            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80"
-                            alt="Graphic design"
-                        >
+<p>
+Social media management and content support.
+</p>
 
-                    </div>
+</div>
 
-                    <div class="service-info">
+</div>
 
-                        <h3>Graphic Design</h3>
 
-                        <p>
-                            Creative graphics, posters,
-                            logos, and promotional materials.
-                        </p>
+<!-- IT -->
 
-                        <div class="price">
-                            ₱500 starting
-                        </div>
+<div class="service-card">
 
-                    </div>
+<div class="service-image">
 
-                </div>
+<img
+src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+alt="IT support">
 
+</div>
 
-                <!-- SOCIAL MEDIA -->
+<div class="service-content">
 
-                <div class="service-card">
+<h3>IT Support</h3>
 
-                    <div class="service-picture">
+<p>
+Technical assistance for computers and digital systems.
+</p>
 
-                        <img
-                            src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80"
-                            alt="Social media"
-                        >
+</div>
 
-                    </div>
+</div>
 
-                    <div class="service-info">
 
-                        <h3>Social Media Management</h3>
+<!-- CCTV -->
 
-                        <p>
-                            Content planning and social media
-                            management for businesses.
-                        </p>
+<div class="service-card">
 
-                        <div class="price">
-                            ₱2,000 starting
-                        </div>
+<div class="service-image">
 
-                    </div>
+<img
+src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
+alt="CCTV security">
 
-                </div>
+</div>
 
+<div class="service-content">
 
-                <!-- IT -->
+<h3>CCTV Installation</h3>
 
-                <div class="service-card">
+<p>
+Security camera installation and setup.
+</p>
 
-                    <div class="service-picture">
+</div>
 
-                        <img
-                            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
-                            alt="IT service"
-                        >
+</div>
 
-                    </div>
 
-                    <div class="service-info">
+<!-- NETWORK -->
 
-                        <h3>IT Support</h3>
+<div class="service-card">
 
-                        <p>
-                            Computer troubleshooting and
-                            technology assistance.
-                        </p>
+<div class="service-image">
 
-                        <div class="price">
-                            ₱700 starting
-                        </div>
+<img
+src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
+alt="Network setup">
 
-                    </div>
+</div>
 
-                </div>
+<div class="service-content">
 
+<h3>Network Setup</h3>
 
-                <!-- CCTV -->
+<p>
+Wi-Fi, routers, network configuration, and troubleshooting.
+</p>
 
-                <div class="service-card">
+</div>
 
-                    <div class="service-picture">
+</div>
 
-                        <img
-                            src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
-                            alt="Security camera"
-                        >
+</div>
 
-                    </div>
-
-                    <div class="service-info">
-
-                        <h3>CCTV Installation</h3>
-
-                        <p>
-                            CCTV installation and security
-                            system setup.
-                        </p>
-
-                        <div class="price">
-                            ₱2,500 starting
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- NETWORK -->
-
-                <div class="service-card">
-
-                    <div class="service-picture">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
-                            alt="Network setup"
-                        >
-
-                    </div>
-
-                    <div class="service-info">
-
-                        <h3>Network Setup</h3>
-
-                        <p>
-                            Wi-Fi, router, and network
-                            installation services.
-                        </p>
-
-                        <div class="price">
-                            ₱1,000 starting
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- HOME REPAIR -->
-
-                <div class="service-card">
-
-                    <div class="service-picture">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&w=800&q=80"
-                            alt="Home repair"
-                        >
-
-                    </div>
-
-                    <div class="service-info">
-
-                        <h3>General Home Repair</h3>
-
-                        <p>
-                            Convenient solutions for
-                            common household repairs.
-                        </p>
-
-                        <div class="price">
-                            ₱600 starting
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- OFFICE SUPPORT -->
-
-                <div class="service-card">
-
-                    <div class="service-picture">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80"
-                            alt="Office service"
-                        >
-
-                    </div>
-
-                    <div class="service-info">
-
-                        <h3>Office Services</h3>
-
-                        <p>
-                            Support services for small
-                            businesses and offices.
-                        </p>
-
-                        <div class="price">
-                            ₱1,000 starting
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -1538,100 +1060,69 @@ footer p {
 
 <section id="how" class="page">
 
-    <div class="section">
+<div class="container">
 
-        <div class="container">
+<h2 class="section-title">
+How It <span>Works</span>
+</h2>
 
-            <div class="section-title">
+<p class="section-subtitle">
+Booking a service is simple.
+</p>
 
-                <h2>
-                    How It <span>Works</span>
-                </h2>
+<div class="steps">
 
-                <p>
-                    Booking a service is simple
-                </p>
+<div class="step">
 
-            </div>
+<div class="step-number">1</div>
 
+<h3>Choose a Service</h3>
 
-            <div class="steps">
+<p>
+Browse our available services and select what you need.
+</p>
 
-                <div class="step">
+</div>
 
-                    <div class="step-number">
-                        1
-                    </div>
+<div class="step">
 
-                    <h3>
-                        Choose
-                    </h3>
+<div class="step-number">2</div>
 
-                    <p>
-                        Browse the service you need.
-                    </p>
+<h3>Book</h3>
 
-                </div>
+<p>
+Submit your service request and preferred schedule.
+</p>
 
+</div>
 
-                <div class="step">
+<div class="step">
 
-                    <div class="step-number">
-                        2
-                    </div>
+<div class="step-number">3</div>
 
-                    <h3>
-                        Book
-                    </h3>
+<h3>Get Connected</h3>
 
-                    <p>
-                        Select your preferred date
-                        and time.
-                    </p>
+<p>
+CityServe Hub connects you with a suitable service partner.
+</p>
 
-                </div>
+</div>
 
+<div class="step">
 
-                <div class="step">
+<div class="step-number">4</div>
 
-                    <div class="step-number">
-                        3
-                    </div>
+<h3>Enjoy the Service</h3>
 
-                    <h3>
-                        Connect
-                    </h3>
+<p>
+Receive your service and leave a rating or review.
+</p>
 
-                    <p>
-                        We connect you with a
-                        service provider.
-                    </p>
+</div>
 
-                </div>
+</div>
 
-
-                <div class="step">
-
-                    <div class="step-number">
-                        4
-                    </div>
-
-                    <h3>
-                        Enjoy
-                    </h3>
-
-                    <p>
-                        Receive the service and
-                        share your experience.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -1640,137 +1131,87 @@ footer p {
 
 <section id="why" class="page">
 
-    <div class="section">
+<div class="container">
 
-        <div class="container">
+<h2 class="section-title">
+Why <span>CityServe Hub?</span>
+</h2>
 
-            <div class="section-title">
+<p class="section-subtitle">
+One platform for your everyday service needs.
+</p>
 
-                <h2>
-                    Why <span>CityServe Hub?</span>
-                </h2>
+<div class="why-grid">
 
-                <p>
-                    Making service booking easier for everyone
-                </p>
+<div class="why-card">
 
-            </div>
+<h3>Convenient</h3>
 
+<p>
+Book different services through one online platform
+instead of searching for providers individually.
+</p>
 
-            <div class="why-grid">
+</div>
 
-                <div class="why-card">
+<div class="why-card">
 
-                    <div class="icon">
-                        ⚡
-                    </div>
+<h3>Trusted Partners</h3>
 
-                    <h3>
-                        Convenient
-                    </h3>
+<p>
+We work with service providers and focus on service
+coordination and quality control.
+</p>
 
-                    <p>
-                        Access multiple services from
-                        one online platform.
-                    </p>
+</div>
 
-                </div>
+<div class="why-card">
 
+<h3>Easy Booking</h3>
 
-                <div class="why-card">
+<p>
+Our booking process is designed to be simple,
+clear, and convenient.
+</p>
 
-                    <div class="icon">
-                        🛡️
-                    </div>
+</div>
 
-                    <h3>
-                        Reliable
-                    </h3>
+<div class="why-card">
 
-                    <p>
-                        We connect customers with
-                        service providers.
-                    </p>
+<h3>Multiple Services</h3>
 
-                </div>
+<p>
+From home maintenance to digital services,
+CityServe Hub brings different services together.
+</p>
 
+</div>
 
-                <div class="why-card">
+<div class="why-card">
 
-                    <div class="icon">
-                        💰
-                    </div>
+<h3>Customer Support</h3>
 
-                    <h3>
-                        Transparent
-                    </h3>
+<p>
+Customers can contact CityServe Hub for booking
+and service concerns.
+</p>
 
-                    <p>
-                        Clear service information and
-                        straightforward pricing.
-                    </p>
+</div>
 
-                </div>
+<div class="why-card">
 
+<h3>Quality Focused</h3>
 
-                <div class="why-card">
+<p>
+We coordinate with service partners and collect
+customer feedback through ratings and reviews.
+</p>
 
-                    <div class="icon">
-                        📱
-                    </div>
+</div>
 
-                    <h3>
-                        Digital
-                    </h3>
+</div>
 
-                    <p>
-                        Book services online without
-                        unnecessary hassle.
-                    </p>
-
-                </div>
-
-
-                <div class="why-card">
-
-                    <div class="icon">
-                        🤝
-                    </div>
-
-                    <h3>
-                        Community
-                    </h3>
-
-                    <p>
-                        Supporting local service
-                        providers and customers.
-                    </p>
-
-                </div>
-
-
-                <div class="why-card">
-
-                    <div class="icon">
-                        ⭐
-                    </div>
-
-                    <h3>
-                        Customer Feedback
-                    </h3>
-
-                    <p>
-                        Customers can rate and review
-                        their service experience.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -1779,167 +1220,78 @@ footer p {
 
 <section id="reviews" class="page">
 
-    <div class="section">
+<div class="container">
 
-        <div class="container">
+<h2 class="section-title">
+Ratings & <span>Reviews</span>
+</h2>
 
-            <div class="section-title">
+<p class="section-subtitle">
+Share your CityServe Hub experience.
+</p>
 
-                <h2>
-                    Customer <span>Reviews</span>
-                </h2>
+<div class="rating-summary">
 
-                <p>
-                    See what customers are saying about CityServe Hub
-                </p>
+<div class="average-rating" id="averageRating">
+0.0
+</div>
 
-            </div>
+<div class="stars" id="averageStars">
+☆☆☆☆☆
+</div>
 
+<p>
+<span id="ratingCount">0</span> reviews
+</p>
 
-            <!-- RATING SUMMARY -->
-
-            <div class="rating-summary">
-
-                <div
-                    class="average-rating"
-                    id="averageRating"
-                >
-                    0.0
-                </div>
-
-                <div
-                    class="average-stars"
-                    id="averageStars"
-                >
-                    ☆☆☆☆☆
-                </div>
-
-                <div
-                    class="rating-count"
-                    id="ratingCount"
-                >
-                    No reviews yet
-                </div>
-
-            </div>
+</div>
 
 
-            <!-- REVIEW FORM -->
+<div class="review-form">
 
-            <div class="review-form">
+<h2>Leave a Review</h2>
 
-                <h3>
-                    Leave a Review
-                </h3>
+<form id="reviewForm">
 
+<input
+type="text"
+id="reviewName"
+placeholder="Your name"
+required
+>
 
-                <div class="form-group">
+<select id="reviewRating" required>
 
-                    <label>
-                        Your Name
-                    </label>
+<option value="">
+Choose your rating
+</option>
 
-                    <input
-                        type="text"
-                        id="reviewName"
-                        placeholder="Enter your name"
-                    >
+<option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
+<option value="4">⭐⭐⭐⭐ 4 Stars</option>
+<option value="3">⭐⭐⭐ 3 Stars</option>
+<option value="2">⭐⭐ 2 Stars</option>
+<option value="1">⭐ 1 Star</option>
 
-                </div>
+</select>
 
+<textarea
+id="reviewComment"
+placeholder="Write your review..."
+required
+></textarea>
 
-                <div class="form-group">
+<button class="btn" type="submit">
+Submit Review
+</button>
 
-                    <label>
-                        Your Rating
-                    </label>
+</form>
 
-                    <div class="star-rating">
-
-                        <button
-                            type="button"
-                            onclick="selectRating(1)"
-                            id="star1"
-                        >
-                            ★
-                        </button>
-
-                        <button
-                            type="button"
-                            onclick="selectRating(2)"
-                            id="star2"
-                        >
-                            ★
-                        </button>
-
-                        <button
-                            type="button"
-                            onclick="selectRating(3)"
-                            id="star3"
-                        >
-                            ★
-                        </button>
-
-                        <button
-                            type="button"
-                            onclick="selectRating(4)"
-                            id="star4"
-                        >
-                            ★
-                        </button>
-
-                        <button
-                            type="button"
-                            onclick="selectRating(5)"
-                            id="star5"
-                        >
-                            ★
-                        </button>
-
-                    </div>
-
-                    <div
-                        class="selected-rating-text"
-                        id="selectedRatingText"
-                    >
-                        Select a rating
-                    </div>
-
-                </div>
+</div>
 
 
-                <div class="form-group">
+<div id="reviewList" class="review-list"></div>
 
-                    <label>
-                        Your Comment
-                    </label>
-
-                    <textarea
-                        id="reviewComment"
-                        placeholder="Tell us about your experience..."
-                    ></textarea>
-
-                </div>
-
-
-                <button
-                    class="btn"
-                    onclick="submitReview()"
-                >
-                    Submit Review
-                </button>
-
-            </div>
-
-
-            <!-- REVIEWS -->
-
-            <div id="reviewsList" class="reviews-list">
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -1948,100 +1300,54 @@ footer p {
 
 <section id="blog" class="page">
 
-    <div class="section">
+<div class="container">
 
-        <div class="container">
+<h2 class="section-title">
+CityServe <span>Blog</span>
+</h2>
 
-            <div class="section-title">
+<p class="section-subtitle">
+Helpful tips for your home, business, and everyday life.
+</p>
 
-                <h2>
-                    CityServe <span>Blog</span>
-                </h2>
+<div class="blog-grid">
 
-                <p>
-                    Tips, ideas, and helpful information
-                </p>
+<div class="blog-card">
 
-            </div>
+<h3>5 Signs Your Air Conditioner Needs Cleaning</h3>
 
+<p>
+Poor airflow, unusual smells, water leaks, and reduced
+cooling may indicate that your air conditioner needs maintenance.
+</p>
 
-            <div class="blog-grid">
+</div>
 
-                <div class="blog-card">
+<div class="blog-card">
 
-                    <img
-                        src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
-                        alt="Cleaning"
-                    >
+<h3>Why Regular Home Cleaning Matters</h3>
 
-                    <div class="blog-content">
+<p>
+Regular cleaning can help maintain a comfortable,
+organized, and pleasant living environment.
+</p>
 
-                        <h3>
-                            Why Regular Home Cleaning Matters
-                        </h3>
+</div>
 
-                        <p>
-                            Keeping your home clean can make
-                            your living space more comfortable
-                            and organized.
-                        </p>
+<div class="blog-card">
 
-                    </div>
+<h3>When Should You Call a Professional?</h3>
 
-                </div>
+<p>
+Electrical, plumbing, air-conditioning, and other
+technical problems may require trained service providers.
+</p>
 
+</div>
 
-                <div class="blog-card">
+</div>
 
-                    <img
-                        src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80"
-                        alt="Home"
-                    >
-
-                    <div class="blog-content">
-
-                        <h3>
-                            Simple Ways to Maintain Your Home
-                        </h3>
-
-                        <p>
-                            Small maintenance habits can help
-                            prevent bigger household problems.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="blog-card">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80"
-                        alt="Business"
-                    >
-
-                    <div class="blog-content">
-
-                        <h3>
-                            Digital Services for Businesses
-                        </h3>
-
-                        <p>
-                            Online tools and professional
-                            services can help businesses
-                            operate more efficiently.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -2050,120 +1356,45 @@ footer p {
 
 <section id="contact" class="page">
 
-    <div class="section">
+<div class="container">
 
-        <div class="container">
+<h2 class="section-title">
+Contact <span>Us</span>
+</h2>
 
-            <div class="section-title">
+<p class="section-subtitle">
+Have questions? We'd love to hear from you.
+</p>
 
-                <h2>
-                    Contact <span>Us</span>
-                </h2>
+<div class="contact-box">
 
-                <p>
-                    We'd love to hear from you
-                </p>
+<p>
+<strong>CityServe Hub PH Corporation</strong>
+</p>
 
-            </div>
+<p>
+📍 Metro Manila, Philippines
+</p>
 
+<p>
+📧 info@cityservehub.ph
+</p>
 
-            <div class="contact-grid">
+<p>
+🕐 Monday - Saturday | 8:00 AM - 6:00 PM
+</p>
 
-                <div class="contact-card">
+<p>
+🌐 Online booking available 24/7
+</p>
 
-                    <h3>
-                        CityServe Hub PH
-                    </h3>
+<a href="booking.html" class="btn">
+Book a Service
+</a>
 
-                    <div class="contact-item">
+</div>
 
-                        <strong>
-                            📍 Location
-                        </strong>
-
-                        <span>
-                            Metro Manila, Philippines
-                        </span>
-
-                    </div>
-
-
-                    <div class="contact-item">
-
-                        <strong>
-                            📧 Email
-                        </strong>
-
-                        <span>
-                            info@cityservehub.ph
-                        </span>
-
-                    </div>
-
-
-                    <div class="contact-item">
-
-                        <strong>
-                            📱 Customer Support
-                        </strong>
-
-                        <span>
-                            Available for booking concerns
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="contact-card">
-
-                    <h3>
-                        Business Hours
-                    </h3>
-
-                    <div class="contact-item">
-
-                        <strong>
-                            Monday – Saturday
-                        </strong>
-
-                        <span>
-                            8:00 AM – 6:00 PM
-                        </span>
-
-                    </div>
-
-
-                    <div class="contact-item">
-
-                        <strong>
-                            Online Booking
-                        </strong>
-
-                        <span>
-                            Available 24/7
-                        </span>
-
-                    </div>
-
-
-                    <br>
-
-                    <a
-                        href="booking.html"
-                        class="btn"
-                    >
-                        Book a Service
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -2172,18 +1403,16 @@ footer p {
 
 <footer>
 
-    <p>
-        © 2026
-        <span class="footer-orange">
-            CityServe Hub PH
-        </span>
-        . All Rights Reserved.
-    </p>
+<p>
+© 2026 <span>CityServe Hub PH</span>. All Rights Reserved.
+</p>
+
+<p>
+Your Services. One Hub.
+</p>
 
 </footer>
 
-
-<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
@@ -2193,7 +1422,7 @@ function showPage(pageId) {
 
     const pages = document.querySelectorAll(".page");
 
-    pages.forEach(function(page) {
+    pages.forEach(page => {
         page.classList.remove("active");
     });
 
@@ -2203,35 +1432,6 @@ function showPage(pageId) {
         selectedPage.classList.add("active");
     }
 
-
-    const buttons = document.querySelectorAll(".nav-links button");
-
-    buttons.forEach(function(button) {
-        button.classList.remove("active");
-    });
-
-
-    const pageNames = {
-        home: "Home",
-        about: "About Us",
-        services: "Services",
-        how: "How It Works",
-        why: "Why CityServe Hub",
-        reviews: "⭐ Reviews",
-        blog: "Blog",
-        contact: "Contact Us"
-    };
-
-
-    buttons.forEach(function(button) {
-
-        if (button.textContent.trim() === pageNames[pageId]) {
-            button.classList.add("active");
-        }
-
-    });
-
-
     window.scrollTo({
         top: 0,
         behavior: "smooth"
@@ -2239,69 +1439,18 @@ function showPage(pageId) {
 }
 
 
-/* ================= RATINGS ================= */
+/* ================= REVIEWS ================= */
 
-let selectedRating = 0;
-
-
-/* SELECT STAR */
-
-function selectRating(rating) {
-
-    selectedRating = rating;
-
-
-    for (let i = 1; i <= 5; i++) {
-
-        const star = document.getElementById("star" + i);
-
-        if (i <= rating) {
-            star.classList.add("selected");
-        } else {
-            star.classList.remove("selected");
-        }
-
-    }
-
-
-    const ratingText =
-        document.getElementById("selectedRatingText");
-
-
-    const words = {
-        1: "1 star",
-        2: "2 stars",
-        3: "3 stars",
-        4: "4 stars",
-        5: "5 stars"
-    };
-
-
-    ratingText.textContent =
-        words[rating] + " selected";
-}
-
-
-/* GET REVIEWS */
+const reviewForm = document.getElementById("reviewForm");
 
 function getReviews() {
 
-    const storedReviews =
-        localStorage.getItem("cityserveReviews");
+    return JSON.parse(
+        localStorage.getItem("cityserveReviews") || "[]"
+    );
 
-    if (!storedReviews) {
-        return [];
-    }
-
-    try {
-        return JSON.parse(storedReviews);
-    } catch (error) {
-        return [];
-    }
 }
 
-
-/* SAVE REVIEWS */
 
 function saveReviews(reviews) {
 
@@ -2312,107 +1461,6 @@ function saveReviews(reviews) {
 
 }
 
-
-/* SUBMIT REVIEW */
-
-function submitReview() {
-
-    const name =
-        document.getElementById("reviewName")
-        .value
-        .trim();
-
-    const comment =
-        document.getElementById("reviewComment")
-        .value
-        .trim();
-
-
-    if (name === "") {
-
-        alert("Please enter your name.");
-
-        return;
-    }
-
-
-    if (selectedRating === 0) {
-
-        alert("Please select a star rating.");
-
-        return;
-    }
-
-
-    if (comment === "") {
-
-        alert("Please write a comment.");
-
-        return;
-    }
-
-
-    const reviews = getReviews();
-
-
-    const newReview = {
-
-        id: Date.now(),
-
-        name: name,
-
-        rating: selectedRating,
-
-        comment: comment,
-
-        date: new Date().toLocaleDateString(
-            "en-PH",
-            {
-                year: "numeric",
-                month: "long",
-                day: "numeric"
-            }
-        )
-
-    };
-
-
-    reviews.unshift(newReview);
-
-    saveReviews(reviews);
-
-
-    document.getElementById("reviewName").value = "";
-
-    document.getElementById("reviewComment").value = "";
-
-
-    selectedRating = 0;
-
-
-    for (let i = 1; i <= 5; i++) {
-
-        document
-            .getElementById("star" + i)
-            .classList.remove("selected");
-
-    }
-
-
-    document.getElementById(
-        "selectedRatingText"
-    ).textContent = "Select a rating";
-
-
-    displayReviews();
-
-
-    alert("Thank you for your review! ⭐");
-
-}
-
-
-/* DISPLAY STARS */
 
 function createStars(rating) {
 
@@ -2429,89 +1477,64 @@ function createStars(rating) {
     }
 
     return stars;
+
 }
 
-
-/* DISPLAY REVIEWS */
 
 function displayReviews() {
 
     const reviews = getReviews();
 
-    const list =
-        document.getElementById("reviewsList");
+    const reviewList =
+        document.getElementById("reviewList");
 
-
-    const average =
+    const averageRating =
         document.getElementById("averageRating");
 
     const averageStars =
         document.getElementById("averageStars");
 
-    const count =
+    const ratingCount =
         document.getElementById("ratingCount");
 
 
-    /* NO REVIEWS */
+    ratingCount.textContent = reviews.length;
+
 
     if (reviews.length === 0) {
 
-        average.textContent = "0.0";
+        averageRating.textContent = "0.0";
 
         averageStars.textContent = "☆☆☆☆☆";
 
-        count.textContent = "No reviews yet";
-
-
-        list.innerHTML = `
-            <div class="no-reviews">
-                Be the first to leave a review! ⭐
-            </div>
-        `;
+        reviewList.innerHTML =
+            "<p>No reviews yet. Be the first to review CityServe Hub!</p>";
 
         return;
     }
 
 
-    /* CALCULATE AVERAGE */
-
-    let total = 0;
-
-
-    reviews.forEach(function(review) {
-
-        total += Number(review.rating);
-
-    });
+    const total = reviews.reduce(
+        (sum, review) => sum + Number(review.rating),
+        0
+    );
 
 
-    const averageValue =
+    const average =
         total / reviews.length;
 
 
-    average.textContent =
-        averageValue.toFixed(1);
-
+    averageRating.textContent =
+        average.toFixed(1);
 
     averageStars.textContent =
-        createStars(
-            Math.round(averageValue)
-        );
+        createStars(Math.round(average));
 
 
-    count.textContent =
-        reviews.length +
-        (reviews.length === 1
-            ? " customer review"
-            : " customer reviews");
+    reviewList.innerHTML = "";
 
 
-    /* DISPLAY REVIEW CARDS */
-
-    list.innerHTML = "";
-
-
-    reviews.forEach(function(review) {
+    reviews.forEach((review, index) => {
 
         const card =
             document.createElement("div");
@@ -2521,33 +1544,31 @@ function displayReviews() {
 
         card.innerHTML = `
 
-            <div class="review-header">
+            <h3>${escapeHTML(review.name)}</h3>
 
-                <div>
-
-                    <div class="reviewer-name">
-                        ${escapeHTML(review.name)}
-                    </div>
-
-                    <div class="review-date">
-                        ${escapeHTML(review.date)}
-                    </div>
-
-                </div>
-
-                <div class="review-stars">
-                    ${createStars(review.rating)}
-                </div>
-
+            <div class="stars">
+                ${createStars(Number(review.rating))}
             </div>
 
-            <div class="review-comment">
+            <p>
                 ${escapeHTML(review.comment)}
-            </div>
+            </p>
+
+            <small>
+                ${review.date}
+            </small>
+
+            <br><br>
 
             <button
-                class="delete-review"
-                onclick="deleteReview(${review.id})"
+                onclick="deleteReview(${index})"
+                style="
+                    background:#eee;
+                    border:none;
+                    padding:7px 10px;
+                    border-radius:5px;
+                    cursor:pointer;
+                "
             >
                 Delete
             </button>
@@ -2555,47 +1576,12 @@ function displayReviews() {
         `;
 
 
-        list.appendChild(card);
+        reviewList.appendChild(card);
 
     });
 
 }
 
-
-/* DELETE REVIEW */
-
-function deleteReview(id) {
-
-    const confirmed =
-        confirm(
-            "Are you sure you want to delete this review?"
-        );
-
-
-    if (!confirmed) {
-        return;
-    }
-
-
-    let reviews = getReviews();
-
-
-    reviews =
-        reviews.filter(function(review) {
-
-            return review.id !== id;
-
-        });
-
-
-    saveReviews(reviews);
-
-    displayReviews();
-
-}
-
-
-/* SECURITY */
 
 function escapeHTML(text) {
 
@@ -2605,10 +1591,72 @@ function escapeHTML(text) {
     div.textContent = text;
 
     return div.innerHTML;
+
 }
 
 
-/* LOAD REVIEWS */
+reviewForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById("reviewName").value.trim();
+
+        const rating =
+            document.getElementById("reviewRating").value;
+
+        const comment =
+            document.getElementById("reviewComment").value.trim();
+
+
+        if (!name || !rating || !comment) {
+            return;
+        }
+
+
+        const reviews = getReviews();
+
+
+        reviews.unshift({
+
+            name: name,
+
+            rating: Number(rating),
+
+            comment: comment,
+
+            date: new Date().toLocaleDateString()
+
+        });
+
+
+        saveReviews(reviews);
+
+        reviewForm.reset();
+
+        displayReviews();
+
+        alert("Thank you for your review! ⭐");
+
+    }
+);
+
+
+function deleteReview(index) {
+
+    const reviews = getReviews();
+
+    reviews.splice(index, 1);
+
+    saveReviews(reviews);
+
+    displayReviews();
+
+}
+
 
 displayReviews();
 
