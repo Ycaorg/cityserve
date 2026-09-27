@@ -38,7 +38,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
     flex-wrap: wrap;
 }
 
@@ -46,7 +46,7 @@ nav button {
     background: transparent;
     color: white;
     border: none;
-    padding: 10px 13px;
+    padding: 10px 12px;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
@@ -56,10 +56,9 @@ nav button {
 
 nav button:hover {
     background: #ff7a00;
-    color: white;
 }
 
-/* ================= PAGES ================= */
+/* ================= PAGE SYSTEM ================= */
 
 .page {
     display: none;
@@ -73,27 +72,34 @@ nav button:hover {
 
 .hero {
     min-height: 620px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     padding: 50px 20px;
 
     background:
-        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        linear-gradient(
+            rgba(0,0,0,.65),
+            rgba(0,0,0,.65)
+        ),
         url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80");
 
     background-size: cover;
     background-position: center;
+
     color: white;
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 850px;
 }
 
 .hero h1 {
-    font-size: 55px;
+    font-size: 58px;
     margin-bottom: 20px;
 }
 
@@ -109,16 +115,22 @@ nav button:hover {
 
 .btn {
     display: inline-block;
+
     background: #ff7a00;
     color: white;
-    padding: 15px 25px;
+
+    padding: 14px 25px;
+
     border: none;
     border-radius: 8px;
+
     font-size: 16px;
     font-weight: bold;
+
     cursor: pointer;
     text-decoration: none;
-    transition: 0.2s;
+
+    transition: .2s;
 }
 
 .btn:hover {
@@ -138,7 +150,7 @@ nav button:hover {
 .section-title {
     text-align: center;
     font-size: 38px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .section-title span {
@@ -167,13 +179,13 @@ nav button:hover {
 }
 
 .about-text h2 {
-    margin-bottom: 20px;
     font-size: 32px;
+    margin-bottom: 20px;
 }
 
 .about-text p {
-    line-height: 1.8;
     color: #555;
+    line-height: 1.8;
     margin-bottom: 15px;
 }
 
@@ -181,32 +193,44 @@ nav button:hover {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
     gap: 25px;
 }
 
 .service-card {
     background: white;
+
     border-radius: 15px;
+
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
-    transition: 0.3s;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.08);
+
+    transition: .3s;
 }
 
 .service-card:hover {
     transform: translateY(-7px);
 }
 
-.service-image {
+.service-image,
+.ac-picture {
     width: 100%;
     height: 190px;
     overflow: hidden;
+    background: #eeeeee;
 }
 
-.service-image img {
+.service-image img,
+.ac-picture img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     display: block;
 }
 
@@ -215,8 +239,8 @@ nav button:hover {
 }
 
 .service-content h3 {
-    margin-bottom: 10px;
-    color: #222;
+    font-size: 20px;
+    margin-bottom: 8px;
 }
 
 .service-content p {
@@ -225,48 +249,54 @@ nav button:hover {
     font-size: 14px;
 }
 
-/* ================= AIRCON ================= */
+.price {
+    color: #ff7a00 !important;
 
-.ac-picture {
-    width: 100%;
-    height: 190px;
-    overflow: hidden;
-    background: #eee;
-}
+    font-size: 18px !important;
 
-.ac-picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    font-weight: bold;
+
+    margin-top: 12px;
 }
 
 /* ================= HOW IT WORKS ================= */
 
 .steps {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:
+        repeat(4, 1fr);
+
     gap: 25px;
 }
 
 .step {
     background: white;
+
     padding: 30px 20px;
+
     text-align: center;
+
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.08);
 }
 
 .step-number {
     width: 55px;
     height: 55px;
+
     background: #ff7a00;
     color: white;
+
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     margin: 0 auto 20px;
+
     font-size: 22px;
     font-weight: bold;
 }
@@ -280,24 +310,31 @@ nav button:hover {
     line-height: 1.5;
 }
 
-/* ================= WHY US ================= */
+/* ================= WHY ================= */
 
 .why-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 25px;
 }
 
 .why-card {
     background: white;
+
     padding: 30px;
+
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.08);
 }
 
 .why-card h3 {
-    margin-bottom: 12px;
     color: #ff7a00;
+    margin-bottom: 12px;
 }
 
 .why-card p {
@@ -319,27 +356,45 @@ nav button:hover {
 
 .stars {
     color: #ffb400;
+
     font-size: 28px;
+
     letter-spacing: 3px;
 }
 
 .review-form {
     background: white;
+
     max-width: 700px;
+
     margin: 0 auto 40px;
+
     padding: 30px;
+
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.08);
+}
+
+.review-form h2 {
+    margin-bottom: 15px;
 }
 
 .review-form input,
 .review-form textarea,
 .review-form select {
     width: 100%;
+
     padding: 12px;
+
     margin: 8px 0 15px;
-    border: 1px solid #ddd;
+
+    border:
+        1px solid #ddd;
+
     border-radius: 7px;
+
     font-family: inherit;
 }
 
@@ -350,15 +405,22 @@ nav button:hover {
 
 .review-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
     gap: 20px;
 }
 
 .review-card {
     background: white;
+
     padding: 25px;
+
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.08);
 }
 
 .review-card h3 {
@@ -367,23 +429,36 @@ nav button:hover {
 
 .review-card p {
     color: #666;
+
     line-height: 1.5;
+
     margin-top: 10px;
+}
+
+.review-card small {
+    color: #999;
 }
 
 /* ================= BLOG ================= */
 
 .blog-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 25px;
 }
 
 .blog-card {
     background: white;
+
     padding: 25px;
+
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.08);
 }
 
 .blog-card h3 {
@@ -400,11 +475,18 @@ nav button:hover {
 
 .contact-box {
     max-width: 800px;
+
     margin: auto;
+
     background: white;
+
     padding: 35px;
+
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.08);
+
     text-align: center;
 }
 
@@ -417,9 +499,13 @@ nav button:hover {
 
 footer {
     background: #111;
+
     color: white;
+
     text-align: center;
+
     padding: 30px 20px;
+
     margin-top: 40px;
 }
 
@@ -486,23 +572,50 @@ footer span {
 </style>
 </head>
 
+
 <body>
+
 
 <!-- ================= HEADER ================= -->
 
 <header>
+
 <nav>
 
-<button onclick="showPage('home')">Home</button>
-<button onclick="showPage('about')">About Us</button>
-<button onclick="showPage('services')">Services</button>
-<button onclick="showPage('how')">How It Works</button>
-<button onclick="showPage('why')">Why CityServe Hub</button>
-<button onclick="showPage('reviews')">⭐ Reviews</button>
-<button onclick="showPage('blog')">Blog</button>
-<button onclick="showPage('contact')">Contact Us</button>
+<button onclick="showPage('home')">
+Home
+</button>
+
+<button onclick="showPage('about')">
+About Us
+</button>
+
+<button onclick="showPage('services')">
+Services
+</button>
+
+<button onclick="showPage('how')">
+How It Works
+</button>
+
+<button onclick="showPage('why')">
+Why CityServe Hub
+</button>
+
+<button onclick="showPage('reviews')">
+⭐ Reviews
+</button>
+
+<button onclick="showPage('blog')">
+Blog
+</button>
+
+<button onclick="showPage('contact')">
+Contact Us
+</button>
 
 </nav>
+
 </header>
 
 
@@ -520,17 +633,21 @@ Your Services.<br>
 </h1>
 
 <p>
-CityServe Hub connects you with trusted service professionals
-for your home, office, and everyday needs.
+CityServe Hub connects you with trusted service
+professionals for your home, office, and everyday needs.
 </p>
 
-<a href="booking.html" class="btn">
+<a
+href="booking.html"
+class="btn"
+>
 Book a Service
 </a>
 
 </div>
 
 </div>
+
 
 <div class="container">
 
@@ -542,31 +659,40 @@ Welcome to <span>CityServe Hub</span>
 Convenient services, trusted partners, and hassle-free booking.
 </p>
 
+
 <div class="about-grid">
 
 <div class="about-image">
 
 <img
 src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1000&q=80"
-alt="Professional home service">
+alt="Professional home service"
+>
 
 </div>
 
+
 <div class="about-text">
 
-<h2>Everything You Need, In One Place</h2>
+<h2>
+Everything You Need, In One Place
+</h2>
 
 <p>
-CityServe Hub is an online multi-service platform designed
-to make finding and booking services easier.
+CityServe Hub is an online multi-service platform
+designed to make finding and booking services easier.
 </p>
 
 <p>
-From home maintenance to digital services, we connect
-customers with service providers through one convenient platform.
+From home maintenance to digital services,
+we connect customers with service providers
+through one convenient platform.
 </p>
 
-<button class="btn" onclick="showPage('services')">
+<button
+class="btn"
+onclick="showPage('services')"
+>
 Explore Services
 </button>
 
@@ -593,11 +719,14 @@ About <span>Us</span>
 Connecting people with reliable services.
 </p>
 
+
 <div class="about-grid">
 
 <div class="about-text">
 
-<h2>Who We Are</h2>
+<h2>
+Who We Are
+</h2>
 
 <p>
 CityServe Hub PH is an online multi-service platform
@@ -618,11 +747,13 @@ quality control, and marketing.
 
 </div>
 
+
 <div class="about-image">
 
 <img
 src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1000&q=80"
-alt="Online service platform">
+alt="Online service platform"
+>
 
 </div>
 
@@ -644,13 +775,14 @@ Our <span>Services</span>
 </h2>
 
 <p class="section-subtitle">
-Choose from a wide range of professional services.
+Choose from our available professional services.
 </p>
+
 
 <div class="services-grid">
 
 
-<!-- CLEANING -->
+<!-- HOME CLEANING -->
 
 <div class="service-card">
 
@@ -658,16 +790,23 @@ Choose from a wide range of professional services.
 
 <img
 src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
-alt="Cleaning service">
+alt="Home cleaning"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>Cleaning Services</h3>
+<h3>
+🧹 Home Cleaning
+</h3>
 
 <p>
-Professional home and office cleaning services.
+Professional home cleaning service.
+</p>
+
+<p class="price">
+₱1,200
 </p>
 
 </div>
@@ -675,99 +814,31 @@ Professional home and office cleaning services.
 </div>
 
 
-<!-- CAR WASH -->
+<!-- DEEP CLEANING -->
 
 <div class="service-card">
 
 <div class="service-image">
 
 <img
-src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=800&q=80"
-alt="Car wash">
+src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80"
+alt="Deep cleaning"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>Car Wash</h3>
+<h3>
+🧼 Deep Cleaning
+</h3>
 
 <p>
-Convenient vehicle cleaning and detailing services.
+Detailed cleaning for homes and spaces.
 </p>
 
-</div>
-
-</div>
-
-
-<!-- PEST CONTROL -->
-
-<div class="service-card">
-
-<div class="service-image">
-
-<img
-src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=800&q=80"
-alt="Pest control">
-
-</div>
-
-<div class="service-content">
-
-<h3>Pest Control</h3>
-
-<p>
-Solutions for common household and commercial pests.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- BABYSITTING -->
-
-<div class="service-card">
-
-<div class="service-image">
-
-<img
-src="https://images.unsplash.com/photo-1602030028438-4f1e6f763d9e?auto=format&fit=crop&w=800&q=80"
-alt="Babysitting">
-
-</div>
-
-<div class="service-content">
-
-<h3>Babysitting</h3>
-
-<p>
-Reliable childcare services for busy families.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- CHEF -->
-
-<div class="service-card">
-
-<div class="service-image">
-
-<img
-src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80"
-alt="Private chef">
-
-</div>
-
-<div class="service-content">
-
-<h3>Private Chef</h3>
-
-<p>
-Professional cooking services for homes and events.
+<p class="price">
+₱3,500
 </p>
 
 </div>
@@ -783,16 +854,119 @@ Professional cooking services for homes and events.
 
 <img
 src="aircon.jpg"
-alt="Air conditioning service">
+alt="Air conditioner cleaning service"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>Air Conditioning</h3>
+<h3>
+❄️ Air Conditioner Cleaning
+</h3>
 
 <p>
-Installation, cleaning, maintenance, and repair services.
+Cleaning and maintenance for air conditioning units.
+</p>
+
+<p class="price">
+₱700 per unit
+</p>
+
+</div>
+
+</div>
+
+
+<!-- PEST CONTROL -->
+
+<div class="service-card">
+
+<div class="service-image">
+
+<img
+src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=800&q=80"
+alt="Pest control"
+>
+
+</div>
+
+<div class="service-content">
+
+<h3>
+🐜 Pest Control
+</h3>
+
+<p>
+Professional pest control solutions.
+</p>
+
+<p class="price">
+₱2,000
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CAR DETAILING -->
+
+<div class="service-card">
+
+<div class="service-image">
+
+<img
+src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=800&q=80"
+alt="Car interior detailing"
+>
+
+</div>
+
+<div class="service-content">
+
+<h3>
+🚗 Car Interior Detailing
+</h3>
+
+<p>
+Detailed interior cleaning for your vehicle.
+</p>
+
+<p class="price">
+₱2,500
+</p>
+
+</div>
+
+</div>
+
+
+<!-- BABYSITTING -->
+
+<div class="service-card">
+
+<div class="service-image">
+
+<img
+src="babysitting.jpg"
+alt="Babysitting service"
+>
+
+</div>
+
+<div class="service-content">
+
+<h3>
+👶 Babysitting
+</h3>
+
+<p>
+Reliable childcare assistance for families.
+</p>
+
+<p class="price">
+Contact us for pricing
 </p>
 
 </div>
@@ -808,16 +982,23 @@ Installation, cleaning, maintenance, and repair services.
 
 <img
 src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80"
-alt="Plumbing">
+alt="Plumbing repair"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>Plumbing</h3>
+<h3>
+🔧 Plumbing Repair
+</h3>
 
 <p>
-Professional plumbing installation and repair.
+Professional plumbing repair and maintenance.
+</p>
+
+<p class="price">
+₱800 onwards
 </p>
 
 </div>
@@ -833,16 +1014,23 @@ Professional plumbing installation and repair.
 
 <img
 src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"
-alt="Electrical service">
+alt="Electrical repair"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>Electrical</h3>
+<h3>
+⚡ Electrical Repair
+</h3>
 
 <p>
 Electrical installation, troubleshooting, and repair.
+</p>
+
+<p class="price">
+₱800 onwards
 </p>
 
 </div>
@@ -858,16 +1046,23 @@ Electrical installation, troubleshooting, and repair.
 
 <img
 src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80"
-alt="Carpentry">
+alt="Carpentry service"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>Carpentry</h3>
+<h3>
+🪚 Carpentry
+</h3>
 
 <p>
-Furniture, repairs, installations, and woodwork.
+Furniture, repairs, installation, and woodwork.
+</p>
+
+<p class="price">
+Contact us for pricing
 </p>
 
 </div>
@@ -883,16 +1078,23 @@ Furniture, repairs, installations, and woodwork.
 
 <img
 src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80"
-alt="Painting service">
+alt="Painting service"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>Painting</h3>
+<h3>
+🎨 Painting
+</h3>
 
 <p>
 Interior and exterior painting services.
+</p>
+
+<p class="price">
+Contact us for pricing
 </p>
 
 </div>
@@ -908,16 +1110,23 @@ Interior and exterior painting services.
 
 <img
 src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
-alt="Website development">
+alt="Website development"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>Website Development</h3>
+<h3>
+💻 Website Development
+</h3>
 
 <p>
-Websites for businesses, organizations, and personal projects.
+Professional websites for businesses and organizations.
+</p>
+
+<p class="price">
+₱15,000 onwards
 </p>
 
 </div>
@@ -933,16 +1142,23 @@ Websites for businesses, organizations, and personal projects.
 
 <img
 src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80"
-alt="Graphic design">
+alt="Graphic design"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>Graphic Design</h3>
+<h3>
+🎨 Graphic Design
+</h3>
 
 <p>
 Logos, posters, branding, and digital graphics.
+</p>
+
+<p class="price">
+Contact us for pricing
 </p>
 
 </div>
@@ -958,16 +1174,23 @@ Logos, posters, branding, and digital graphics.
 
 <img
 src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80"
-alt="Social media">
+alt="Social media management"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>Social Media</h3>
+<h3>
+📱 Social Media Management
+</h3>
 
 <p>
 Social media management and content support.
+</p>
+
+<p class="price">
+₱8,000
 </p>
 
 </div>
@@ -983,16 +1206,23 @@ Social media management and content support.
 
 <img
 src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
-alt="IT support">
+alt="IT support"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>IT Support</h3>
+<h3>
+🖥️ IT Support
+</h3>
 
 <p>
 Technical assistance for computers and digital systems.
+</p>
+
+<p class="price">
+Contact us for pricing
 </p>
 
 </div>
@@ -1008,16 +1238,23 @@ Technical assistance for computers and digital systems.
 
 <img
 src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
-alt="CCTV security">
+alt="CCTV installation"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>CCTV Installation</h3>
+<h3>
+📹 CCTV Installation
+</h3>
 
 <p>
 Security camera installation and setup.
+</p>
+
+<p class="price">
+Contact us for pricing
 </p>
 
 </div>
@@ -1033,21 +1270,29 @@ Security camera installation and setup.
 
 <img
 src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
-alt="Network setup">
+alt="Network setup"
+>
 
 </div>
 
 <div class="service-content">
 
-<h3>Network Setup</h3>
+<h3>
+🌐 Network Setup
+</h3>
 
 <p>
 Wi-Fi, routers, network configuration, and troubleshooting.
 </p>
 
+<p class="price">
+Contact us for pricing
+</p>
+
 </div>
 
 </div>
+
 
 </div>
 
@@ -1070,25 +1315,35 @@ How It <span>Works</span>
 Booking a service is simple.
 </p>
 
+
 <div class="steps">
 
 <div class="step">
 
-<div class="step-number">1</div>
+<div class="step-number">
+1
+</div>
 
-<h3>Choose a Service</h3>
+<h3>
+Choose a Service
+</h3>
 
 <p>
-Browse our available services and select what you need.
+Browse our services and select what you need.
 </p>
 
 </div>
 
+
 <div class="step">
 
-<div class="step-number">2</div>
+<div class="step-number">
+2
+</div>
 
-<h3>Book</h3>
+<h3>
+Book
+</h3>
 
 <p>
 Submit your service request and preferred schedule.
@@ -1096,11 +1351,16 @@ Submit your service request and preferred schedule.
 
 </div>
 
+
 <div class="step">
 
-<div class="step-number">3</div>
+<div class="step-number">
+3
+</div>
 
-<h3>Get Connected</h3>
+<h3>
+Get Connected
+</h3>
 
 <p>
 CityServe Hub connects you with a suitable service partner.
@@ -1108,11 +1368,16 @@ CityServe Hub connects you with a suitable service partner.
 
 </div>
 
+
 <div class="step">
 
-<div class="step-number">4</div>
+<div class="step-number">
+4
+</div>
 
-<h3>Enjoy the Service</h3>
+<h3>
+Enjoy the Service
+</h3>
 
 <p>
 Receive your service and leave a rating or review.
@@ -1141,11 +1406,14 @@ Why <span>CityServe Hub?</span>
 One platform for your everyday service needs.
 </p>
 
+
 <div class="why-grid">
 
 <div class="why-card">
 
-<h3>Convenient</h3>
+<h3>
+Convenient
+</h3>
 
 <p>
 Book different services through one online platform
@@ -1154,9 +1422,12 @@ instead of searching for providers individually.
 
 </div>
 
+
 <div class="why-card">
 
-<h3>Trusted Partners</h3>
+<h3>
+Trusted Partners
+</h3>
 
 <p>
 We work with service providers and focus on service
@@ -1165,9 +1436,12 @@ coordination and quality control.
 
 </div>
 
+
 <div class="why-card">
 
-<h3>Easy Booking</h3>
+<h3>
+Easy Booking
+</h3>
 
 <p>
 Our booking process is designed to be simple,
@@ -1176,9 +1450,12 @@ clear, and convenient.
 
 </div>
 
+
 <div class="why-card">
 
-<h3>Multiple Services</h3>
+<h3>
+Multiple Services
+</h3>
 
 <p>
 From home maintenance to digital services,
@@ -1187,9 +1464,12 @@ CityServe Hub brings different services together.
 
 </div>
 
+
 <div class="why-card">
 
-<h3>Customer Support</h3>
+<h3>
+Customer Support
+</h3>
 
 <p>
 Customers can contact CityServe Hub for booking
@@ -1198,9 +1478,12 @@ and service concerns.
 
 </div>
 
+
 <div class="why-card">
 
-<h3>Quality Focused</h3>
+<h3>
+Quality Focused
+</h3>
 
 <p>
 We coordinate with service partners and collect
@@ -1230,18 +1513,26 @@ Ratings & <span>Reviews</span>
 Share your CityServe Hub experience.
 </p>
 
+
 <div class="rating-summary">
 
-<div class="average-rating" id="averageRating">
+<div
+class="average-rating"
+id="averageRating"
+>
 0.0
 </div>
 
-<div class="stars" id="averageStars">
+<div
+class="stars"
+id="averageStars"
+>
 ☆☆☆☆☆
 </div>
 
 <p>
-<span id="ratingCount">0</span> reviews
+<span id="ratingCount">0</span>
+reviews
 </p>
 
 </div>
@@ -1249,7 +1540,9 @@ Share your CityServe Hub experience.
 
 <div class="review-form">
 
-<h2>Leave a Review</h2>
+<h2>
+Leave a Review
+</h2>
 
 <form id="reviewForm">
 
@@ -1260,19 +1553,37 @@ placeholder="Your name"
 required
 >
 
-<select id="reviewRating" required>
+<select
+id="reviewRating"
+required
+>
 
 <option value="">
 Choose your rating
 </option>
 
-<option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
-<option value="4">⭐⭐⭐⭐ 4 Stars</option>
-<option value="3">⭐⭐⭐ 3 Stars</option>
-<option value="2">⭐⭐ 2 Stars</option>
-<option value="1">⭐ 1 Star</option>
+<option value="5">
+⭐⭐⭐⭐⭐ 5 Stars
+</option>
+
+<option value="4">
+⭐⭐⭐⭐ 4 Stars
+</option>
+
+<option value="3">
+⭐⭐⭐ 3 Stars
+</option>
+
+<option value="2">
+⭐⭐ 2 Stars
+</option>
+
+<option value="1">
+⭐ 1 Star
+</option>
 
 </select>
+
 
 <textarea
 id="reviewComment"
@@ -1280,7 +1591,11 @@ placeholder="Write your review..."
 required
 ></textarea>
 
-<button class="btn" type="submit">
+
+<button
+class="btn"
+type="submit"
+>
 Submit Review
 </button>
 
@@ -1289,7 +1604,10 @@ Submit Review
 </div>
 
 
-<div id="reviewList" class="review-list"></div>
+<div
+id="reviewList"
+class="review-list"
+></div>
 
 </div>
 
@@ -1310,22 +1628,29 @@ CityServe <span>Blog</span>
 Helpful tips for your home, business, and everyday life.
 </p>
 
+
 <div class="blog-grid">
 
 <div class="blog-card">
 
-<h3>5 Signs Your Air Conditioner Needs Cleaning</h3>
+<h3>
+5 Signs Your Air Conditioner Needs Cleaning
+</h3>
 
 <p>
-Poor airflow, unusual smells, water leaks, and reduced
-cooling may indicate that your air conditioner needs maintenance.
+Poor airflow, unusual smells, water leaks,
+and reduced cooling may indicate that your
+air conditioner needs maintenance.
 </p>
 
 </div>
 
+
 <div class="blog-card">
 
-<h3>Why Regular Home Cleaning Matters</h3>
+<h3>
+Why Regular Home Cleaning Matters
+</h3>
 
 <p>
 Regular cleaning can help maintain a comfortable,
@@ -1334,9 +1659,12 @@ organized, and pleasant living environment.
 
 </div>
 
+
 <div class="blog-card">
 
-<h3>When Should You Call a Professional?</h3>
+<h3>
+When Should You Call a Professional?
+</h3>
 
 <p>
 Electrical, plumbing, air-conditioning, and other
@@ -1366,10 +1694,13 @@ Contact <span>Us</span>
 Have questions? We'd love to hear from you.
 </p>
 
+
 <div class="contact-box">
 
 <p>
-<strong>CityServe Hub PH Corporation</strong>
+<strong>
+CityServe Hub PH Corporation
+</strong>
 </p>
 
 <p>
@@ -1388,7 +1719,12 @@ Have questions? We'd love to hear from you.
 🌐 Online booking available 24/7
 </p>
 
-<a href="booking.html" class="btn">
+<br>
+
+<a
+href="booking.html"
+class="btn"
+>
 Book a Service
 </a>
 
@@ -1404,7 +1740,11 @@ Book a Service
 <footer>
 
 <p>
-© 2026 <span>CityServe Hub PH</span>. All Rights Reserved.
+© 2026
+<span>
+CityServe Hub PH
+</span>.
+All Rights Reserved.
 </p>
 
 <p>
@@ -1420,33 +1760,45 @@ Your Services. One Hub.
 
 function showPage(pageId) {
 
-    const pages = document.querySelectorAll(".page");
+    const pages =
+        document.querySelectorAll(".page");
 
     pages.forEach(page => {
         page.classList.remove("active");
     });
 
-    const selectedPage = document.getElementById(pageId);
+
+    const selectedPage =
+        document.getElementById(pageId);
+
 
     if (selectedPage) {
+
         selectedPage.classList.add("active");
+
     }
+
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 
 /* ================= REVIEWS ================= */
 
-const reviewForm = document.getElementById("reviewForm");
+const reviewForm =
+    document.getElementById("reviewForm");
+
 
 function getReviews() {
 
     return JSON.parse(
-        localStorage.getItem("cityserveReviews") || "[]"
+        localStorage.getItem(
+            "cityserveReviews"
+        ) || "[]"
     );
 
 }
@@ -1466,119 +1818,25 @@ function createStars(rating) {
 
     let stars = "";
 
-    for (let i = 1; i <= 5; i++) {
+    for (
+        let i = 1;
+        i <= 5;
+        i++
+    ) {
 
         if (i <= rating) {
+
             stars += "★";
+
         } else {
+
             stars += "☆";
+
         }
 
     }
 
     return stars;
-
-}
-
-
-function displayReviews() {
-
-    const reviews = getReviews();
-
-    const reviewList =
-        document.getElementById("reviewList");
-
-    const averageRating =
-        document.getElementById("averageRating");
-
-    const averageStars =
-        document.getElementById("averageStars");
-
-    const ratingCount =
-        document.getElementById("ratingCount");
-
-
-    ratingCount.textContent = reviews.length;
-
-
-    if (reviews.length === 0) {
-
-        averageRating.textContent = "0.0";
-
-        averageStars.textContent = "☆☆☆☆☆";
-
-        reviewList.innerHTML =
-            "<p>No reviews yet. Be the first to review CityServe Hub!</p>";
-
-        return;
-    }
-
-
-    const total = reviews.reduce(
-        (sum, review) => sum + Number(review.rating),
-        0
-    );
-
-
-    const average =
-        total / reviews.length;
-
-
-    averageRating.textContent =
-        average.toFixed(1);
-
-    averageStars.textContent =
-        createStars(Math.round(average));
-
-
-    reviewList.innerHTML = "";
-
-
-    reviews.forEach((review, index) => {
-
-        const card =
-            document.createElement("div");
-
-        card.className = "review-card";
-
-
-        card.innerHTML = `
-
-            <h3>${escapeHTML(review.name)}</h3>
-
-            <div class="stars">
-                ${createStars(Number(review.rating))}
-            </div>
-
-            <p>
-                ${escapeHTML(review.comment)}
-            </p>
-
-            <small>
-                ${review.date}
-            </small>
-
-            <br><br>
-
-            <button
-                onclick="deleteReview(${index})"
-                style="
-                    background:#eee;
-                    border:none;
-                    padding:7px 10px;
-                    border-radius:5px;
-                    cursor:pointer;
-                "
-            >
-                Delete
-            </button>
-
-        `;
-
-
-        reviewList.appendChild(card);
-
-    });
 
 }
 
@@ -1595,6 +1853,143 @@ function escapeHTML(text) {
 }
 
 
+function displayReviews() {
+
+    const reviews =
+        getReviews();
+
+
+    const reviewList =
+        document.getElementById(
+            "reviewList"
+        );
+
+
+    const averageRating =
+        document.getElementById(
+            "averageRating"
+        );
+
+
+    const averageStars =
+        document.getElementById(
+            "averageStars"
+        );
+
+
+    const ratingCount =
+        document.getElementById(
+            "ratingCount"
+        );
+
+
+    ratingCount.textContent =
+        reviews.length;
+
+
+    if (reviews.length === 0) {
+
+        averageRating.textContent =
+            "0.0";
+
+        averageStars.textContent =
+            "☆☆☆☆☆";
+
+
+        reviewList.innerHTML =
+            "<p>No reviews yet. Be the first to review CityServe Hub! ⭐</p>";
+
+        return;
+
+    }
+
+
+    const total =
+        reviews.reduce(
+            (sum, review) =>
+                sum + Number(review.rating),
+            0
+        );
+
+
+    const average =
+        total / reviews.length;
+
+
+    averageRating.textContent =
+        average.toFixed(1);
+
+
+    averageStars.textContent =
+        createStars(
+            Math.round(average)
+        );
+
+
+    reviewList.innerHTML = "";
+
+
+    reviews.forEach(
+        (review, index) => {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "review-card";
+
+
+            card.innerHTML = `
+
+                <h3>
+                    ${escapeHTML(review.name)}
+                </h3>
+
+                <div class="stars">
+                    ${createStars(
+                        Number(review.rating)
+                    )}
+                </div>
+
+                <p>
+                    ${escapeHTML(
+                        review.comment
+                    )}
+                </p>
+
+                <small>
+                    ${review.date}
+                </small>
+
+                <br><br>
+
+                <button
+                    onclick="deleteReview(${index})"
+                    style="
+                        background:#eee;
+                        border:none;
+                        padding:7px 10px;
+                        border-radius:5px;
+                        cursor:pointer;
+                    "
+                >
+                    Delete
+                </button>
+
+            `;
+
+
+            reviewList.appendChild(card);
+
+        }
+    );
+
+}
+
+
 reviewForm.addEventListener(
     "submit",
     function(event) {
@@ -1603,43 +1998,76 @@ reviewForm.addEventListener(
 
 
         const name =
-            document.getElementById("reviewName").value.trim();
+            document
+                .getElementById(
+                    "reviewName"
+                )
+                .value
+                .trim();
+
 
         const rating =
-            document.getElementById("reviewRating").value;
+            document
+                .getElementById(
+                    "reviewRating"
+                )
+                .value;
+
 
         const comment =
-            document.getElementById("reviewComment").value.trim();
+            document
+                .getElementById(
+                    "reviewComment"
+                )
+                .value
+                .trim();
 
 
-        if (!name || !rating || !comment) {
+        if (
+            !name ||
+            !rating ||
+            !comment
+        ) {
+
             return;
+
         }
 
 
-        const reviews = getReviews();
+        const reviews =
+            getReviews();
 
 
         reviews.unshift({
 
             name: name,
 
-            rating: Number(rating),
+            rating:
+                Number(rating),
 
             comment: comment,
 
-            date: new Date().toLocaleDateString()
+            date:
+                new Date()
+                    .toLocaleDateString()
 
         });
 
 
-        saveReviews(reviews);
+        saveReviews(
+            reviews
+        );
+
 
         reviewForm.reset();
 
+
         displayReviews();
 
-        alert("Thank you for your review! ⭐");
+
+        alert(
+            "Thank you for your review! ⭐"
+        );
 
     }
 );
@@ -1647,11 +2075,20 @@ reviewForm.addEventListener(
 
 function deleteReview(index) {
 
-    const reviews = getReviews();
+    const reviews =
+        getReviews();
 
-    reviews.splice(index, 1);
 
-    saveReviews(reviews);
+    reviews.splice(
+        index,
+        1
+    );
+
+
+    saveReviews(
+        reviews
+    );
+
 
     displayReviews();
 
