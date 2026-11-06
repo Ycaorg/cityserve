@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <style>
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -199,12 +199,21 @@
       border: 2px solid #111111;
     }
 
-    .error pre {
+    .warning {
+      display: block !important;
+      background: #fff4e5;
+      color: #8a3d00;
+      border: 2px solid #ff7900;
+    }
+
+    #message pre {
       margin-top: 10px;
       padding: 10px;
       background: white;
       border-radius: 7px;
       overflow-x: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
       font-size: 13px;
       color: #111111;
     }
@@ -222,7 +231,6 @@
     }
 
     @media (max-width: 600px) {
-
       .nav {
         flex-direction: column;
         gap: 12px;
@@ -261,115 +269,70 @@
         height: 48px;
       }
     }
-
   </style>
 </head>
 
-
 <body>
 
-
 <header>
-
   <div class="nav">
-
     <div class="logo">
       CityServe
     </div>
 
     <div>
-
-      <a href="index.html">
-        Home
-      </a>
-
-      <a href="index.html#services">
-        Services
-      </a>
-
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
     </div>
-
   </div>
-
 </header>
 
-
-
 <div class="container">
-
   <div class="booking-card">
 
-    <h1>
-      Book a Service
-    </h1>
+    <h1>Book a Service</h1>
 
     <p class="subtitle">
       Fill out the form below and CityServe will receive your request.
     </p>
 
-
     <form id="bookingForm">
 
-
       <div class="form-group">
-
-        <label for="customer_name">
-          Full Name
-        </label>
-
+        <label for="customer_name">Full Name</label>
         <input
           type="text"
           id="customer_name"
           required
           placeholder="Enter your full name"
         >
-
       </div>
 
-
       <div class="form-group">
-
-        <label for="customer_email">
-          Email Address
-        </label>
-
+        <label for="customer_email">Email Address</label>
         <input
           type="email"
           id="customer_email"
           required
           placeholder="you@example.com"
         >
-
       </div>
 
-
       <div class="form-group">
-
-        <label for="customer_phone">
-          Phone Number
-        </label>
-
+        <label for="customer_phone">Phone Number</label>
         <input
           type="tel"
           id="customer_phone"
           required
           placeholder="09XXXXXXXXX"
         >
-
       </div>
 
-
       <div class="form-group">
-
-        <label for="service">
-          Choose a Service
-        </label>
+        <label for="service">Choose a Service</label>
 
         <select id="service" required>
-
-          <option value="">
-            Select a service
-          </option>
+          <option value="">Select a service</option>
 
           <option>Home Cleaning - ₱1,200</option>
           <option>Deep Cleaning - ₱3,500</option>
@@ -389,74 +352,47 @@
           <option>IT Services - Contact for pricing</option>
           <option>CCTV Installation - Contact for pricing</option>
           <option>Network Setup - Contact for pricing</option>
-
         </select>
-
       </div>
-
 
       <div class="date-time-row">
 
         <div class="form-group">
-
-          <label for="booking_date">
-            Preferred Date
-          </label>
-
+          <label for="booking_date">Preferred Date</label>
           <input
             type="date"
             id="booking_date"
             required
           >
-
         </div>
 
-
         <div class="form-group">
-
-          <label for="booking_time">
-            Preferred Time
-          </label>
-
+          <label for="booking_time">Preferred Time</label>
           <input
             type="time"
             id="booking_time"
             required
           >
-
         </div>
 
       </div>
 
-
       <div class="form-group">
-
-        <label for="address">
-          Service Address
-        </label>
-
+        <label for="address">Service Address</label>
         <textarea
           id="address"
           required
           placeholder="Enter the address where the service is needed"
         ></textarea>
-
       </div>
 
-
       <div class="form-group">
-
-        <label for="notes">
-          Additional Notes
-        </label>
-
+        <label for="notes">Additional Notes</label>
         <textarea
           id="notes"
           placeholder="Anything the service provider should know?"
         ></textarea>
-
       </div>
-
 
       <button
         type="submit"
@@ -465,33 +401,22 @@
         Submit Booking
       </button>
 
-
     </form>
 
-
-    <div id="message"></div>
-
+    <div id="message" role="status" aria-live="polite"></div>
 
   </div>
-
 </div>
 
-
-
 <footer>
-
   © 2026 <strong>CityServe Hub PH</strong>.
   All rights reserved.
-
 </footer>
-
-
 
 <script>
 
-
 /* ==========================================
-   SUPABASE
+   SUPABASE CONFIGURATION
 ========================================== */
 
 const SUPABASE_URL =
@@ -502,7 +427,7 @@ const SUPABASE_KEY =
 
 
 /* ==========================================
-   EMAILJS
+   EMAILJS CONFIGURATION
 ========================================== */
 
 const EMAILJS_PUBLIC_KEY =
@@ -519,16 +444,41 @@ const OWNER_EMAIL =
 
 
 /* ==========================================
-   INITIALIZE EMAILJS
+   INITIALIZE EMAILJS SAFELY
 ========================================== */
 
-emailjs.init({
-  publicKey: EMAILJS_PUBLIC_KEY
-});
+let emailJSReady = false;
+
+try {
+
+  if (
+    typeof emailjs !== "undefined" &&
+    typeof emailjs.init === "function"
+  ) {
+
+    emailjs.init({
+      publicKey: EMAILJS_PUBLIC_KEY
+    });
+
+    emailJSReady = true;
+
+    console.log("EmailJS initialized successfully.");
+
+  } else {
+
+    console.error("EmailJS SDK did not load.");
+
+  }
+
+} catch (error) {
+
+  console.error("EmailJS initialization failed:", error);
+
+}
 
 
 /* ==========================================
-   FORM
+   GET PAGE ELEMENTS
 ========================================== */
 
 const form =
@@ -541,268 +491,332 @@ const submitButton =
   document.getElementById("submitButton");
 
 
-form.addEventListener(
-  "submit",
-  async function(event) {
+/* ==========================================
+   DISPLAY MESSAGE SAFELY
+========================================== */
 
-    event.preventDefault();
+function showMessage(type, title, details = "") {
 
-    message.className = "";
-    message.style.display = "none";
+  message.replaceChildren();
 
-    submitButton.disabled = true;
-    submitButton.textContent = "Submitting...";
+  message.className = type;
+  message.style.display = "block";
 
+  const heading = document.createElement("strong");
 
-    const booking = {
+  heading.textContent = title;
 
-      customer_name:
-        document
-          .getElementById("customer_name")
-          .value
-          .trim(),
+  message.appendChild(heading);
 
-      customer_email:
-        document
-          .getElementById("customer_email")
-          .value
-          .trim(),
+  if (details) {
 
-      customer_phone:
-        document
-          .getElementById("customer_phone")
-          .value
-          .trim(),
+    const detailsLabel = document.createElement("p");
 
-      service:
-        document
-          .getElementById("service")
-          .value,
+    detailsLabel.textContent = "Error details:";
 
-      booking_date:
-        document
-          .getElementById("booking_date")
-          .value,
+    detailsLabel.style.marginTop = "10px";
 
-      booking_time:
-        document
-          .getElementById("booking_time")
-          .value,
+    message.appendChild(detailsLabel);
 
-      address:
-        document
-          .getElementById("address")
-          .value
-          .trim(),
+    const pre = document.createElement("pre");
 
-      notes:
-        document
-          .getElementById("notes")
-          .value
-          .trim()
+    pre.textContent = details;
 
-    };
-
-
-    try {
-
-
-      /* ======================================
-         SAVE TO SUPABASE
-      ====================================== */
-
-      const supabaseResponse =
-        await fetch(
-
-          SUPABASE_URL +
-          "/rest/v1/bookings",
-
-          {
-
-            method: "POST",
-
-            headers: {
-
-              "Content-Type":
-                "application/json",
-
-              "apikey":
-                SUPABASE_KEY,
-
-              "Authorization":
-                "Bearer " +
-                SUPABASE_KEY,
-
-              "Prefer":
-                "return=minimal"
-
-            },
-
-            body:
-              JSON.stringify(booking)
-
-          }
-
-        );
-
-
-      if (!supabaseResponse.ok) {
-
-        const errorText =
-          await supabaseResponse.text();
-
-        throw new Error(
-          "Supabase error: " +
-          errorText
-        );
-
-      }
-
-
-      /* ======================================
-         SEND EMAILJS
-      ====================================== */
-
-      if (
-        typeof emailjs ===
-        "undefined"
-      ) {
-
-        throw new Error(
-          "EmailJS SDK did not load."
-        );
-
-      }
-
-
-      const emailResponse =
-        await emailjs.send(
-
-          EMAILJS_SERVICE_ID,
-
-          EMAILJS_TEMPLATE_ID,
-
-          {
-
-            owner_name:
-              "CityServe Service Owner",
-
-            owner_email:
-              OWNER_EMAIL,
-
-            customer_name:
-              booking.customer_name,
-
-            customer_email:
-              booking.customer_email,
-
-            customer_phone:
-              booking.customer_phone,
-
-            service:
-              booking.service,
-
-            booking_date:
-              booking.booking_date,
-
-            booking_time:
-              booking.booking_time,
-
-            address:
-              booking.address,
-
-            notes:
-              booking.notes
-
-          }
-
-        );
-
-
-      console.log(
-        "EmailJS SUCCESS:",
-        emailResponse
-      );
-
-
-      /* ======================================
-         SUCCESS
-      ====================================== */
-
-      message.className =
-        "success";
-
-      message.innerHTML =
-        "✅ <strong>Booking submitted successfully!</strong><br><br>" +
-        "Your booking has been saved and the service owner has been notified.";
-
-      form.reset();
-
-
-    } catch (error) {
-
-
-      console.error(
-        "CityServe Error:",
-        error
-      );
-
-
-      let errorDetails = "";
-
-
-      if (
-        error &&
-        typeof error === "object"
-      ) {
-
-        try {
-
-          errorDetails =
-            JSON.stringify(
-              error,
-              null,
-              2
-            );
-
-        } catch (jsonError) {
-
-          errorDetails =
-            String(error);
-
-        }
-
-      } else {
-
-        errorDetails =
-          String(error);
-
-      }
-
-
-      message.className =
-        "error";
-
-      message.innerHTML =
-        "⚠️ <strong>Booking was saved, but the owner notification failed.</strong>" +
-        "<br><br>" +
-        "<strong>EmailJS Error Details:</strong>" +
-        "<pre>" +
-        errorDetails +
-        "</pre>";
-
-    }
-
-
-    submitButton.disabled =
-      false;
-
-    submitButton.textContent =
-      "Submit Booking";
+    message.appendChild(pre);
 
   }
 
-);
+}
+
+
+/* ==========================================
+   GET USEFUL ERROR DETAILS
+========================================== */
+
+function getErrorDetails(error) {
+
+  if (error === null || error === undefined) {
+    return "Unknown error. No additional details were provided.";
+  }
+
+  if (typeof error === "string") {
+    return error;
+  }
+
+  const details = [];
+
+  if (error.name) {
+    details.push("Error type: " + error.name);
+  }
+
+  if (error.message) {
+    details.push("Message: " + error.message);
+  }
+
+  if (error.status !== undefined) {
+    details.push("Status: " + error.status);
+  }
+
+  if (error.text) {
+    details.push("Response: " + error.text);
+  }
+
+  if (error.code) {
+    details.push("Code: " + error.code);
+  }
+
+  if (details.length === 0) {
+
+    try {
+      return JSON.stringify(error, null, 2);
+    } catch (jsonError) {
+      return String(error);
+    }
+
+  }
+
+  return details.join("\n");
+
+}
+
+
+/* ==========================================
+   SUBMIT BOOKING
+========================================== */
+
+form.addEventListener("submit", async function(event) {
+
+  event.preventDefault();
+
+  message.className = "";
+  message.style.display = "none";
+  message.replaceChildren();
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Submitting...";
+
+
+  /* ======================================
+     COLLECT FORM INFORMATION
+  ====================================== */
+
+  const booking = {
+
+    customer_name:
+      document.getElementById("customer_name").value.trim(),
+
+    customer_email:
+      document.getElementById("customer_email").value.trim(),
+
+    customer_phone:
+      document.getElementById("customer_phone").value.trim(),
+
+    service:
+      document.getElementById("service").value,
+
+    booking_date:
+      document.getElementById("booking_date").value,
+
+    booking_time:
+      document.getElementById("booking_time").value,
+
+    address:
+      document.getElementById("address").value.trim(),
+
+    notes:
+      document.getElementById("notes").value.trim()
+
+  };
+
+
+  /* ======================================
+     STEP 1: SAVE BOOKING TO SUPABASE
+  ====================================== */
+
+  let supabaseResponse;
+
+  try {
+
+    supabaseResponse = await fetch(
+      SUPABASE_URL + "/rest/v1/bookings",
+      {
+
+        method: "POST",
+
+        headers: {
+
+          "Content-Type": "application/json",
+
+          "apikey": SUPABASE_KEY,
+
+          "Authorization": "Bearer " + SUPABASE_KEY,
+
+          "Prefer": "return=minimal"
+
+        },
+
+        body: JSON.stringify(booking)
+
+      }
+    );
+
+    if (!supabaseResponse.ok) {
+
+      const errorText = await supabaseResponse.text();
+
+      throw new Error(
+        "Supabase returned HTTP " +
+        supabaseResponse.status +
+        ": " +
+        errorText
+      );
+
+    }
+
+    console.log("Booking successfully saved to Supabase.");
+
+  } catch (error) {
+
+    console.error("Supabase booking error:", error);
+
+    showMessage(
+      "error",
+      "⚠️ Your booking could not be saved.",
+      getErrorDetails(error)
+    );
+
+    submitButton.disabled = false;
+    submitButton.textContent = "Submit Booking";
+
+    return;
+
+  }
+
+
+  /* ======================================
+     STEP 2: BOOKING IS SAVED
+     RESET FORM TO PREVENT DUPLICATES
+  ====================================== */
+
+  form.reset();
+
+
+  /* ======================================
+     STEP 3: CHECK EMAILJS
+  ====================================== */
+
+  if (
+    !emailJSReady ||
+    typeof emailjs === "undefined" ||
+    typeof emailjs.send !== "function"
+  ) {
+
+    console.error("EmailJS is unavailable.");
+
+    showMessage(
+      "warning",
+      "⚠️ Booking saved successfully, but the owner notification could not be sent.",
+      "EmailJS SDK is unavailable. Check your internet connection and make sure the EmailJS script loads correctly."
+    );
+
+    submitButton.disabled = false;
+    submitButton.textContent = "Submit Booking";
+
+    return;
+
+  }
+
+
+  /* ======================================
+     STEP 4: SEND OWNER NOTIFICATION
+  ====================================== */
+
+  submitButton.textContent = "Sending Notification...";
+
+  try {
+
+    const emailResponse = await emailjs.send(
+
+      EMAILJS_SERVICE_ID,
+
+      EMAILJS_TEMPLATE_ID,
+
+      {
+
+        owner_name:
+          "CityServe Service Owner",
+
+        owner_email:
+          OWNER_EMAIL,
+
+        customer_name:
+          booking.customer_name,
+
+        customer_email:
+          booking.customer_email,
+
+        customer_phone:
+          booking.customer_phone,
+
+        service:
+          booking.service,
+
+        booking_date:
+          booking.booking_date,
+
+        booking_time:
+          booking.booking_time,
+
+        address:
+          booking.address,
+
+        notes:
+          booking.notes
+
+      }
+
+    );
+
+
+    console.log("EmailJS SUCCESS:", emailResponse);
+
+
+    /* ======================================
+       STEP 5: COMPLETE SUCCESS
+    ====================================== */
+
+    showMessage(
+      "success",
+      "✅ Booking submitted successfully! Your booking has been saved and the owner notification was sent."
+    );
+
+
+  } catch (error) {
+
+    console.error("EmailJS notification error:", error);
+
+
+    /* ======================================
+       BOOKING SAVED BUT EMAIL FAILED
+    ====================================== */
+
+    showMessage(
+      "warning",
+      "⚠️ Your booking was saved successfully, but the owner notification failed.",
+      getErrorDetails(error)
+    );
+
+  }
+
+
+  /* ======================================
+     RESTORE SUBMIT BUTTON
+  ====================================== */
+
+  submitButton.disabled = false;
+  submitButton.textContent = "Submit Booking";
+
+});
 
 </script>
 
