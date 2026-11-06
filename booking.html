@@ -154,6 +154,13 @@
       -webkit-appearance: none;
     }
 
+    .pricing-note {
+      color: #666666;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+
     button {
       width: 100%;
       border: none;
@@ -276,9 +283,7 @@
 
 <header>
   <div class="nav">
-    <div class="logo">
-      CityServe
-    </div>
+    <div class="logo">CityServe</div>
 
     <div>
       <a href="index.html">Home</a>
@@ -334,25 +339,30 @@
         <select id="service" required>
           <option value="">Select a service</option>
 
-          <option>Home Cleaning - ₱1,200</option>
-          <option>Deep Cleaning - ₱3,500</option>
-          <option>Air Conditioner Cleaning - ₱700 per unit</option>
-          <option>Pest Control - ₱2,000</option>
-          <option>Car Interior Detailing - ₱2,500</option>
-          <option>Plumbing Repair - ₱800 onwards</option>
-          <option>Electrical Repair - ₱800 onwards</option>
-          <option>Website Development - ₱15,000 onwards</option>
-          <option>Social Media Management - ₱8,000/month</option>
-
-          <option>Babysitting - Contact for pricing</option>
-          <option>Chef Services - Contact for pricing</option>
-          <option>Carpentry - Contact for pricing</option>
-          <option>Painting - Contact for pricing</option>
-          <option>Graphic Design - Contact for pricing</option>
-          <option>IT Services - Contact for pricing</option>
-          <option>CCTV Installation - Contact for pricing</option>
-          <option>Network Setup - Contact for pricing</option>
+          <option>Home Cleaning</option>
+          <option>Deep Cleaning</option>
+          <option>Air Conditioner Cleaning</option>
+          <option>Pest Control</option>
+          <option>Car Interior Detailing</option>
+          <option>Plumbing Repair</option>
+          <option>Electrical Repair</option>
+          <option>Website Development</option>
+          <option>Social Media Management</option>
+          <option>Babysitting</option>
+          <option>Chef Services</option>
+          <option>Carpentry</option>
+          <option>Painting</option>
+          <option>Graphic Design</option>
+          <option>IT Services</option>
+          <option>CCTV Installation</option>
+          <option>Network Setup</option>
         </select>
+
+        <p class="pricing-note">
+          Final service pricing will be determined after assessing the
+          customer's requirements. CityServe will provide a quotation
+          before confirming the service.
+        </p>
       </div>
 
       <div class="date-time-row">
@@ -394,10 +404,7 @@
         ></textarea>
       </div>
 
-      <button
-        type="submit"
-        id="submitButton"
-      >
+      <button type="submit" id="submitButton">
         Submit Booking
       </button>
 
@@ -444,7 +451,7 @@ const OWNER_EMAIL =
 
 
 /* ==========================================
-   INITIALIZE EMAILJS SAFELY
+   INITIALIZE EMAILJS
 ========================================== */
 
 let emailJSReady = false;
@@ -478,7 +485,7 @@ try {
 
 
 /* ==========================================
-   GET PAGE ELEMENTS
+   PAGE ELEMENTS
 ========================================== */
 
 const form =
@@ -503,7 +510,6 @@ function showMessage(type, title, details = "") {
   message.style.display = "block";
 
   const heading = document.createElement("strong");
-
   heading.textContent = title;
 
   message.appendChild(heading);
@@ -511,15 +517,12 @@ function showMessage(type, title, details = "") {
   if (details) {
 
     const detailsLabel = document.createElement("p");
-
     detailsLabel.textContent = "Error details:";
-
     detailsLabel.style.marginTop = "10px";
 
     message.appendChild(detailsLabel);
 
     const pre = document.createElement("pre");
-
     pre.textContent = details;
 
     message.appendChild(pre);
@@ -530,7 +533,7 @@ function showMessage(type, title, details = "") {
 
 
 /* ==========================================
-   GET USEFUL ERROR DETAILS
+   GET ERROR DETAILS
 ========================================== */
 
 function getErrorDetails(error) {
@@ -597,7 +600,7 @@ form.addEventListener("submit", async function(event) {
 
 
   /* ======================================
-     COLLECT FORM INFORMATION
+     COLLECT BOOKING INFORMATION
   ====================================== */
 
   const booking = {
@@ -630,14 +633,12 @@ form.addEventListener("submit", async function(event) {
 
 
   /* ======================================
-     STEP 1: SAVE BOOKING TO SUPABASE
+     STEP 1: SAVE TO SUPABASE
   ====================================== */
-
-  let supabaseResponse;
 
   try {
 
-    supabaseResponse = await fetch(
+    const supabaseResponse = await fetch(
       SUPABASE_URL + "/rest/v1/bookings",
       {
 
@@ -694,8 +695,7 @@ form.addEventListener("submit", async function(event) {
 
 
   /* ======================================
-     STEP 2: BOOKING IS SAVED
-     RESET FORM TO PREVENT DUPLICATES
+     STEP 2: RESET AFTER DATABASE SAVE
   ====================================== */
 
   form.reset();
@@ -715,7 +715,7 @@ form.addEventListener("submit", async function(event) {
 
     showMessage(
       "warning",
-      "⚠️ Booking saved successfully, but the owner notification could not be sent.",
+      "⚠️ Your booking was saved successfully, but the owner notification could not be sent.",
       "EmailJS SDK is unavailable. Check your internet connection and make sure the EmailJS script loads correctly."
     );
 
@@ -777,12 +777,11 @@ form.addEventListener("submit", async function(event) {
 
     );
 
-
     console.log("EmailJS SUCCESS:", emailResponse);
 
 
     /* ======================================
-       STEP 5: COMPLETE SUCCESS
+       STEP 5: SUCCESS
     ====================================== */
 
     showMessage(
@@ -790,15 +789,9 @@ form.addEventListener("submit", async function(event) {
       "✅ Booking submitted successfully! Your booking has been saved and the owner notification was sent."
     );
 
-
   } catch (error) {
 
     console.error("EmailJS notification error:", error);
-
-
-    /* ======================================
-       BOOKING SAVED BUT EMAIL FAILED
-    ====================================== */
 
     showMessage(
       "warning",
