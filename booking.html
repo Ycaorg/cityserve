@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,18 +17,17 @@
       padding: 0;
     }
 
-    html,
-    body {
+    html, body {
       width: 100%;
       max-width: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
       background: #f5f5f5;
-      color: #111111;
+      color: #111;
     }
 
     header {
-      background: #111111;
+      background: #111;
       color: white;
       padding: 18px 20px;
     }
@@ -67,7 +67,6 @@
 
     .booking-card {
       width: 100%;
-      max-width: 100%;
       background: white;
       padding: 30px;
       border-radius: 18px;
@@ -79,12 +78,12 @@
     h1 {
       text-align: center;
       margin-bottom: 10px;
-      color: #111111;
+      color: #111;
     }
 
     .subtitle {
       text-align: center;
-      color: #666666;
+      color: #666;
       margin-bottom: 28px;
       line-height: 1.5;
     }
@@ -101,15 +100,13 @@
       font-size: 14px;
     }
 
-    input,
-    select,
-    textarea {
+    input, select, textarea {
       display: block;
       width: 100%;
       max-width: 100%;
       min-width: 0;
       padding: 13px;
-      border: 1px solid #cccccc;
+      border: 1px solid #ccc;
       border-radius: 9px;
       font-size: 15px;
       font-family: Arial, sans-serif;
@@ -121,9 +118,7 @@
       resize: vertical;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
+    input:focus, select:focus, textarea:focus {
       outline: none;
       border: 2px solid #ff7900;
     }
@@ -131,7 +126,6 @@
     .date-time-row {
       display: flex;
       width: 100%;
-      max-width: 100%;
       gap: 15px;
       min-width: 0;
     }
@@ -154,18 +148,11 @@
       -webkit-appearance: none;
     }
 
-    .pricing-note {
-      color: #666666;
-      font-size: 13px;
-      line-height: 1.5;
-      margin-top: 8px;
-    }
-
     button {
       width: 100%;
       border: none;
       background: #ff7900;
-      color: #111111;
+      color: #111;
       padding: 15px;
       border-radius: 10px;
       font-size: 16px;
@@ -202,8 +189,8 @@
     .error {
       display: block !important;
       background: #f3f3f3;
-      color: #111111;
-      border: 2px solid #111111;
+      color: #111;
+      border: 2px solid #111;
     }
 
     .warning {
@@ -222,14 +209,14 @@
       white-space: pre-wrap;
       overflow-wrap: anywhere;
       font-size: 13px;
-      color: #111111;
+      color: #111;
     }
 
     footer {
-      background: #111111;
+      background: #111;
       text-align: center;
       padding: 30px 15px;
-      color: #aaaaaa;
+      color: #aaa;
       font-size: 14px;
     }
 
@@ -338,7 +325,6 @@
 
         <select id="service" required>
           <option value="">Select a service</option>
-
           <option>Home Cleaning</option>
           <option>Deep Cleaning</option>
           <option>Air Conditioner Cleaning</option>
@@ -357,12 +343,6 @@
           <option>CCTV Installation</option>
           <option>Network Setup</option>
         </select>
-
-        <p class="pricing-note">
-          Final service pricing will be determined after assessing the
-          customer's requirements. CityServe will provide a quotation
-          before confirming the service.
-        </p>
       </div>
 
       <div class="date-time-row">
@@ -422,9 +402,7 @@
 
 <script>
 
-/* ==========================================
-   SUPABASE CONFIGURATION
-========================================== */
+/* SUPABASE CONFIGURATION */
 
 const SUPABASE_URL =
   "https://grjnaylbwlerrchskvty.supabase.co";
@@ -433,9 +411,7 @@ const SUPABASE_KEY =
   "sb_publishable_wmIhQc8wobila7q4wD0BJA_N49tM78n";
 
 
-/* ==========================================
-   EMAILJS CONFIGURATION
-========================================== */
+/* EMAILJS CONFIGURATION */
 
 const EMAILJS_PUBLIC_KEY =
   "8z1Hyfw7E3SRYhwyY";
@@ -450,96 +426,67 @@ const OWNER_EMAIL =
   "waynepadolina03@gmail.com";
 
 
-/* ==========================================
-   INITIALIZE EMAILJS
-========================================== */
+/* INITIALIZE EMAILJS */
 
 let emailJSReady = false;
 
 try {
-
   if (
     typeof emailjs !== "undefined" &&
     typeof emailjs.init === "function"
   ) {
-
     emailjs.init({
       publicKey: EMAILJS_PUBLIC_KEY
     });
 
     emailJSReady = true;
-
     console.log("EmailJS initialized successfully.");
-
   } else {
-
     console.error("EmailJS SDK did not load.");
-
   }
-
 } catch (error) {
-
   console.error("EmailJS initialization failed:", error);
-
 }
 
 
-/* ==========================================
-   PAGE ELEMENTS
-========================================== */
+/* PAGE ELEMENTS */
 
-const form =
-  document.getElementById("bookingForm");
-
-const message =
-  document.getElementById("message");
-
-const submitButton =
-  document.getElementById("submitButton");
+const form = document.getElementById("bookingForm");
+const message = document.getElementById("message");
+const submitButton = document.getElementById("submitButton");
 
 
-/* ==========================================
-   DISPLAY MESSAGE SAFELY
-========================================== */
+/* DISPLAY MESSAGE */
 
 function showMessage(type, title, details = "") {
 
   message.replaceChildren();
-
   message.className = type;
   message.style.display = "block";
 
   const heading = document.createElement("strong");
   heading.textContent = title;
-
   message.appendChild(heading);
 
   if (details) {
-
     const detailsLabel = document.createElement("p");
     detailsLabel.textContent = "Error details:";
     detailsLabel.style.marginTop = "10px";
-
     message.appendChild(detailsLabel);
 
     const pre = document.createElement("pre");
     pre.textContent = details;
-
     message.appendChild(pre);
-
   }
-
 }
 
 
-/* ==========================================
-   GET ERROR DETAILS
-========================================== */
+/* GET ERROR DETAILS */
 
 function getErrorDetails(error) {
 
   if (error === null || error === undefined) {
-    return "Unknown error. No additional details were provided.";
+    return "Unknown error.";
   }
 
   if (typeof error === "string") {
@@ -569,23 +516,18 @@ function getErrorDetails(error) {
   }
 
   if (details.length === 0) {
-
     try {
       return JSON.stringify(error, null, 2);
     } catch (jsonError) {
       return String(error);
     }
-
   }
 
   return details.join("\n");
-
 }
 
 
-/* ==========================================
-   SUBMIT BOOKING
-========================================== */
+/* SUBMIT BOOKING */
 
 form.addEventListener("submit", async function(event) {
 
@@ -599,9 +541,7 @@ form.addEventListener("submit", async function(event) {
   submitButton.textContent = "Submitting...";
 
 
-  /* ======================================
-     COLLECT BOOKING INFORMATION
-  ====================================== */
+  /* COLLECT FORM INFORMATION */
 
   const booking = {
 
@@ -632,32 +572,23 @@ form.addEventListener("submit", async function(event) {
   };
 
 
-  /* ======================================
-     STEP 1: SAVE TO SUPABASE
-  ====================================== */
+  /* STEP 1: SAVE BOOKING TO SUPABASE */
 
   try {
 
     const supabaseResponse = await fetch(
       SUPABASE_URL + "/rest/v1/bookings",
       {
-
         method: "POST",
 
         headers: {
-
           "Content-Type": "application/json",
-
           "apikey": SUPABASE_KEY,
-
           "Authorization": "Bearer " + SUPABASE_KEY,
-
           "Prefer": "return=minimal"
-
         },
 
         body: JSON.stringify(booking)
-
       }
     );
 
@@ -682,7 +613,7 @@ form.addEventListener("submit", async function(event) {
 
     showMessage(
       "error",
-      "⚠️ Your booking could not be saved.",
+      "Your booking could not be saved.",
       getErrorDetails(error)
     );
 
@@ -694,16 +625,12 @@ form.addEventListener("submit", async function(event) {
   }
 
 
-  /* ======================================
-     STEP 2: RESET AFTER DATABASE SAVE
-  ====================================== */
+  /* STEP 2: RESET FORM AFTER SAVING */
 
   form.reset();
 
 
-  /* ======================================
-     STEP 3: CHECK EMAILJS
-  ====================================== */
+  /* STEP 3: CHECK EMAILJS */
 
   if (
     !emailJSReady ||
@@ -711,12 +638,10 @@ form.addEventListener("submit", async function(event) {
     typeof emailjs.send !== "function"
   ) {
 
-    console.error("EmailJS is unavailable.");
-
     showMessage(
       "warning",
-      "⚠️ Your booking was saved successfully, but the owner notification could not be sent.",
-      "EmailJS SDK is unavailable. Check your internet connection and make sure the EmailJS script loads correctly."
+      "Your booking was saved successfully, but the owner notification could not be sent.",
+      "EmailJS is unavailable. Check your internet connection and EmailJS configuration."
     );
 
     submitButton.disabled = false;
@@ -727,9 +652,7 @@ form.addEventListener("submit", async function(event) {
   }
 
 
-  /* ======================================
-     STEP 4: SEND OWNER NOTIFICATION
-  ====================================== */
+  /* STEP 4: SEND EMAIL NOTIFICATION */
 
   submitButton.textContent = "Sending Notification...";
 
@@ -742,37 +665,20 @@ form.addEventListener("submit", async function(event) {
       EMAILJS_TEMPLATE_ID,
 
       {
+        owner_name: "CityServe Service Owner",
+        owner_email: OWNER_EMAIL,
 
-        owner_name:
-          "CityServe Service Owner",
+        customer_name: booking.customer_name,
+        customer_email: booking.customer_email,
+        customer_phone: booking.customer_phone,
 
-        owner_email:
-          OWNER_EMAIL,
+        service: booking.service,
 
-        customer_name:
-          booking.customer_name,
+        booking_date: booking.booking_date,
+        booking_time: booking.booking_time,
 
-        customer_email:
-          booking.customer_email,
-
-        customer_phone:
-          booking.customer_phone,
-
-        service:
-          booking.service,
-
-        booking_date:
-          booking.booking_date,
-
-        booking_time:
-          booking.booking_time,
-
-        address:
-          booking.address,
-
-        notes:
-          booking.notes
-
+        address: booking.address,
+        notes: booking.notes
       }
 
     );
@@ -780,13 +686,11 @@ form.addEventListener("submit", async function(event) {
     console.log("EmailJS SUCCESS:", emailResponse);
 
 
-    /* ======================================
-       STEP 5: SUCCESS
-    ====================================== */
+    /* STEP 5: SUCCESS MESSAGE */
 
     showMessage(
       "success",
-      "✅ Booking submitted successfully! Your booking has been saved and the owner notification was sent."
+      "Booking submitted successfully! Your booking has been saved and the owner notification was sent."
     );
 
   } catch (error) {
@@ -795,16 +699,14 @@ form.addEventListener("submit", async function(event) {
 
     showMessage(
       "warning",
-      "⚠️ Your booking was saved successfully, but the owner notification failed.",
+      "Your booking was saved successfully, but the owner notification failed.",
       getErrorDetails(error)
     );
 
   }
 
 
-  /* ======================================
-     RESTORE SUBMIT BUTTON
-  ====================================== */
+  /* RESTORE BUTTON */
 
   submitButton.disabled = false;
   submitButton.textContent = "Submit Booking";
